@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20191009050014) do
 
+  create_table "annual_events", force: :cascade do |t|
+    t.string "filename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "submissions", force: :cascade do |t|
     t.string "subject"
     t.string "title"

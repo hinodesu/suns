@@ -1,0 +1,2 @@
+class AnnualEvent < ApplicationRecord
+end
