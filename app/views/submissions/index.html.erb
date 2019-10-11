@@ -2,6 +2,14 @@
 
 <h1>提出物一覧</h1>
 
+<%= form_tag('/submissions_search') do %>
+  <p>
+  タイトル
+  <br>
+  <%= text_field_tag 'search[title]' %><%= submit_tag '検索' %>
+  </p>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -23,7 +31,6 @@
         <td><%= submission.subject %></td>
         <td><%= submission.title %></td>
         <td><%= submission.deadline %></td>
-        <td><%= submission.filename %></td>
         <td><%= submission.grade %></td>
         <td><%= submission.class_room %></td>
  
@@ -38,3 +45,5 @@
 <br>
 
 <%= link_to '登録', new_submission_path %>
+
+<%= Date.current.strftime('%Y/%m/%d') %>
