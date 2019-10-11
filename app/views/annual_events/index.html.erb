@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Annual Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @annual_events.each do |annual_event| %>
+      <tr>
+        <td><%= annual_event.filename %></td>
+        <td><%= link_to 'Show', annual_event %></td>
+        <td><%= link_to 'Edit', edit_annual_event_path(annual_event) %></td>
+        <td><%= link_to 'Destroy', annual_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Annual Event', new_annual_event_path %>
