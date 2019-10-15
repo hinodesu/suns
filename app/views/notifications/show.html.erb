@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @notification.filename %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @notification.category %>
+</p>
+
+<p>
+  <strong>D day:</strong>
+  <%= @notification.d_day %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

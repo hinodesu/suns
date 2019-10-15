@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>お知らせ</h1>
+<%= link_to '新規作成', new_notification_path %>
+<%= @today %>
+<table>
+  <thead>
+    <tr>
+      <th>表示日付</th>
+      <th>カテゴリー</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td>
+        <%= notification.filename %>
+        <% if notification.filename.present? %>
+        <br>
+        <%= image_tag notification.filename %>
+        <% end %>
+        </td>
+        <td><%= notification.d_day %></td>
+        <td><%= notification.category %></td>
+        <td><%= link_to '詳細', notification %></td>
+        <td><%= link_to '編集', edit_notification_path(notification) %></td>
+        <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+

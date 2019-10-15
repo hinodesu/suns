@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191009052608) do
+ActiveRecord::Schema.define(version: 20191011045346) do
 
   create_table "annual_events", force: :cascade do |t|
     t.string "filename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "filename"
+    t.integer "category"
+    t.date "d_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
