@@ -4,6 +4,16 @@
 
 <%= form_tag('/submissions_search') do %>
   <p>
+  科目
+  <br>
+  <%= text_field_tag 'search[subject]' %>
+  </p>
+  <p>
+  期限
+  <br>
+  <%= text_field_tag 'search[deadline]' %>
+  </p>
+  <p>
   タイトル
   <br>
   <%= text_field_tag 'search[title]' %><%= submit_tag '検索' %>
