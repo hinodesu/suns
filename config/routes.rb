@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
     get 'home/top'
-    
+
+    post'/users_search', to: 'users#search'
+    post'/', to: 'user#search'
+
     resources :submissions
     resources :annual_events
     resources :users

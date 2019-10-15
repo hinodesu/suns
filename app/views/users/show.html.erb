@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>学籍番号:</strong>
   <%= @user.number %>
 </p>
 
 <p>
-  <strong>Grade:</strong>
+  <strong>年:</strong>
   <%= @user.grade %>
 </p>
 
 <p>
-  <strong>ClassRoom:</strong>
+  <strong>組:</strong>
   <%= @user.class_room %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Kana:</strong>
+  <strong>ふりがな:</strong>
   <%= @user.kana %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
+  <strong>性別:</strong>
   <%= @user.gender %>
 </p>
 
 <p>
-  <strong>Pass:</strong>
+  <strong>パスワード:</strong>
   <%= @user.pass %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to '編集', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

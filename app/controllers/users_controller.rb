@@ -61,6 +61,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+
+    @users = User.all
+
+
+    if params[:search][:grade].present?
+      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:kana => "desc")
+    end
+
+    if params[:search][:class_room].present?
+      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:kana => "desc")
+    end
+
+    if params[:search][:name].present?
+      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:kana => "desc")
+    end
+
+
+  
+   render :index
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
