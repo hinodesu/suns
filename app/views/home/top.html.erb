@@ -1,11 +1,8 @@
 <p style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %></p><p style="text-align:right">number</p>
 
-
 <h1 style="text-align:center;font-size:105px">suns</h1>
-<h5 style="text-align:center;font-size:25px">提出物とお知らせのシステム</h5>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/submission' /h3 > 提出物一覧 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/notification' /h3 > お知らせ一覧 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/annual_events' /h3 > 行事予定 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/users' /h3 > ユーザー一覧 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/annual_events/new' /h3 > 行事予定登録 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/annual_events/edit' /h3 > 行事予定編集 </a><br/>
+<%= link_to '提出物一覧',submissions_path %><br>
+<%= link_to 'お知らせ一覧',notifications_path %><br>
+<%= link_to '行事予定',annual_events_path %><br>
+<%= link_to 'ユーザー一覧',users_path %><br>
+<%= link_to '行事予定登録',new_annual_event_path %><br>

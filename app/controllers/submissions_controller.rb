@@ -61,6 +61,20 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def search
+    @submissions = Submission.all.order(:deadline => "desc")
+    if params[:search][:subject].present?
+      @submissions = @submissions.where("subject like '%" + params[:search][:subject] + "%'").order(:deadline => "desc")
+    end
+    if params[:search][:deadline].present?
+      @submissions = @submissions.where("deadline like '%" + params[:search][:deadline] + "%'").order(:deadline => "desc")
+    end
+    if params[:search][:title].present?
+      @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")
+    end
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
