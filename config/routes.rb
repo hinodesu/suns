@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
     # get 'home/top'
     get '/',to: 'home#top'
     get '/login',to: 'home#login'
     post '/check', to: 'home#check'
   
+=======
 
+    get 'home/top'
+>>>>>>> 22235bfcdafa47206da75942fe6ad067f000e085
+
+<<<<<<< HEAD
+    post'/users_search', to: 'users#search'
+    post'/', to: 'user#search'
+=======
     post '/submissions_search', to: 'submissions#search'
     post '/', to: 'submissions#search'
+>>>>>>> c1ebb7533d573623beea256df1ca7bf22a28f807
 
     resources :submissions
     resources :annual_events

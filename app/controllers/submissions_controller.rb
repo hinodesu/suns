@@ -62,10 +62,15 @@ class SubmissionsController < ApplicationController
   end
 
   def search
+    @submissions = Submission.all.order(:deadline => "desc")
+    if params[:search][:subject].present?
+      @submissions = @submissions.where("subject like '%" + params[:search][:subject] + "%'").order(:deadline => "desc")
+    end
+    if params[:search][:deadline].present?
+      @submissions = @submissions.where("deadline like '%" + params[:search][:deadline] + "%'").order(:deadline => "desc")
+    end
     if params[:search][:title].present?
-      @submissions = Submission.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")
-    else
-      @submissions = Submission.all.order(:deadline => "desc")
+      @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")
     end
     render :index
   end

@@ -1,20 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ユーザー一覧</h1>
+<b><font size="6">ユーザー一覧</font></b> 
+  <div style="text-align: right;float:right">
+    <span><%= link_to 'Back', new_user_path %>
+      <br>
+      <%= link_to '一括登録', new_user_path %>
+      <%= link_to '１つずつ登録', new_user_path %>
+    </span>
+  </div>
+
+
+<%= form_tag('/users_search') do %>
+
+  <p>
+    年
+    <br>
+    <%= text_field_tag 'search[grade]' %>
+  </p>
+
+  <p>
+    組
+    <br>
+    <%= text_field_tag 'search[class_room]' %>
+    
+  </p>
+
+  <p>
+   名前
+    <br>
+    <%= text_field_tag 'search[name]' %><%= submit_tag '検索🔍' %>
+  </p>
+
+<% end %> 
+  
 
 <table>
-<table border="1">
+
+
+  <table border="1">
 
   <thead>
-    <tr>
+
+    <caption align="right">
+      <%=submit_tag"選択編集" %>
+      &thinsp;      
+      <%=submit_tag"選択削除" %>
+    </caption>
+
+
+    <tr>    
       <th></th>
-      <th>学籍番号</th>
       <th>年</th>
       <th>組</th>
+      <th>番</th>
       <th>名前</th>
-      <th>ふりがな</th>
       <th>性別</th>
-      <th>パスワード</th>
       <th></th>
       <th colspan="3"></th>
     </tr>
@@ -25,13 +65,11 @@
       
       <tr>
         <td></td>
-        <td><%= user.number %></td>
         <td><%= user.grade %></td>
         <td><%= user.class_room %></td>
+        <td></td>
         <td><%= user.name %></td>
-        <td><%= user.kana %></td>
         <td><%= user.gender %></td>
-        <td><%= user.pass %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '詳細', user %></td>
       </tr>
@@ -39,23 +77,6 @@
   </tbody>
 </table>
 
-<br>
 
-<table border="1">
 
-<tr>
-  <th></th>
-  <th>年</th>
-  <th>組</th>
-  <th>番</th>
-  <th>名前</th>
-  <th>性別</th>
-</tr>
-
-<%= link_to 'Back', new_user_path %>
-<%= link_to '一括登録', new_user_path %>
-<%= link_to '１つずつ登録', new_user_path %>
-
-<%=submit_tag "選択編集" %>
-<%=submit_tag "選択削除" %>
 
