@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   def top
     @user_code
   end
-<<<<<<< HEAD
 
   def login
     @user_code = ""
@@ -32,8 +31,4 @@ class HomeController < ApplicationController
     redirect_to login_url
   end
 
-=======
-  def login
-  end
->>>>>>> c3728357145372315cf389cc9fed06a668ad5c0b
 end
