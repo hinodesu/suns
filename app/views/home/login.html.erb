@@ -1,1 +1,20 @@
+<<<<<<< HEAD
 <h1>ログイン</h1>
+=======
+<h1 style="text-align:center;font-size:50px">ログイン</h1><br>
+
+<h1 style="text-align:center;font-size:25px">
+<%= form_tag('/check') do %>
+
+    <%= label_tag :number %><br>
+    <%= text_field_tag :number %><br>
+  
+    <%= label_tag :password %><br>
+    <%= password_field_tag :password %><br>
+
+    <div class="actions">
+    <%= submit_tag "ログイン" %></h1>
+  </div>
+  
+<% end %>
+>>>>>>> c3728357145372315cf389cc9fed06a668ad5c0b

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+    # get 'home/top'
+    get '/',to: 'home#top'
+    get '/login',to: 'home#login'
+    post '/check', to: 'home#check'
+  
   get 'home/login'
 
     get 'home/top'
