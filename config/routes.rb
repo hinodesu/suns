@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/login'
+
     get 'home/top'
+    #get'/', to: 'home#top'
     
     resources :submissions
     resources :annual_events
