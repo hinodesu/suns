@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post '/submissions_search', to: 'submissions#search'
     post '/', to: 'submissions#search'
 
+    
     resources :submissions
     resources :annual_events
     resources :users

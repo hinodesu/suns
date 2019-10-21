@@ -16,15 +16,17 @@
     <%= form.text_field :number, id: :user_number %>
   </div>
 
+
   <div class="field">
-    <%= form.label :年 %>
-    <%= form.number_field :grade, id: :user_grade %>
+  <%= form.label :"年" %>
+  <%= form.select :grade,{"":"","1":"1","2":"2","3":"3"}%>
   </div>
 
   <div class="field">
-    <%= form.label :組 %>
-    <%= form.number_field :class_room, id: :user_class_room %>
+  <%= form.label :"組" %>
+  <%= form.select :class_room,{"":"","1":"1","2":"2","3":"3","4":"4"}%>
   </div>
+
 
   <div class="field">
     <%= form.label :名前 %>
@@ -38,8 +40,10 @@
 
   <div class="field">
     <%= form.label :性別 %>
-    <%= form.text_field :gender, id: :user_gender %>
-  </div>
+    <label><%= form.radio_button :gender, 1 %>男</label>
+    <label><%= form.radio_button :gender, 2 %>女</label>    <%= form.text_field :gender, id: :user_gender %>
+
+    </div>
 
   <div class="field">
     <%= form.label :パスワード %>
@@ -49,4 +53,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

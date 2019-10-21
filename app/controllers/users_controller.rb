@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
+  
   def destroy
     @user.destroy
     respond_to do |format|
@@ -83,6 +84,17 @@ class UsersController < ApplicationController
    render :index
 
   end
+
+
+  def select_edit
+    if params[:select_edit][:commit] == "選択編集"
+    end
+
+
+    if params[:select_edit][:commit] == "選択削除"
+    end
+  end
+
 
 
   private

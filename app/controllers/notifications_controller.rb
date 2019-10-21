@@ -1,17 +1,21 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
-  def top
+  def index
+    #日付の降順に並べる
+    @notifications = Notification.all.order(:d_day => "desc")
+    #今日の日付取得
     @today = Date.today
-    week = ['日','月','火','水','木','金','土']
-    @yobi = week[@today.wday]
+    #表示日付が今日、カテゴリーが時間割(１)を指定
+    @today_timetable = @notifications.find_by(d_day: @today, category: 1)
+    #表示日付が明日、カテゴリーがお知らせ(２)を指定
+    @tomorrow_notice = @notifications.find_by(d_day: @today+1, category: 2)
   end
-  
+
+
   # GET /notifications
   # GET /notifications.json
-  def index
-    @notifications = Notification.all
-  end
+
 
   # GET /notifications/1
   # GET /notifications/1.json
@@ -31,10 +35,19 @@ class NotificationsController < ApplicationController
   # POST /notifications.json
   def create
     @notification = Notification.new(notification_params)
+
+    logger.debug("================")
+    logger.debug(@notification)
+
+  
+
     #画像設定
     if params[:notification][:filename].present?
       @notification.filename = params[:notification][:filename].original_filename
-      File.open("/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
+
+      logger.debug(@notification.filename)
+
+      File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
       }
     end
 
