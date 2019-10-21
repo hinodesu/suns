@@ -62,17 +62,31 @@ class SubmissionsController < ApplicationController
   end
 
   def search
+    @today = Date.today.to_s
     @submissions = Submission.all.order(:deadline => "desc")
     if params[:search][:subject].present?
       @submissions = @submissions.where("subject like '%" + params[:search][:subject] + "%'").order(:deadline => "desc")
     end
-    if params[:search][:deadline].present?
-      @submissions = @submissions.where("deadline like '%" + params[:search][:deadline] + "%'").order(:deadline => "desc")
+
+    if params[:search][:deadline] == "期限前"
+      @submissions = @submissions.where("deadline >= '%" + @today + "%'").order(:deadline => "desc")
+    end
+    if params[:search][:deadline] == "期限切れ"
+      @submissions = @submissions.where("deadline < '%" + @today + "%'").order(:deadline => "desc")
     end
     if params[:search][:title].present?
       @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")
     end
     render :index
+  end
+
+  def select_edit
+    if paraams[:select_edit][:commit] == "選択編集"
+     
+    end
+    if paraams[:select_edit][:commit] == "選択削除"
+
+    end
   end
 
   private
