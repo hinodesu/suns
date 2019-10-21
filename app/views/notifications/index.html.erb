@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>お知らせ</h1>
 <%= link_to '新規作成', new_notification_path %>
-<%= @today %>
+<h2 align="right"><%= @today %></h2>
 <table>
   <thead>
     <tr>
@@ -15,13 +16,6 @@
   <tbody>
     <% @notifications.each do |notification| %>
       <tr>
-        <td>
-        <%= notification.filename %>
-        <% if notification.filename.present? %>
-        <br>
-        <%= image_tag notification.filename %>
-        <% end %>
-        </td>
         <td><%= notification.d_day %></td>
         <td><%= notification.category %></td>
         <td><%= link_to '詳細', notification %></td>
@@ -32,7 +26,16 @@
   </tbody>
 </table>
 
-<br>
-
-
-
+<table>
+  <tbody>
+   <div class = "inline-block_test" >
+   <tr>
+     <% @notifications.each do |notification| %>
+        <% if notification.filename.present? %>
+          <td><%= image_tag notification.filename %></td>
+        <% end %>
+     <% end %>
+    </tr>
+    </div>
+  </tbody>
+</table>
