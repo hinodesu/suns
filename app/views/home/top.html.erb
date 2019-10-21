@@ -1,7 +1,55 @@
-<h1 style="text-align:center;font-size:120px">suns</h1>
-<h3 style="text-align:center;font-size:"><a href = 'http://localhost:3000/submission' /h3 > 提出物一覧 </a><br/>
-<h3 style="text-align:center;font-size:"><a href = 'http://localhost:3000/notification' /h3 > お知らせ一覧 </a><br/>
-<h3 style="text-align:center;font-size:"><a href = 'http://localhost:3000/annual_events' /h3 > 行事予定 </a><br/>
-<h3 style="text-align:center;font-size:"><a href = 'http://localhost:3000/users' /h3 > ユーザー一覧 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/annual_events/new' /h3 > 行事予定登録 </a><br/>
-<h3 style="text-align:center;font-size:45px"><a href = 'http://localhost:3000/annual_events/edit' /h3 > 行事予定編集 </a><br/>
+<span>
+  <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %>
+    <div style="text-align:right;float:right;font-size:25px">ログインユーザ：<%= @user_code %>
+      <%= link_to 'ログアウト',login_path %>
+    </div>
+  </div>
+</span>
+
+  <h1
+     style="text-align:center;font-size:105px">suns
+  </h1>
+
+<br>
+
+  <p
+    style="text-align:center;font-size:45px">
+      <strong>
+        <%= link_to '提出物一覧',submissions_path %>
+      </strong><br>
+    </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to 'お知らせ一覧',notifications_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to '行事予定',annual_events_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to 'ユーザー一覧',users_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to '行事予定登録',new_annual_event_path %>
+    </strong><br>
+  </p>
+
+  <p
+  style="text-align:center;font-size:45px">
+  <strong>
+    <%= link_to '行事予定編集',new_annual_event_path %>
+  </strong><br>
+</p>

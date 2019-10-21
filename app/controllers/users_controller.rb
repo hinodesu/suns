@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
+  
   def destroy
     @user.destroy
     respond_to do |format|
@@ -60,6 +61,41 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+
+    @users = User.all
+
+
+    if params[:search][:grade].present?
+      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:kana => "desc")
+    end
+
+    if params[:search][:class_room].present?
+      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:kana => "desc")
+    end
+
+    if params[:search][:name].present?
+      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:kana => "desc")
+    end
+
+
+  
+   render :index
+
+  end
+
+
+  def select_edit
+    if params[:select_edit][:commit] == "選択編集"
+    end
+
+
+    if params[:select_edit][:commit] == "選択削除"
+    end
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
