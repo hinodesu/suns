@@ -19,6 +19,7 @@ class AnnualEventsController < ApplicationController
 
   # GET /annual_events/1/edit
   def edit
+    @annual_event = AnnualEvent.edit
   end
 
   # POST /annual_events

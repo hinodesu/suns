@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
 
-    get 'home/top'
+    # get 'home/top'
+    get '/',to: 'home#top'
+    get '/login',to: 'home#login'
+    post '/check', to: 'home#check'
+  
+  get 'home/login'
 
+<<<<<<< HEAD
+=======
+    get 'home/top'
+    #get'/', to: 'home#top'
+    
+>>>>>>> 6c856ac094a55d1801a7cb0a1c10d19d59e67381
     post'/users_search', to: 'users#search'
     post'/', to: 'user#search'
     post '/submissions_search', to: 'submissions#search'
