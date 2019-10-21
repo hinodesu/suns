@@ -2,7 +2,9 @@
 
 <b><font size="6">ユーザー一覧</font></b> 
   <div style="text-align: right;float:right">
-    <span><%= link_to 'Back', new_user_path %>
+    <span>
+      <%= Date.current.strftime('%Y/%m/%d(%a)') %>
+      <%= link_to 'Back', home_top_path %>
       <br>
       <%= link_to '一括登録', new_user_path %>
       <%= link_to '１つずつ登録', new_user_path %>
@@ -10,72 +12,67 @@
   </div>
 
 
+
+
 <%= form_tag('/users_search') do %>
 
-  <p>
-    年
-    <br>
-    <%= text_field_tag 'search[grade]' %>
-  </p>
+
+
 
   <p>
-    組
+    年&thinsp;　　組  　 名前
     <br>
-    <%= text_field_tag 'search[class_room]' %>
-    
+ <%= select_tag 'search[grade]',options_for_select({１:"1",２:"2",３:"3"}),include_blank: true %><%= select_tag 'search[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"}),include_blank: true %><%= text_field_tag 'search[name]' %><%= submit_tag '検索🔍' %>
   </p>
-
-  <p>
-   名前
-    <br>
-    <%= text_field_tag 'search[name]' %><%= submit_tag '検索🔍' %>
-  </p>
-
 <% end %> 
   
 
-<table>
+<%= form_tag('/users_select_edit') do %>
+
+  <table>
 
 
-  <table border="1">
+    <table border="1">
 
-  <thead>
+    <thead>
 
-    <caption align="right">
-      <%=submit_tag"選択編集" %>
-      &thinsp;      
-      <%=submit_tag"選択削除" %>
-    </caption>
+      <caption align="right">
+
+        <%=submit_tag "選択編集"%>
+        &thinsp; 
+        <%=submit_tag "選択削除"%>
+      </caption>
 
 
-    <tr>    
-      <th></th>
-      <th>年</th>
-      <th>組</th>
-      <th>番</th>
-      <th>名前</th>
-      <th>性別</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      
-      <tr>
-        <td></td>
-        <td><%= user.grade %></td>
-        <td><%= user.class_room %></td>
-        <td></td>
-        <td><%= user.name %></td>
-        <td><%= user.gender %></td>
-        <td><%= link_to '編集', edit_user_path(user) %></td>
-        <td><%= link_to '詳細', user %></td>
+      <tr>    
+        <th></th>
+        <th>年</th>
+        <th>組</th>
+        <th>番</th>
+        <th>名前</th>
+        <th>性別</th>
+        <th></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      
+        <tr>
+          <td><%= check_box_tag "select_datas[#{ user.id }]", user.id %></td>
+          <td><%= user.grade %></td>
+          <td><%= user.class_room %></td>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.gender %></td>
+          <td><%= link_to '編集', edit_user_path(user) %></td>
+          <td><%= link_to '詳細', user %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 
 
