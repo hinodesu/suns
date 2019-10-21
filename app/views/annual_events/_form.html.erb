@@ -12,11 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :filename %>
+    <%= form.label :画像 %>
     <%= form.text_field :filename, id: :annual_event_filename %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <span>
+    <div class="actions">
+      <%= submit_tag "登録" %>
+    </div>
+  </span>
 <% end %>

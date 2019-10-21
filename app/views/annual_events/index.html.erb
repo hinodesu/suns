@@ -14,9 +14,9 @@
     <% @annual_events.each do |annual_event| %>
       <tr>
         <td><%= annual_event.filename %></td>
-        <td><%= link_to 'Show', annual_event %></td>
-        <td><%= link_to 'Edit', edit_annual_event_path(annual_event) %></td>
-        <td><%= link_to 'Destroy', annual_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '閲覧', annual_event %></td>
+        <td><%= link_to '編集', edit_annual_event_path(annual_event) %></td>
+        <td><%= link_to '削除', annual_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Annual Event', new_annual_event_path %>
+<%= link_to '登録', new_annual_event_path %>
