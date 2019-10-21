@@ -1,15 +1,19 @@
-<<<<<<< HEAD
-<h1>ログイン</h1>
-=======
-<h1 style="text-align:center;font-size:50px">ログイン</h1><br>
+<h1 
+  style="text-align:center;font-size:50px">ログイン
+  </h1>
+<br>
+
+<% if flash[:alert] %>
+  <p style="color:red;text-align:center;"><%= flash[:alert] %></p>
+<% end %>
 
 <h1 style="text-align:center;font-size:25px">
 <%= form_tag('/check') do %>
 
-    <%= label_tag :number %><br>
+    <%= label_tag :ユーザーID %><br>
     <%= text_field_tag :number %><br>
   
-    <%= label_tag :password %><br>
+    <%= label_tag :パスワード %><br>
     <%= password_field_tag :password %><br>
 
     <div class="actions">
@@ -17,4 +21,3 @@
   </div>
   
 <% end %>
->>>>>>> c3728357145372315cf389cc9fed06a668ad5c0b

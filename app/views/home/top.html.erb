@@ -1,19 +1,55 @@
-<<<<<<< HEAD
-<p style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %></p><p style="text-align:right">number</p>
+<span>
+  <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %>
+    <div style="text-align:right;float:right;font-size:25px">ログインユーザ：<%= @user_code %>
+      <%= link_to 'ログアウト',login_path %>
+    </div>
+  </div>
+</span>
 
-<h1 style="text-align:center;font-size:105px">suns</h1>
-<%= link_to '提出物一覧',submissions_path %><br>
-<%= link_to 'お知らせ一覧',notifications_path %><br>
-<%= link_to '行事予定',annual_events_path %><br>
-<%= link_to 'ユーザー一覧',users_path %><br>
-<%= link_to '行事予定登録',new_annual_event_path %><br>
-=======
+  <h1
+     style="text-align:center;font-size:105px">suns
+  </h1>
 
-<h1 style="text-align:center;font-size:120px">suns</h1>
+<br>
 
-<h1 style="text-align:center;font-size:40px"><%= link_to '提出物一覧',submissions_path %></h1><br>
-<h1 style="text-align:center;font-size:40px"><%= link_to 'お知らせ一覧',notifications_path %></h1><br>
-<h1 style="text-align:center;font-size:40px"><%= link_to '行事予定',annual_events_path %></h1><br>
-<h1 style="text-align:center;font-size:40px"><%= link_to 'ユーザー一覧',users_path %></h1><br>
-<h1 style="text-align:center;font-size:40px"><%= link_to '行事予定登録',new_annual_event_path %></h1><br>
->>>>>>> c3728357145372315cf389cc9fed06a668ad5c0b
+  <p
+    style="text-align:center;font-size:45px">
+      <strong>
+        <%= link_to '提出物一覧',submissions_path %>
+      </strong><br>
+    </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to 'お知らせ一覧',notifications_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to '行事予定',annual_events_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to 'ユーザー一覧',users_path %>
+    </strong><br>
+  </p>
+
+  <p
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to '行事予定登録',new_annual_event_path %>
+    </strong><br>
+  </p>
+
+  <p
+  style="text-align:center;font-size:45px">
+  <strong>
+    <%= link_to '行事予定編集',new_annual_event_path %>
+  </strong><br>
+</p>

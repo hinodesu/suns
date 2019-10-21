@@ -1,5 +1,9 @@
 <h1>行事予定登録</h1>
 
-<%= render 'form', annual_event: @annual_event %>
+  <%= render 'form', annual_event: @annual_event %>
 
-<%= link_to 'Back', annual_events_path %>
+  <span>
+  <%= link_to 'Back', annual_events_path %>
+
+  <%= link_to 'Top', home_top_path %>
+  </span>
