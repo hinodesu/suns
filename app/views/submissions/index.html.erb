@@ -28,20 +28,23 @@
 
 <%= form_tag('/submissions_select_edit') do %>
 
+  <p>
+   <%= submit_tag "選択編集" %>
+   &thinsp;
+   <%= submit_tag "選択削除" %>
+  </p>
+
   <table>
    <table border = "1">
     </thead>
-
-     <%= submit_tag "選択編集" %>
-     <%= submit_tag "選択削除" %>
 
      <tr>
        <th></th>
        <th>科目</th>
        <th>タイトル</th>
-       <th>期限</th>
        <th>学年</th>
        <th>クラス</th>
+       <th>期限</th>
        <th></th>
        <th></th>
        <th></th>
@@ -55,9 +58,9 @@
          <td><%= check_box_tag "select_datas[#{ submission.id }]", submission.id %></td>
          <td><%= submission.subject %></td>
          <td><%= submission.title %></td>
-         <td><%= submission.deadline %></td>
          <td><%= submission.grade %></td>
          <td><%= submission.class_room %></td>
+         <td><%= submission.deadline %></td>
 
          <td><%= link_to '詳細', submission %></td>
          <td><%= link_to '編集', edit_submission_path(submission) %></td>
