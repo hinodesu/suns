@@ -26,7 +26,13 @@ text-align: center;
     <% @notifications.each do |notification| %>
       <tr>
         <td><%= notification.d_day %></td>
-        <td><%= notification.category %></td>
+        <td>
+        <% if notification.category == 1 %>
+        時間割
+        <% else %>
+        お知らせ
+        <% end %>
+        </td>
         <td><%= link_to '詳細', notification %></td>
         <td><%= link_to '編集', edit_notification_path(notification) %></td>
         <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
@@ -34,7 +40,6 @@ text-align: center;
     <% end %>
   </tbody>
 </table>
-　　　　　　　　　　　↓
 
 <table width="90%">
 <thead>
