@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post'/', to: 'user#search'
     post '/submissions_search', to: 'submissions#search'
     post '/', to: 'submissions#search'
+    post'/users_select_edit', to: 'users#select_edit'
 
     
     resources :submissions

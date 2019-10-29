@@ -87,12 +87,17 @@ class UsersController < ApplicationController
 
 
   def select_edit
-    if params[:select_edit][:commit] == "選択編集"
-    end
 
+    @select_users = params[:select_datas].keys.map(&:to_i)
+    @users = User.where(id:@select_users)
 
-    if params[:select_edit][:commit] == "選択削除"
-    end
+    #if params[:select_edit][:commit] == "選択編集"
+    
+    #end
+    
+    #if params[:select_edit][:commit] == "選択削除"
+    
+    #end
   end
 
 
