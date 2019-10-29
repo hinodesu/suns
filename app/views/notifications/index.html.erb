@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset=”utf-8″>
+<style>
+.center{
+text-align: center;
+}
+</style>
+
 <h1>お知らせ</h1>
 <%= link_to '新規作成', new_notification_path %>
-<%= @today %>
+<h2 align="right"><%= @today %></h2>
+
 <table>
   <thead>
     <tr>
@@ -15,15 +25,14 @@
   <tbody>
     <% @notifications.each do |notification| %>
       <tr>
+        <td><%= notification.d_day %></td>
         <td>
-        <%= notification.filename %>
-        <% if notification.filename.present? %>
-        <br>
-        <%= image_tag notification.filename %>
+        <% if notification.category == 1 %>
+        時間割
+        <% else %>
+        お知らせ
         <% end %>
         </td>
-        <td><%= notification.d_day %></td>
-        <td><%= notification.category %></td>
         <td><%= link_to '詳細', notification %></td>
         <td><%= link_to '編集', edit_notification_path(notification) %></td>
         <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
@@ -32,7 +41,27 @@
   </tbody>
 </table>
 
-<br>
-
-
-
+<table width="90%">
+<thead>
+<tr>
+<th width="50%">時間割</th>
+<th>お知らせ</th>
+</tr>
+</thead>
+<tbody>
+<div class = "inline-block_test" >
+<tr class="center">
+<% if @today_timetable.present? %>
+<td><%= image_tag @today_timetable.filename %></td>
+<% else %>
+<td>時間割変更はありません</td>
+<% end %>
+<% if @tomorrow_notice.present? %>
+<td><%= image_tag @tomorrow_notice.filename %></td>
+<% else %>
+<td>お知らせはありません</td>
+<% end %>
+</tr>
+</div>
+</tbody>
+</table>

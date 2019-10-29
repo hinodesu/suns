@@ -1,0 +1,34 @@
+<% if params[:commit] == "選択編集" %>
+　　<h1>提出物一括編集</h1>
+<% else %>
+　　<h1>選択削除画面</h1>
+<% end %>
+<table>
+   <table border = "1">
+    </thead>
+
+     <tr>
+       <th></th>
+       <th>科目</th>
+       <th>タイトル</th>
+       <th>学年</th>
+       <th>クラス</th>
+       <th>期限</th>
+       <th colspan="3"></th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @submissions.each do |submission| %>
+       <tr>
+         <td><%= check_box_tag "select_datas[#{ submission.id }]", submission.id %></td>
+         <td><%= submission.subject %></td>
+         <td><%= submission.title %></td>
+         <td><%= submission.grade %></td>
+         <td><%= submission.class_room %></td>
+         <td><%= submission.deadline %></td>
+       </tr>
+     <% end %>
+   </tbody>
+</table>
+  　　<%= link_to '一覧に戻る', submissions_path %>

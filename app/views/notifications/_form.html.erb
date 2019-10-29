@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :カテゴリー %>
-    <%= form.number_field :category, id: :notification_category %>
+    <%= form.number_field :category, id: :notification_category ,min: 1,max: 2 %>
+
   </div>
 
   <div class="field">
