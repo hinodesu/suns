@@ -24,6 +24,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
+
     @submission = Submission.new(submission_params)
 
     respond_to do |format|
@@ -34,6 +35,13 @@ class SubmissionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
+    end
+    if params[:submission][:filename].present?
+      @submission.filename = params[:submission][:filename].original_filename
+
+      File.open("/#{@submission.filename}", 'w+b') { |f|
+      f.write(params[:submission][:filename].read)
+      }
     end
   end
 
