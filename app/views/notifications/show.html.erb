@@ -15,5 +15,16 @@
   <%= @notification.d_day %>
 </p>
 
+<table>
+  <tr>
+   <td>
+     <% if @notification.filename.present? %>
+     <%= image_tag @notification.filename %>
+     <% end %>
+   </td>
+  </tr>
+
+</table>
+
 <%= link_to 'Edit', edit_notification_path(@notification) %> |
 <%= link_to 'Back', notifications_path %>
