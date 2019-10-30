@@ -1,7 +1,14 @@
 <span>
   <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %>
-    <div style="text-align:right;float:right;font-size:25px">ログインユーザ：<%= @user_code %>
-      <%= link_to 'ログアウト',login_path %>
+    
+    <div style="text-align:right;float:right;font-size:18px">ログインユーザ：<%= @user_code %>
+    
+    <% if @user_code %>
+      <%= link_to 'ログアウト',home_logout_path %>
+    <% else %>
+      <%= link_to 'ログイン',login_path %>
+    <% end %>
+     
     </div>
   </div>
 </span>
@@ -10,14 +17,14 @@
      style="text-align:center;font-size:105px"class ="title">suns
   </h1>
 
-<br>
+  <br>
 
   <p
     style="text-align:center;font-size:45px">
       <strong>
         <%= link_to '提出物一覧',submissions_path %>
       </strong><br>
-    </p>
+  </p>
 
   <p
     style="text-align:center;font-size:45px">
@@ -33,6 +40,7 @@
     </strong><br>
   </p>
 
+<% if @user_code && @user_code.first == "t" %>
   <p
     style="text-align:center;font-size:45px">
     <strong>
@@ -40,16 +48,20 @@
     </strong><br>
   </p>
 
-  <p
-    style="text-align:center;font-size:45px">
-    <strong>
-      <%= link_to '行事予定登録',new_annual_event_path %>
-    </strong><br>
-  </p>
+  <% if = @annual_event %>
+    <p
+      style="text-align:center;font-size:45px">
+      <strong>
+        <%= link_to '行事予定登録',new_annual_event_path %>
+      </strong><br>
+    </p>
 
-  <p
-  style="text-align:center;font-size:45px">
-  <strong>
-    <%= link_to '行事予定編集',new_annual_event_path %>
-  </strong><br>
-</p>
+  <% else %>
+     <p
+      style="text-align:center;font-size:45px">
+      <strong>
+        <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) %>
+      </strong><br>
+     </p>
+  <% end %>
+<% end %>

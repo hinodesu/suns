@@ -2,6 +2,8 @@ class HomeController < ApplicationController
 
   def top
     @user_code = session[:login_user]
+    #@user_code.first = session[:user_code.first]
+    @annual_event = AnnualEvent.first
   end
 
   def login
