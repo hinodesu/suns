@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post '/check', to: 'home#check'
   
   get 'home/login'
+  get 'home/logout'
 
     get 'home/top'
     #get'/', to: 'home#top'
