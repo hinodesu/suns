@@ -40,9 +40,7 @@
 
   <div class="field">
     <%= form.label :性別 %>
-    <label><%= form.radio_button :gender, 1 %>男</label>
-    <label><%= form.radio_button :gender, 2 %>女</label>    <%= form.text_field :gender, id: :user_gender %>
-
+    <label><%= form.radio_button :gender,  "男"%>男    <%= form.radio_button :gender,  "女"%>女</label>
     </div>
 
   <div class="field">
@@ -51,7 +49,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= submit_tag "登録" %>
   </div>
 
 <% end %>

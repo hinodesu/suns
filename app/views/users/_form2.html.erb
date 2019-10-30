@@ -1,0 +1,55 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :学籍番号 %>
+    <%= form.text_field :number, id: :user_number %>
+  </div>
+
+
+  <!-- <div class="field">
+  <%= form.label :"年" %>
+  <%= form.select :grade,{"":"","1":"1","2":"2","3":"3"}%>
+  </div> -->
+
+  <!-- <div class="field">
+  <%= form.label :"組" %>
+  <%= form.select :class_room,{"":"","1":"1","2":"2","3":"3","4":"4"}%>
+  </div> -->
+
+
+  <div class="field">
+    <%= form.label :名前 %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ふりがな %>
+    <%= form.text_field :kana, id: :user_kana %>
+  </div>
+
+  <div class="field">
+    <%= form.label :性別 %>
+    <label><%= form.radio_button :gender,  "男"%>男    <%= form.radio_button :gender,  "女"%>女</label>
+    </div>
+
+  <div class="field">
+    <%= form.label :パスワード %>
+    <%= form.number_field :pass, id: :user_pass %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "登録" %>
+  </div>
+
+<% end %>

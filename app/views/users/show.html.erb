@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>学籍番号:</strong>
-  <%= @user.number %>
-</p>
-
-<p>
-  <strong>年:</strong>
   <%= @user.grade %>
-</p>
-
-<p>
-  <strong>組:</strong>
+  <strong>年</strong>
+  
   <%= @user.class_room %>
+  <strong>組</strong>
 </p>
 
 <p>
@@ -31,9 +24,16 @@
 </p>
 
 <p>
+  <strong>学籍番号:</strong>
+  <%= @user.number %>
+</p>
+
+<!-- 
+<p>
   <strong>パスワード:</strong>
   <%= @user.pass %>
 </p>
+-->
 
 <%= link_to '編集', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
