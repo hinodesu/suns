@@ -2,10 +2,8 @@
 
 <b><font size="6">提出物一覧</font></b>
   <div style = "text-align: right;float;right">
-    <span><%= link_to '登録', new_submission_path %>
-      <%= 
-      
-      Date.current.strftime('%Y/%m/%d') %>
+    <span><%= Date.current.strftime('%Y/%m/%d') %>
+      <%= link_to '登録', new_submission_path %>
     </span>
   </div>
 
@@ -42,8 +40,7 @@
        <th></th>
        <th>科目</th>
        <th>タイトル</th>
-       <th>学年</th>
-       <th>クラス</th>
+       <th>対象</th>
        <th>期限</th>
        <th></th>
        <th></th>
@@ -58,8 +55,7 @@
          <td><%= check_box_tag "select_datas[#{ submission.id }]", submission.id %></td>
          <td><%= submission.subject %></td>
          <td><%= submission.title %></td>
-         <td><%= submission.grade %></td>
-         <td><%= submission.class_room %></td>
+         <td><%= submission.grade %>-<%= submission.class_room %></td>
          <td><%= submission.deadline %></td>
 
          <td><%= link_to '詳細', submission %></td>

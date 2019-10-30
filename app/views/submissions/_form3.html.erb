@@ -1,0 +1,237 @@
+<%= form_with(model: submission, local: true) do |form| %>
+  <% if submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% submission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :対象 %>
+    <label><%= check_box_tag :g1c1 %>1年1組</label>
+
+    <%= check_box_tag :sample2 %>
+    <%= label_tag :sample2, "1年2組" %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :画像 %>
+    <%= form.text_field :filename, id: :submission_filename %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒1 %>
+    <%= form.number_field :student1, id: :submission_student1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒2 %>
+    <%= form.number_field :student2, id: :submission_student2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒3 %>
+    <%= form.number_field :student3, id: :submission_student3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒4 %>
+    <%= form.number_field :student4, id: :submission_student4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒5 %>
+    <%= form.number_field :student5, id: :submission_student5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒6 %>
+    <%= form.number_field :student6, id: :submission_student6 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒7 %>
+    <%= form.number_field :student7, id: :submission_student7 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒8 %>
+    <%= form.number_field :student8, id: :submission_student8 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒9 %>
+    <%= form.number_field :student9, id: :submission_student9 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒10 %>
+    <%= form.number_field :student10, id: :submission_student10 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒11 %>
+    <%= form.number_field :student11, id: :submission_student11 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒12 %>
+    <%= form.number_field :student12, id: :submission_student12 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒13 %>
+    <%= form.number_field :student13, id: :submission_student13 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒14 %>
+    <%= form.number_field :student14, id: :submission_student14 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒15 %>
+    <%= form.number_field :student15, id: :submission_student15 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒16 %>
+    <%= form.number_field :student16, id: :submission_student16 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒17 %>
+    <%= form.number_field :student17, id: :submission_student17 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒18 %>
+    <%= form.number_field :student18, id: :submission_student18 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒19 %>
+    <%= form.number_field :student19, id: :submission_student19 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒20 %>
+    <%= form.number_field :student20, id: :submission_student20 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒21 %>
+    <%= form.number_field :student21, id: :submission_student21 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒22 %>
+    <%= form.number_field :student22, id: :submission_student22 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒23 %>
+    <%= form.number_field :student23, id: :submission_student23 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒24 %>
+    <%= form.number_field :student24, id: :submission_student24 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒25 %>
+    <%= form.number_field :student25, id: :submission_student25 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒26 %>
+    <%= form.number_field :student26, id: :submission_student26 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒27 %>
+    <%= form.number_field :student27, id: :submission_student27 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒28 %>
+    <%= form.number_field :student28, id: :submission_student28 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒29 %>
+    <%= form.number_field :student29, id: :submission_student29 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒30 %>
+    <%= form.number_field :student30, id: :submission_student30 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒31 %>
+    <%= form.number_field :student31, id: :submission_student31 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒32 %>
+    <%= form.number_field :student32, id: :submission_student32 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒33 %>
+    <%= form.number_field :student33, id: :submission_student33 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒34 %>
+    <%= form.number_field :student34, id: :submission_student34 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒35 %>
+    <%= form.number_field :student35, id: :submission_student35 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒36 %>
+    <%= form.number_field :student36, id: :submission_student36 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒37 %>
+    <%= form.number_field :student37, id: :submission_student37 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒38 %>
+    <%= form.number_field :student38, id: :submission_student38 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒39 %>
+    <%= form.number_field :student39, id: :submission_student39 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :生徒40 %>
+    <%= form.number_field :student40, id: :submission_student40 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <div class="field">
+    <%= form.label '画像' %>
+    <%= form.file_field :filename %>
+  </div>
+<% end %>

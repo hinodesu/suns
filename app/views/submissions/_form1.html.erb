@@ -1,0 +1,28 @@
+<%= form_with(model: submission, local: true) do |form| %>
+  <% if submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% submission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :科目 %>
+    <%= form.text_field :subject, id: :submission_subject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :タイトル %>
+    <%= form.text_field :title, id: :submission_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :期限 %>
+    <%= form.date_select :deadline, id: :submission_deadline %>
+  </div>
+<% end %>
