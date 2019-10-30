@@ -81,12 +81,12 @@ class SubmissionsController < ApplicationController
   end
 
   def select_edit
-    if paraams[:select_edit][:commit] == "選択編集"
-     
-    end
-    if paraams[:select_edit][:commit] == "選択削除"
+    @select_submissions = params[:select_datas].keys.map(&:to_i)
+    @submissions = Submission.where(id: @select_submissions)
+    #if paraams[:select_edit][:commit] == "選択編集"
+    #if paraams[:select_edit][:commit] == "選択削除"
 
-    end
+    
   end
 
   private

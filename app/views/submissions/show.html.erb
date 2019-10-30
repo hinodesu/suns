@@ -1,37 +1,29 @@
 <p id="notice"><%= notice %></p>
-
+<b><font size="6">提出物詳細</font></b>
 <p>
-  <strong>科目:</strong>
+  <strong>科目</strong>
   <%= @submission.subject %>
 </p>
 
 <p>
-  <strong>タイトル:</strong>
+  <strong>タイトル</strong>
   <%= @submission.title %>
 </p>
 
 <p>
-  <strong>期限:</strong>
+  <strong>期限</strong>
   <%= @submission.deadline %>
 </p>
 
 <p>
-  <strong>画像:</strong>
-  <%= @submission.filename %>
-</p>
-
-<p>
-  <strong>年:</strong>
   <%= @submission.grade %>
-</p>
-
-<p>
-  <strong>組:</strong>
+  <strong>年</strong>
   <%= @submission.class_room %>
+  <strong>組</strong>
 </p>
 
 <p>
-  <strong>Student1:</strong>
+  <strong>生徒1:</strong>
   <%= @submission.student1 %>
 </p>
 
@@ -230,5 +222,4 @@
   <%= @submission.student40 %>
 </p>
 
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
 <%= link_to 'Back', submissions_path %>

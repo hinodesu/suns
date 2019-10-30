@@ -10,6 +10,9 @@ class NotificationsController < ApplicationController
     @today_timetable = @notifications.find_by(d_day: @today, category: 1)
     #表示日付が明日、カテゴリーがお知らせ(２)を指定
     @tomorrow_notice = @notifications.find_by(d_day: @today+1, category: 2)
+
+
+
   end
 
 
@@ -45,7 +48,6 @@ class NotificationsController < ApplicationController
     if params[:notification][:filename].present?
       @notification.filename = params[:notification][:filename].original_filename
 
-      logger.debug(@notification.filename)
 
       File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
       }
@@ -65,7 +67,17 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   # PATCH/PUT /notifications/1.json
   def update
-    respond_to do |format|
+
+    #画像設定
+    if params[:notification][:filename].present?
+      @notification.filename = params[:notification][:filename].original_filename
+
+
+      File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
+      }
+    end
+
+      respond_to do |format|
       if @notification.update(notification_params)
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
         format.json { render :show, status: :ok, location: @notification }
