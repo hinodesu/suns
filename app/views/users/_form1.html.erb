@@ -1,4 +1,3 @@
-<%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -40,18 +39,15 @@
 
   <div class="field">
     <%= form.label :性別 %>
-    <label><%= form.radio_button :gender, 1 %>男</label>
-    <label><%= form.radio_button :gender, 2 %>女</label>    <%= form.text_field :gender, id: :user_gender %>
-
+    <label><%= form.radio_button :gender,  "男"%>男    <%= form.radio_button :gender,  "女"%>女</label>
     </div>
 
   <div class="field">
     <%= form.label :パスワード %>
-    <%= form.number_field :pass, id: :user_pass %>
+    <%= form.text_field :pass, id: :user_pass %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= submit_tag "登録" %>
   </div>
 
-<% end %>

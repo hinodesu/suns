@@ -4,9 +4,10 @@
   <div style="text-align: right;float:right">
     <span>
       <%= Date.current.strftime('%Y/%m/%d(%a)') %>
-      <%= link_to 'Back', home_top_path %>
+      <%= link_to 'Top', home_top_path %>
       <br>
       <%= link_to '一括登録', new_user_path %>
+      &thinsp; 
       <%= link_to '１つずつ登録', new_user_path %>
     </span>
   </div>
@@ -36,14 +37,6 @@
 
     <thead>
 
-      <caption align="right">
-
-        <%=submit_tag "選択編集"%>
-        &thinsp; 
-        <%=submit_tag "選択削除"%>
-      </caption>
-
-
       <tr>    
         <th></th>
         <th>年</th>
@@ -57,6 +50,16 @@
     </thead>
 
     <tbody>
+
+      <caption align="right">
+
+        <%=submit_tag "選択編集"%>
+        &thinsp; 
+        <%=submit_tag "選択削除"%>
+
+      </caption>
+
+
       <% @users.each do |user| %>
       
         <tr>

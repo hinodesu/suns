@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20191101053835) do
+=======
+ActiveRecord::Schema.define(version: 20191101044910) do
+>>>>>>> e1a5df13302e6de7c789eb5826df390d2e0973fd
 
   create_table "annual_events", force: :cascade do |t|
     t.string "filename"
@@ -84,7 +88,7 @@ ActiveRecord::Schema.define(version: 20191101053835) do
     t.string "name"
     t.string "kana"
     t.string "gender"
-    t.integer "pass"
+    t.string "pass"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,7 @@
 <span>
-  <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d') %>
+  <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d(%a)') %>
     
-    <div style="text-align:right;float:right;font-size:18px">ログインユーザ：<%= @user_code %>
+    <div style="text-align:right;float:right;font-size:25px">ログインユーザ：<%= @user_code %>
     
     <% if @user_code %>
       <%= link_to 'ログアウト',home_logout_path %>
@@ -48,20 +48,19 @@
     </strong><br>
   </p>
 
-  <% if = @annual_event %>
+  <% if @annual_event.present? %>
     <p
-      style="text-align:center;font-size:45px">
-      <strong>
-        <%= link_to '行事予定登録',new_annual_event_path %>
-      </strong><br>
-    </p>
-
+    style="text-align:center;font-size:45px">
+    <strong>
+      <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) %>
+    </strong><br>
+   </p>
   <% else %>
      <p
-      style="text-align:center;font-size:45px">
-      <strong>
-        <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) %>
-      </strong><br>
-     </p>
+     style="text-align:center;font-size:45px">
+     <strong>
+       <%= link_to '行事予定登録',new_annual_event_path %>
+     </strong><br>
+   </p>
   <% end %>
 <% end %>
