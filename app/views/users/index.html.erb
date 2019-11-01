@@ -16,10 +16,6 @@
 
 
 <%= form_tag('/users_search') do %>
-
-
-
-
   <p>
     年&thinsp;　　組  　 名前
     <br>
@@ -60,13 +56,13 @@
       </caption>
 
 
-      <% @users.each do |user| %>
+      <% @users.each_with_index do |user, idx| %>
       
         <tr>
           <td><%= check_box_tag "select_datas[#{ user.id }]", user.id %></td>
           <td><%= user.grade %></td>
           <td><%= user.class_room %></td>
-          <td><%= user.id %></td>
+          <td><%= idx+1 %></td>
           <td><%= user.name %></td>
           <td><%= user.gender %></td>
           <td><%= link_to '編集', edit_user_path(user) %></td>

@@ -6,20 +6,11 @@
 　　<%= link_to '一覧に戻る', users_path %>
 
 
-
-<table>
-
+<%= form_tag('/users_select_edit_all') do %>
 
 <table border="1">
 
 <thead>
-
-  <caption align="right">
-
-    <%=submit_tag "選択編集"%>
-    &thinsp; 
-    <%=submit_tag "選択削除"%>
-  </caption>
 
 
   <tr>    
@@ -38,7 +29,7 @@
   <% @users.each do |user| %>
   
     <tr>
-      <td><%= check_box_tag "select_datas[#{ user.id }]", user.id %></td>
+      <td><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
       <td><%= user.grade %></td>
       <td><%= user.class_room %></td>
       <td><%= user.id %></td>
@@ -50,4 +41,10 @@
   <% end %>
 </tbody>
 </table>
+
+<%=submit_tag "選択編集"%>
+&thinsp; 
+<%=submit_tag "選択削除"%>
+
+<% end %>
 
