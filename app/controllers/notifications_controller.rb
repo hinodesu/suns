@@ -68,16 +68,22 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1.json
   def update
 
-    #画像設定
-    if params[:notification][:filename].present?
-      @notification.filename = params[:notification][:filename].original_filename
-
-
+     #画像設定
+     if params[:notification][:filename].present?
+        @notification.filename = params[:notification][:filename].original_filename
+     #画像の保存
       File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
-      }
-    end
+       }
+      end
+    
+      #パラメータの修正
+      if params[:notification][:filename].present?
+       params[:notification][:filename] = params[:notification][:filename].original_filename
+      else
+       params[:notification][:filename] = ""
+      end
 
-      respond_to do |format|
+    respond_to do |format|
       if @notification.update(notification_params)
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
         format.json { render :show, status: :ok, location: @notification }
@@ -109,3 +115,5 @@ class NotificationsController < ApplicationController
       params.require(:notification).permit(:filename, :category, :d_day)
     end
 end
+
+
