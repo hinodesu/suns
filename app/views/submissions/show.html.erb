@@ -24,7 +24,14 @@
 
 <p>
   <strong>生徒1:</strong>
-  <%= @submission.student1 %>
+  <% case @submission.student1 %>
+  <% when 0 %>
+  未提出
+  <% when 1 %>
+  再提出
+  <% when 2 %>
+  提出済
+  <% end %>
 </p>
 
 <p>

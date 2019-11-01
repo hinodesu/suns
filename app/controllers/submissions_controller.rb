@@ -25,24 +25,34 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
 
-    @submission = Submission.new(submission_params)
+    #選んだクラスの取得
+    select_classrooms = params[:target].keys.map(&:to_i)
+    @submissions = []
+
+    select_classrooms.each do | gc |
+      #パラメータの上書き
+      params[:submission][:grade] = gc/10
+      params[:submission][:class_room] = gc%10
+
+      @submission = Submission.new(submission_params)
+      if params[:submission][:filename].present?
+        @submission.filename = params[:submission][:filename].original_filename
+        File.open("/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
+        }
+      end
+
+      @submissions << @submission
+    end
 
     respond_to do |format|
-      if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
-        format.json { render :show, status: :created, location: @submission }
+      if ::Submission.import(@submissions)
+      # if @submissions.save
+        format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
-    if params[:submission][:filename].present?
-      @submission.filename = params[:submission][:filename].original_filename
 
-      File.open("/#{@submission.filename}", 'w+b') { |f|
-      f.write(params[:submission][:filename].read)
-      }
-    end
   end
 
   # PATCH/PUT /submissions/1
@@ -77,10 +87,10 @@ class SubmissionsController < ApplicationController
     end
 
     if params[:search][:deadline] == "期限前"
-      @submissions = @submissions.where("deadline >= '%" + @today + "%'").order(:deadline => "desc")
+      @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "desc")
     end
     if params[:search][:deadline] == "期限切れ"
-      @submissions = @submissions.where("deadline < '%" + @today + "%'").order(:deadline => "desc")
+      @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "desc")
     end
     if params[:search][:title].present?
       @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")

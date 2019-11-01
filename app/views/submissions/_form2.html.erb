@@ -1,4 +1,3 @@
-<%= form_with(model: submission, local: true) do |form| %>
   <% if submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
@@ -225,4 +224,3 @@
     <%= form.label '画像' %>
     <%= form.file_field :filename %>
   </div>
-<% end %>
