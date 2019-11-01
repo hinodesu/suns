@@ -1,4 +1,4 @@
-<%= form_with(model: submission, local: true) do |form| %>
+
   <% if submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
@@ -25,4 +25,3 @@
     <%= form.label :期限 %>
     <%= form.date_select :deadline, id: :submission_deadline %>
   </div>
-<% end %>

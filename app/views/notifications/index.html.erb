@@ -10,9 +10,11 @@ text-align: center;
 </style>
 
 <h1>お知らせ</h1>
+<h2 align="right"><%= Date.current.strftime('%Y/%m/%d(%a)') %>
+<%= link_to 'Top', home_top_path %>
+</h2>
 
 <%= link_to '新規作成', new_notification_path %>
-<h2 align="right"><%= @today %></h2>
 
 <table>
   <thead>
@@ -41,6 +43,8 @@ text-align: center;
     <% end %>
   </tbody>
 </table>
+
+
 
 <table width="90%">
  <thead>
