@@ -19,13 +19,20 @@ class AnnualEventsController < ApplicationController
 
   # GET /annual_events/1/edit
   def edit
-    @annual_event = AnnualEvent.edit
   end
 
   # POST /annual_events
   # POST /annual_events.json
   def create
     @annual_event = AnnualEvent.new(annual_event_params)
+
+    if params[:annual_event][:filename].present?
+      @annual_event.filename = params[:annual_event][:filename].original_filename
+
+      File.open("app/assets/images/#{@annual_event.filename}",'w+b'){ |f|
+        f.write(params[:annual_event][:filename].read)
+      }
+    end
 
     respond_to do |format|
       if @annual_event.save
