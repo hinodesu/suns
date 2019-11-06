@@ -10,6 +10,9 @@ class NotificationsController < ApplicationController
     @today_timetable = @notifications.find_by(d_day: @today, category: 1)
     #表示日付が明日、カテゴリーがお知らせ(２)を指定
     @tomorrow_notice = @notifications.find_by(d_day: @today+1, category: 2)
+    #ユーザー
+    @user_code = session[:login_user]
+
 
 
 

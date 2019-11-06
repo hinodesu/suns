@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
   end
 
   # GET /users/1
@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+   params[:user][:grade] = params[:user][:number][-4]
+   params[:user][:class_room] = params[:user][:number][-3]
+
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -64,19 +67,19 @@ class UsersController < ApplicationController
 
   def search
 
-    @users = User.all
+    @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
 
 
     if params[:search][:grade].present?
-      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:kana => "desc")
+      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
     end
 
     if params[:search][:class_room].present?
-      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:kana => "desc")
+      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
     end
 
     if params[:search][:name].present?
-      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:kana => "desc")
+      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
     end
 
 
@@ -92,15 +95,33 @@ class UsersController < ApplicationController
     @users = User.where(id:@select_users)
 
     #if params[:select_edit][:commit] == "選択編集"
-    
     #end
-    
     #if params[:select_edit][:commit] == "選択削除"
-    
     #end
   end
 
+  def select_edit_all
+      @select_users = params[:select_datas].keys.map(&:to_i)
+      @users = User.where(id:@select_users)
+      user_count = 0
 
+    if params[:commit] == "選択編集"
+      respond_to do |format|
+      format.html { redirect_to users_path, notice: 'ユーザを一括で編集しました。' }
+    end
+    end
+        
+    if params[:commit] == "選択削除"
+      #「select_users」の数字とUserモデルのidが一致するデータを取
+      users = User.where(id: @select_users)
+      #ユーザ一括削除
+      if users.destroy_all
+        #user_countにcselect_usersの値の数を代入
+        user_count = @select_users.size
+      end
+      redirect_to users_path, notice: "#{user_count}件のユーザーを削除しました。"
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
