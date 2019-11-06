@@ -14,8 +14,33 @@ text-align: center;
 <%= link_to 'Top', home_top_path %>
 </h2>
 
-<%= link_to '新規作成', new_notification_path %>
+<table width="90%">
+ <thead>
+ <tr>
+   <th width="50%">時間割</th>
+   <th>お知らせ</th>
+  </tr>
+ </thead>
+ <tbody>
+   <div class = "inline-block_test" >
+     <tr class="center">
+       <% if @today_timetable.present? %>
+       <td><%= image_tag @today_timetable.filename %></td>
+       <% else %>
+       <td>時間割変更はありません</td>
+       <% end %>
+       <% if @tomorrow_notice.present? %>
+       <td><%= image_tag @tomorrow_notice.filename %></td>
+       <% else %>
+       <td>お知らせはありません</td>
+       <% end %>
+     </tr>
+   </div>
+ </tbody>
+</table>
 
+<% if @user_code && @user_code.first == "t" %>
+<%= link_to '新規作成', new_notification_path %>
 <table>
   <thead>
     <tr>
@@ -44,29 +69,4 @@ text-align: center;
   </tbody>
 </table>
 
-
-
-<table width="90%">
- <thead>
- <tr>
-   <th width="50%">時間割</th>
-   <th>お知らせ</th>
-  </tr>
- </thead>
- <tbody>
-   <div class = "inline-block_test" >
-     <tr class="center">
-       <% if @today_timetable.present? %>
-       <td><%= image_tag @today_timetable.filename %></td>
-       <% else %>
-       <td>時間割変更はありません</td>
-       <% end %>
-       <% if @tomorrow_notice.present? %>
-       <td><%= image_tag @tomorrow_notice.filename %></td>
-       <% else %>
-       <td>お知らせはありません</td>
-       <% end %>
-     </tr>
-   </div>
- </tbody>
-</table>
+<% end %>
