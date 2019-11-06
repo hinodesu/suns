@@ -22,6 +22,22 @@
   <strong>組</strong>
 </p>
 
+<table>
+</thead>
+
+ <tr>
+   <th>名前</th>
+ </tr>
+</thead>
+
+<tbody>
+ <% @members.each_with_index do |member,index| %>
+   <tr>
+     <td align="center"><%= member.name %></td>
+   </tr>
+ <% end %>
+</tbody>
+</table>
 <p>
   <strong>生徒1:</strong>
   <% case @submission.student1 %>
