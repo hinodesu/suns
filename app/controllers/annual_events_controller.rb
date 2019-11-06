@@ -5,6 +5,7 @@ class AnnualEventsController < ApplicationController
   # GET /annual_events.json
   def index
     @annual_events = AnnualEvent.all
+    @user_code = session[:login_user]
   end
 
   # GET /annual_events/1
@@ -36,7 +37,7 @@ class AnnualEventsController < ApplicationController
 
     respond_to do |format|
       if @annual_event.save
-        format.html { redirect_to @annual_event, notice: 'Annual event was successfully created.' }
+        format.html { redirect_to home_top_path, notice: 'Annual event was successfully created.' }
         format.json { render :show, status: :created, location: @annual_event }
       else
         format.html { render :new }
@@ -48,9 +49,25 @@ class AnnualEventsController < ApplicationController
   # PATCH/PUT /annual_events/1
   # PATCH/PUT /annual_events/1.json
   def update
+
+    if params[:annual_event][:filename].present?
+      @annual_event.filename = params[:annual_event][:filename].original_filename
+
+      File.open("app/assets/images/#{@annual_event.filename}",'w+b'){ |f|
+        f.write(params[:annual_event][:filename].read)
+      }
+    end
+
+        #パラメータの修正
+        if params[:annual_event][:filename].present?
+          params[:annual_event][:filename] = params[:annual_event][:filename].original_filename
+         else
+          params[:annual_event][:filename] = ""
+         end
+
     respond_to do |format|
       if @annual_event.update(annual_event_params)
-        format.html { redirect_to @annual_event, notice: 'Annual event was successfully updated.' }
+        format.html { redirect_to home_top_path, notice: 'Annual event was successfully updated.' }
         format.json { render :show, status: :ok, location: @annual_event }
       else
         format.html { render :edit }

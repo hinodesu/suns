@@ -36,7 +36,9 @@
   <p
     style="text-align:center;font-size:45px">
     <strong>
-      <%= link_to '行事予定',annual_events_path %>
+      <% if @annual_event %>
+        <%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %>
+      <% end %>
     </strong><br>
   </p>
 
