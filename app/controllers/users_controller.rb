@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+   params[:user][:grade] = params[:user][:number][-4]
+   params[:user][:class_room] = params[:user][:number][-3]
+
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -64,7 +67,7 @@ class UsersController < ApplicationController
 
   def search
 
-    @users = User.all
+    @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
 
 
     if params[:search][:grade].present?
