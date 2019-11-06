@@ -9,42 +9,12 @@ text-align: center;
 }
 </style>
 
+<font size="6">
 <h1>お知らせ</h1>
+</font>
 <h2 align="right"><%= Date.current.strftime('%Y/%m/%d(%a)') %>
 <%= link_to 'Top', home_top_path %>
 </h2>
-
-<%= link_to '新規作成', new_notification_path %>
-
-<table>
-  <thead>
-    <tr>
-      <th>表示日付</th>
-      <th>カテゴリー</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notifications.each do |notification| %>
-      <tr>
-        <td><%= notification.d_day %></td>
-        <td>
-        <% if notification.category == 1 %>
-        時間割
-        <% else %>
-        お知らせ
-        <% end %>
-        </td>
-        <td><%= link_to '詳細', notification %></td>
-        <td><%= link_to '編集', edit_notification_path(notification) %></td>
-        <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
 
 <table width="90%">
  <thead>
@@ -70,3 +40,39 @@ text-align: center;
    </div>
  </tbody>
 </table>
+
+<% if @user_code && @user_code.first == "t" %>
+<font size="3">
+<%= link_to '新規作成', new_notification_path %>
+<table border="1">
+  <thead>
+    <tr>
+      <th>表示日付</th>
+      <th>カテゴリー</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.d_day %></td>
+        <td>
+        <% if notification.category == 1 %>
+        時間割
+        <% else %>
+        お知らせ
+        <% end %>
+        </td>
+        <td><%= link_to '詳細', notification %></td>
+        <td><%= link_to '編集', edit_notification_path(notification) %></td>
+        <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</font>
+<% end %>
