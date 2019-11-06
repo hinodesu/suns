@@ -12,17 +12,16 @@
   <tbody>
     <% @annual_events.each do |annual_event| %>
       <tr>
-      <% if annual_event.filename.present? %>
-        <td><%= image_tag annual_event.filename %></td>
-      <% end %>
-        <td><%= link_to '閲覧', annual_event %></td>
-        <td><%= link_to '編集', edit_annual_event_path(annual_event) %></td>
-        <td><%= link_to '削除', annual_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if annual_event.filename.present? %>
+            <td><%= image_tag annual_event.filename %></td>
+          <% end %>
+          <% if @user_code && @user_code.first == "t" %>
+            <td><%= link_to '閲覧', annual_event %></td>
+            <td><%= link_to '編集', edit_annual_event_path(annual_event) %></td>
+            <td><%= link_to '削除', annual_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '登録', new_annual_event_path %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to '登録', new_annual_event_path %>
