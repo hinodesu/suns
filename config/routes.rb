@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     post'/users_select_edit', to: 'users#select_edit'
     post'/submissions_select_edit', to: 'submissions#select_edit'
     post'/users_select_edit_all', to: 'users#select_edit_all'
-
+    post'/submissions_select_edit_all', to: 'submissions#select_edit_all'
     
     resources :submissions
     resources :annual_events
