@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
         #kanaが空の時にエラーメッセージを追加する
         if kana.blank?
-            errors[:base] << 'ふりがなを入力してください'
+            errors[:base] << 'フリガナを入力してください'
         end
 
         #genderが空の時にエラーメッセージを追加する
