@@ -27,7 +27,11 @@ text-align: center;
    <div class = "inline-block_test" >
      <tr class="center">
        <% if @today_timetable.present? %>
-       <td><%= image_tag @today_timetable.filename %></td>
+       <td>
+       <%= link_to asset_url("#{@today_timetable.filename}"), target: "_blank" do %>
+         <%= image_tag @today_timetable.filename %>
+       <% end %>
+       </td>
        <% else %>
        <td>時間割変更はありません</td>
        <% end %>
@@ -38,7 +42,7 @@ text-align: center;
        <% end %>
      </tr>
    </div>
- </tbody>
+  </tbody>
 </table>
 
 <% if @user_code && @user_code.first == "t" %>
