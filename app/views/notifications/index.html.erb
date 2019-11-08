@@ -9,7 +9,9 @@ text-align: center;
 }
 </style>
 
+<font size="6">
 <h1>お知らせ</h1>
+</font>
 <h2 align="right"><%= Date.current.strftime('%Y/%m/%d(%a)') %>
 <%= link_to 'Top', home_top_path %>
 </h2>
@@ -25,27 +27,39 @@ text-align: center;
    <div class = "inline-block_test" >
      <tr class="center">
        <% if @today_timetable.present? %>
-       <td><%= image_tag @today_timetable.filename %></td>
+       <td>
+       <%= link_to asset_url("#{@today_timetable.filename}"), target: "_blank" do %>
+         <%= image_tag @today_timetable.filename %>
+       <% end %>
+       </td>
        <% else %>
        <td>時間割変更はありません</td>
        <% end %>
        <% if @tomorrow_notice.present? %>
-       <td><%= image_tag @tomorrow_notice.filename %></td>
+       <td>
+       <%= link_to asset_url("#{@tomorrow_notice.filename}"), target: "_blank" do %>
+        <%= image_tag @tomorrow_notice.filename %>
+      <% end %>
+       </td>
        <% else %>
        <td>お知らせはありません</td>
        <% end %>
      </tr>
    </div>
- </tbody>
+  </tbody>
 </table>
 
 <% if @user_code && @user_code.first == "t" %>
+<font size="3">
 <%= link_to '新規作成', new_notification_path %>
-<table>
+<table border="1">
   <thead>
     <tr>
       <th>表示日付</th>
       <th>カテゴリー</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -68,5 +82,5 @@ text-align: center;
     <% end %>
   </tbody>
 </table>
-
+</font>
 <% end %>
