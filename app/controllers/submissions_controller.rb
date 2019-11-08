@@ -106,8 +106,30 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.where(id: @select_submissions)
     #if paraams[:select_edit][:commit] == "選択編集"
     #if paraams[:select_edit][:commit] == "選択削除"
-
     
+  end
+
+  def select_edit_all
+      @select_submissions = params[:select_datas].keys.map(&:to_i)
+      @submissions = Submission.where(id:@select_submissions)
+      submission_count = 0
+          
+    if params[:commit] == "選択編集"
+      respond_to do |format|
+        format.html { redirect_to submissions_path, notice: '提出物を一括で編集しました。' }
+      end
+    end
+
+    if params[:commit] == "選択削除"
+      #「select_submissions」の数字とSubmissionモデルのidが一致するデータを取
+      submissions = Submission.where(id: @select_submissions)
+      #提出物一括削除
+      if submissions.destroy_all
+        #submission_countにselect_submissionsの値の数を代入
+        submission_count = @select_submissions.size
+      end
+      redirect_to submissions_path, notice: "#{submission_count}件の提出物を削除しました。"
+    end
   end
 
   private
