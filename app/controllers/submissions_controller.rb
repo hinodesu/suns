@@ -10,6 +10,9 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    @members = User.where(grade: @submission.grade ,class_room: @submission.class_room)
+    logger.debug("================")
+    logger.debug(@members)
   end
 
   # GET /submissions/new
