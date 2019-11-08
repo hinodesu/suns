@@ -36,7 +36,11 @@ text-align: center;
        <td>時間割変更はありません</td>
        <% end %>
        <% if @tomorrow_notice.present? %>
-       <td><%= image_tag @tomorrow_notice.filename %></td>
+       <td>
+       <%= link_to asset_url("#{@tomorrow_notice.filename}"), target: "_blank" do %>
+        <%= image_tag @tomorrow_notice.filename %>
+      <% end %>
+       </td>
        <% else %>
        <td>お知らせはありません</td>
        <% end %>
