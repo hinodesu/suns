@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
     has_secure_password
-=======
 
     validate :error_check
 
@@ -34,5 +32,4 @@ class User < ApplicationRecord
 
 
     end
->>>>>>> 5ae06dbf098d89e856155e0934e3102674e89a24
 end
