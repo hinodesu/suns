@@ -4,7 +4,7 @@ class Submission < ApplicationRecord
     def error_check
         #subjectが空のときにエラーメッセージを追加する
         if subject.blank?
-            errors.[:base] << '科目名を入力してください'
+            errors[:base] << '科目名を入力してください'
         end
     end
     
