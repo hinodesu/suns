@@ -4,7 +4,28 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+   # @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+
+   if session[:search_grade].present?
+      @users = User.where("grade like '%" + session[:search_grade] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+    else
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+    end
+
+    if session[:search_class_room].present?
+      @users = User.where("class_room like '%" + session[:search_class_room] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+    else
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+    end
+
+
+    if session[:search_name].present?
+      @users = User.where("name like '%" + session[:search_name] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+    else
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+    end
+  
+
   end
 
   # GET /users/1
@@ -68,18 +89,25 @@ class UsersController < ApplicationController
   def search
 
     @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+    session[:search_grade] = nil
+    session[:search_class_room] = nil
+    session[:search_name] = nil
+
 
 
     if params[:search][:grade].present?
       @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      session[:search_grade] = params[:search][:grade]
     end
 
     if params[:search][:class_room].present?
       @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      session[:search_class_room] = params[:search][:class_room]
     end
 
     if params[:search][:name].present?
       @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      session[:search_name] = params[:search][:name]
     end
 
 
