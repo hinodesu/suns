@@ -6,9 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--<h3 style="text-align: left">お知らせ・提出物管理システム</h3>-->
+
+    <span>
+  <div style="font-size:35px; text-align:right"><%=  Date.current.strftime('%Y/%m/%d(%a)') %><%= link_to 'Back', :back %></div>
+
+  </span>
+
   </head>
 
   <body>
     <%= yield %>
   </body>
+
+  <!-- <footer>
+   <h3 style="text-align: center; width: 95%; background-color: #89c7de; color: #fff; padding: 30px 0; position: absolute; bottom: 0;">出雲商業高校</h3>
+  </footer> -->
 </html>
