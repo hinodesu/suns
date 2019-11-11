@@ -16,37 +16,24 @@
 <%= form_tag('/users_select_edit_all') do %>
 
   <% if params[:commit] == "選択編集" %>
+    <div class="field" style="float:left;">
+      <%= label_tag :年 %> 
+      <%=select_tag :grade,({"１":"1","２":"2","３":"3"}) %>
+    </div>
 
-  <%=submit_tag "一括編集"%>
+    <div class="field" style="float:left;">
+      <%= label_tag :組 %> 
+      <%=select_tag :class_room,({"１":"1","２":"2","３":"3","４":"4"}) %>
+    </div>
 
-  <div class="field">
-<<<<<<< HEAD
-  <%= label_tag :年 %> 
-  <%=select_tag :grade,{１:"1",２:"2",３:"3"} %>
-</div>
-
-<div class="field">
-  <%= label_tag :組 %> 
-  <%=select_tag :class_room,{１:"1",２:"2",３:"3",４:"4"} %>
-</div>
+    <%=submit_tag "一括編集"%>
 
   <% else %>
 
-  <%=submit_tag "一括削除"%>
+    <%=submit_tag "一括削除"%>
 
-<% end %>
+  <% end %>
 
-
-
-=======
-    <%= label_tag :年 %> 
-<<<<<<< HEAD
-    <%=select_tag ({１:"1",２:"2",３:"3"})%>
-=======
-    <%=select_tag ({１:"1",２:"2",３:"3"}) %>
->>>>>>> 80ee32e992b4e49e20f0c5c87f236fcb5bf6aa0b
-  </div>
->>>>>>> 70e0e76a8f5acc4d0fb065bd5595a2262edd0fb0
 
 
   <table border="1" width="100%">
@@ -70,14 +57,14 @@
       <% @users.each do |user| %>
   
         <tr>
-          <td width="5%"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
-          <td width="5%"><%= user.grade %></td>
-          <td width="5%"><%= user.class_room %></td>
-          <td width="5%"><%= user.id %></td>
-          <td width="40%"><%= user.name %></td>
-          <td width="10%"><%= user.gender %></td>
-          <td width="15%"><%= link_to '編集', edit_user_path(user) %></td>
-          <td width="15%"><%= link_to '詳細', user %></td>
+          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
+          <td width="5%" align="center"><%= user.grade %></td>
+          <td width="5%" align="center"><%= user.class_room %></td>
+          <td width="5%" align="center"><%= user.id %></td>
+          <td width="40%" align="center"><%= user.name %></td>
+          <td width="10%" align="center"><%= user.gender %></td>
+          <td width="15%" align="center"><%= link_to '編集', edit_user_path(user) %></td>
+          <td width="15%" align="center"><%= link_to '詳細', user %></td>
         </tr>
       <% end %>
     </tbody>
