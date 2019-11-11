@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= label_tag :年 %> 
-    <%=select_tag ({１:"1",２:"2",３:"3"})>
+    <%=select_tag ({１:"1",２:"2",３:"3"}) %>
   </div>
 
 
@@ -58,6 +58,10 @@
   <% if params[:commit] == "選択編集" %>
 
     <%=submit_tag "一括編集"%>
+
+    <%= form_with(model: @user, local: true) do |form| %>
+      <%= render 'form4', user: @user, form: form %>
+    <% end %>
 
     <% else %>
 
