@@ -15,10 +15,28 @@
 
 <%= form_tag('/users_select_edit_all') do %>
 
+  <% if params[:commit] == "選択編集" %>
+
+  <%=submit_tag "一括編集"%>
+
   <div class="field">
-    <%= label_tag :年 %> 
-    <%=select_tag ({１:"1",２:"2",３:"3"}) %>
-  </div>
+  <%= label_tag :年 %> 
+  <%=select_tag :grade,{１:"1",２:"2",３:"3"} %>
+</div>
+
+<div class="field">
+  <%= label_tag :組 %> 
+  <%=select_tag :class_room,{１:"1",２:"2",３:"3",４:"4"} %>
+</div>
+
+  <% else %>
+
+  <%=submit_tag "一括削除"%>
+
+<% end %>
+
+
+
 
 
   <table border="1" width="100%">
@@ -55,19 +73,6 @@
     </tbody>
   </table>
 
-  <% if params[:commit] == "選択編集" %>
-
-    <%=submit_tag "一括編集"%>
-
-    <%= form_with(model: @user, local: true) do |form| %>
-      <%= render 'form4', user: @user, form: form %>
-    <% end %>
-
-    <% else %>
-
-    <%=submit_tag "一括削除"%>
-
-  <% end %>
 
 <% end %>
 
