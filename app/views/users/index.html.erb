@@ -3,7 +3,6 @@
 <b><font size="6">ユーザー一覧</font></b> 
   <div style="text-align: right;float:right">
     <span>
-      <%= Date.current.strftime('%Y/%m/%d(%a)') %>
       <%= link_to 'Top', home_top_path %>
       <br>
       <%= link_to '一括登録', new_user_path %>
@@ -19,7 +18,9 @@
   <p>
     年&thinsp;　　組  　 名前
     <br>
- <%= select_tag 'search[grade]',options_for_select({１:"1",２:"2",３:"3"}),include_blank: true %><%= select_tag 'search[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"}),include_blank: true %><%= text_field_tag 'search[name]' %><%= submit_tag '検索🔍' %>
+ <%= select_tag 'search[grade]',options_for_select({１:"1",２:"2",３:"3"},{ :selected => session[:search_grade]}),include_blank: true %>
+ <%= select_tag 'search[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"},{ :selected => session[:search_class_room]}),include_blank: true %>
+ <%= text_field_tag 'search[name]',session[:search_name] %><%= submit_tag '検索🔍' %>
   </p>
 <% end %> 
   
@@ -36,11 +37,10 @@
       <%=submit_tag "選択削除"%>
     </caption>
 
-
     <thead>
 
       <tr>    
-        <th></th>
+        <th><label for="all"><input type="checkbox" name="allChecked" id="all"></label></th>
         <th>年</th>
         <th>組</th>
         <th>番</th>
@@ -56,7 +56,7 @@
       <% @users.each_with_index do |user, idx| %>
       
         <tr>
-          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id %></td>
+          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, false, class: 'list' %></td>
           <td width="5%" align="center"><%= user.grade %></td>
           <td width="5%" align="center"><%= user.class_room %></td>
           <td width="5%" align="center"><%= idx+1 %></td>
@@ -72,4 +72,10 @@
 
 
 
-
+<script>
+  $(function() {
+    $('#all').on("click",function(){
+      $('.list').prop("checked", $(this).prop("checked"));
+    });
+  });
+</script>

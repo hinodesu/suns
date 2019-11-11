@@ -1,7 +1,7 @@
 <span>
-  <div style="font-size:35px"><%=  Date.current.strftime('%Y/%m/%d(%a)') %>
+  <div style="font-size:35px">
     
-    <div style="text-align:right;float:right;font-size:25px">ログインユーザ：<%= @user_code %>
+    <div style="text-align:left;float:left;font-size:20px">ログインユーザ：<%= @user_code %>
     
     <% if @user_code %>
       <%= link_to 'ログアウト',home_logout_path %>
@@ -13,6 +13,9 @@
   </div>
 </span>
 
+
+
+
   <h1
      style="text-align:center;font-size:105px"class ="title">suns
   </h1>
@@ -22,14 +25,16 @@
   <p
     style="text-align:center;font-size:45px">
       <strong>
-        <%= link_to '提出物一覧',submissions_path %>
+      <a href="http://localhost:3000/submissions" class="btn-sticky-1">提出物一覧</a>
+        <!--<%= link_to '提出物一覧',submissions_path %>-->
       </strong><br>
   </p>
 
   <p
     style="text-align:center;font-size:45px">
     <strong>
-      <%= link_to 'お知らせ一覧',notifications_path %>
+    <a href="http://localhost:3000/notifications" class="btn-sticky-2">お知らせ一覧</a>
+      <!--<%= link_to 'お知らせ一覧',notifications_path %>-->
     </strong><br>
   </p>
 
@@ -37,7 +42,8 @@
     style="text-align:center;font-size:45px">
     <strong>
       <% if @annual_event %>
-        <%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %>
+      <a href="http://localhost:3000/assets/67657855_2350024025221048_4480904606704795699_n-dc51f7e1fbb6e87694a4d2029fe60f633fc1e09b3935aacacc244b57832b028d.jpg" class="btn-sticky-3">行事予定</a>
+        <!--<%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %>-->
       <% end %>
     </strong><br>
   </p>
@@ -46,7 +52,8 @@
   <p
     style="text-align:center;font-size:45px">
     <strong>
-      <%= link_to 'ユーザー一覧',users_path %>
+    <a href="http://localhost:3000/users" class="btn-sticky-4">ユーザー一覧</a>
+      <!--<%= link_to 'ユーザー一覧',users_path %>-->
     </strong><br>
   </p>
 
@@ -54,14 +61,15 @@
     <p
     style="text-align:center;font-size:45px">
     <strong>
-      <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) %>
+    <a href="" class="btn-sticky-5">行事予定編集</a>
+      <!--<%= link_to '行事予定編集',edit_annual_event_path(@annual_event) %>-->
     </strong><br>
    </p>
   <% else %>
      <p
      style="text-align:center;font-size:45px">
      <strong>
-       <%= link_to '行事予定登録',new_annual_event_path %>
+       <!--<%= link_to '行事予定登録',new_annual_event_path %>-->
      </strong><br>
    </p>
   <% end %>

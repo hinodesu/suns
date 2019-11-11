@@ -19,11 +19,13 @@ class HomeController < ApplicationController
     logger.debug("============")
     logger.debug(@user_code)
     logger.debug(password)
-    if user = User.find_by(number: @user_number, pass: password)
+    if user = User.find_by(number: @user_number)
+      if user.authenticate(password)
       session[:login_user] = @user_number
-      # メニューバーに表示するログインユーザー名をsessionにセットする
-      session[:login_user_name] = user.try(:name)
-      redirect_to home_top_path
+        # メニューバーに表示するログインユーザー名をsessionにセットする
+        session[:login_user_name] = user.try(:name)
+        redirect_to home_top_path
+      end
     else
       flash.now.alert = "ユーザーIDまたはパスワードが正しくありません。"
       render :login, layout: nil
