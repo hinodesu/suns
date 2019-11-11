@@ -5,14 +5,36 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @submissions = Submission.all
+
+    # @submissions = Submission.all.order(:created_at => "desc")
+
+    if session[:search_subject].present?
+      @submissions = @submissions.where("subject like '%" + session[:search_subject] + "%'").order(deadline => "asc")
+    else
+      @submissions = Submission.all.order(:deadline => "asc")
+    end
+    if session[:search_deadline] == "期限前"
+      @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "asc")
+    else
+      @submissions = Submission.all.order(:deadline => "asc")
+    end
+    if session[:search_deadline] == "期限切れ"
+      @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "asc")
+    else
+      @submissions = Submission.all.order(:deadline => "asc")
+    end
+    if session[:search_title].present?
+      @submissions = @submissions.where("title like '%" + session[:search_title] + "%'").order(:deadline => "asc")
+    else
+      @submissions = Submission.all.order(:deadline => "asc")
+    end
+
   end
 
   # GET /submissions/1
   # GET /submissions/1.json
   def show
     @members = User.where(grade: @submission.grade ,class_room: @submission.class_room)
-    logger.debug("================")
-    logger.debug(@members)
   end
 
   # GET /submissions/new
@@ -22,6 +44,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/edit
   def edit
+    @members = User.where(grade: @submission.grade ,class_room: @submission.class_room)
   end
 
   # POST /submissions
@@ -61,6 +84,20 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
+     #画像設定
+     if params[:submission][:filename].present?
+       @submission.filename = params[:submission][:filename].original_filename
+       #画像の保存
+       File.open("app/assets/images/#{@submission.filename}",'w+b'){ |f| f.write(params[:submission][:filename].read)
+        }
+      end
+  
+      #パラメータの修正
+      if params[:submission][:filename].present?
+       params[:submission][:filename] = params[:submission][:filename].original_filename
+      else
+       params[:submission][:filename] = ""
+      end
     respond_to do |format|
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
@@ -84,19 +121,27 @@ class SubmissionsController < ApplicationController
 
   def search
     @today = Date.today.to_s
-    @submissions = Submission.all.order(:deadline => "desc")
+    @submissions = Submission.all.order(:deadline => "asc")
+    session[:search_subject] = nil
+    session[:search_deadline] = nil
+    session[:search_title] = nil
+
     if params[:search][:subject].present?
-      @submissions = @submissions.where("subject like '%" + params[:search][:subject] + "%'").order(:deadline => "desc")
+      @submissions = @submissions.where("subject like '%" + params[:search][:subject] + "%'").order(:deadline => "asc")
+      session[:search_subject] = params[:search][:subject]
     end
 
     if params[:search][:deadline] == "期限前"
-      @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "desc")
+      @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "asc")
+      session[:search_deadline] = params[:search][:deadline]
     end
     if params[:search][:deadline] == "期限切れ"
-      @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "desc")
+      @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "asc")
+      session[:search_deadline] = params[:search][:deadline]
     end
     if params[:search][:title].present?
-      @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "desc")
+      @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "asc")
+      session[:search_title] = params[:search][:title]
     end
     render :index
   end
@@ -113,16 +158,19 @@ class SubmissionsController < ApplicationController
       @select_submissions = params[:select_datas].keys.map(&:to_i)
       @submissions = Submission.where(id:@select_submissions)
       submission_count = 0
-          
+      #「select_submissions」の数字とSubmissionモデルのidが一致するデータを取
+      submissions = Submission.where(id: @select_submissions)
+      
     if params[:commit] == "選択編集"
+      if submissions.update_all(subject: params[:submission][:subject], title: params[:submission][:title], deadline: params[:submission][:deadline])
+      end
       respond_to do |format|
         format.html { redirect_to submissions_path, notice: '提出物を一括で編集しました。' }
       end
     end
 
     if params[:commit] == "選択削除"
-      #「select_submissions」の数字とSubmissionモデルのidが一致するデータを取
-      submissions = Submission.where(id: @select_submissions)
+
       #提出物一括削除
       if submissions.destroy_all
         #submission_countにselect_submissionsの値の数を代入

@@ -10,12 +10,27 @@
     </div>
   <% end %>
 
-
   <div class="field">
     <%= form.label :画像 %>
-    <%= form.text_field :filename, id: :submission_filename %>
+    <%= form.file_field :filename %>
   </div>
 
+<table>
+</thead>
+
+ <tr>
+   <th>名前</th>
+ </tr>
+</thead>
+
+<tbody>
+ <% @members.each_with_index do |member,index| %>
+   <tr>
+     <td align="center"><%= member.name %></td>
+   </tr>
+ <% end %>
+</tbody>
+</table>
   <div class="field">
     <%= form.label :生徒1 %>
     <%= form.number_field :student1, id: :submission_student1 %>
@@ -220,7 +235,4 @@
     <%= form.submit %>
   </div>
 
-  <div class="field">
-    <%= form.label '画像' %>
-    <%= form.file_field :filename %>
-  </div>
+
