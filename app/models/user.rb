@@ -25,7 +25,7 @@ class User < ApplicationRecord
         end
 
         #passが空の時にエラーメッセージを追加する
-        if pass.blank?
+        if password.blank?
             errors[:base] << 'パスワードを入力してください'
         end
 

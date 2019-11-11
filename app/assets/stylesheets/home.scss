@@ -15,24 +15,24 @@
  }
 
  @-webkit-keyframes bg-color {
-   0% { background-color: #e74c3c23; }
-   20% { background-color: #f1c40f23; }
-   40% { background-color: #1abc9c23; }
-   60% { background-color: #3498db23; }
-   80% { background-color: #9b59b623; }
-   100% { background-color: #e74d3c23; }
+   0% { background-color: #e74c3c19; }
+   20% { background-color: #f1c40f19; }
+   40% { background-color: #1abc9c19; }
+   60% { background-color: #3498db19; }
+   80% { background-color: #9b59b619; }
+   100% { background-color: #e74d3c19; }
  }
  @keyframes bg-color {
-   0% { background-color: #e74d3c23; }
-   20% { background-color: #f1c40f23; }
-   40% { background-color: #1abc9c23; }
-   60% { background-color: #3498db23; }
-   80% { background-color: #9c59b623; }
-   100% { background-color: #e74d3c23; }
+   0% { background-color: #e74d3c19; }
+   20% { background-color: #f1c40f19; }
+   40% { background-color: #1abc9c19; }
+   60% { background-color: #3498db19; }
+   80% { background-color: #9c59b619; }
+   100% { background-color: #e74d3c19; }
  }
 
  body {
-        background-color: #e74d3c23;
+        background-color: #e74d3c19;
         animation: bg-color 60s infinite;
         -webkit-animation: bg-color 70s infinite;
       }
