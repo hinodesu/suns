@@ -15,24 +15,39 @@
  }
 
  @-webkit-keyframes bg-color {
-   0% { background-color: #e74c3c79; }
-   20% { background-color: #f1c40f79; }
-   40% { background-color: #1abc9c79; }
-   60% { background-color: #3498db79; }
-   80% { background-color: #9b59b679; }
-   100% { background-color: #e74d3c79; }
+   0% { background-color: #e74c3c23; }
+   20% { background-color: #f1c40f23; }
+   40% { background-color: #1abc9c23; }
+   60% { background-color: #3498db23; }
+   80% { background-color: #9b59b623; }
+   100% { background-color: #e74d3c23; }
  }
  @keyframes bg-color {
-   0% { background-color: #e74d3c79; }
-   20% { background-color: #f1c40f79; }
-   40% { background-color: #1abc9c79; }
-   60% { background-color: #3498db79; }
-   80% { background-color: #9c59b679; }
-   100% { background-color: #e74d3c79; }
+   0% { background-color: #e74d3c23; }
+   20% { background-color: #f1c40f23; }
+   40% { background-color: #1abc9c23; }
+   60% { background-color: #3498db23; }
+   80% { background-color: #9c59b623; }
+   100% { background-color: #e74d3c23; }
  }
 
  body {
-        background-color: #e74d3c79;
+        background-color: #e74d3c23;
         animation: bg-color 60s infinite;
-        -webkit-animation: bg-color 100s infinite;
+        -webkit-animation: bg-color 70s infinite;
+      }
+
+      .btn-sticky {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #f7f7f7;
+        border-left: solid 6px #ff7c5c;/*左線*/
+        color: #ff7c5c;/*文字色*/
+        font-weight: bold;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+      }
+      .btn-sticky:active {
+        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+        transform: translateY(2px);
       }
