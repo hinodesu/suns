@@ -14,25 +14,3 @@
     font-weight:bold;          /* 太字にする */
  }
 
- @-webkit-keyframes bg-color {
-   0% { background-color: #e74c3c79; }
-   20% { background-color: #f1c40f79; }
-   40% { background-color: #1abc9c79; }
-   60% { background-color: #3498db79; }
-   80% { background-color: #9b59b679; }
-   100% { background-color: #e74d3c79; }
- }
- @keyframes bg-color {
-   0% { background-color: #e74d3c79; }
-   20% { background-color: #f1c40f79; }
-   40% { background-color: #1abc9c79; }
-   60% { background-color: #3498db79; }
-   80% { background-color: #9c59b679; }
-   100% { background-color: #e74d3c79; }
- }
-
- body {
-        background-color: #e74d3c79;
-        animation: bg-color 60s infinite;
-        -webkit-animation: bg-color 100s infinite;
-      }
