@@ -4,6 +4,18 @@
     <title>Suns</title>
     <%= csrf_meta_tags %>
 
+    <table>
+     <tr>
+      <td><%= link_to 'Suns', home_top_path %></td>
+      <td><%= link_to '提出物一覧', submissions_path %></td>
+      <td><%= link_to 'お知らせ一覧', notifications_path %></td>
+      <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %></td>
+      <td><%= link_to 'ユーザー一覧', users_path %></td>
+      <td><%= link_to 'ログアウト',home_logout_path %></td>
+     </tr>
+     </table>
+     <br>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--<h3 style="text-align: left">お知らせ・提出物管理システム</h3>-->
