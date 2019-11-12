@@ -27,8 +27,7 @@
        <th></th>
        <th>科目</th>
        <th>タイトル</th>
-       <th>学年</th>
-       <th>クラス</th>
+       <th>対象</th>
        <th>期限</th>
      </tr>
    </thead>
@@ -36,12 +35,11 @@
    <tbody>
      <% @submissions.each do |submission| %>
        <tr>
-         <td><%= check_box_tag "select_datas[#{ submission.id }]", submission.id, {:checked => "checked"} %></td>
-         <td><%= submission.subject %></td>
-         <td><%= submission.title %></td>
-         <td><%= submission.grade %></td>
-         <td><%= submission.class_room %></td>
-         <td><%= submission.deadline %></td>
+         <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", submission.id, {:checked => "checked"} %></td>
+         <td align="center"><%= submission.subject %></td>
+         <td align="center"><%= submission.title %></td>
+         <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
+         <td align="center"><%= submission.deadline %></td>
        </tr>
      <% end %>
    </tbody>
