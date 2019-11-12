@@ -132,16 +132,20 @@ class UsersController < ApplicationController
       @select_users = params[:select_datas].keys.map(&:to_i)
       @users = User.where(id:@select_users)
       user_count = 0
+      #「select_users」の数字とUserモデルのidが一致するデータを取
+      users = User.where(id: @select_users)
+
 
     if params[:commit] == "選択編集"
+      if users.update_all(grade: params[:user][:grade], class_room: params[:user][:class_room])
+      end
       respond_to do |format|
-      format.html { redirect_to users_path, notice: 'ユーザを一括で編集しました。' }
-    end
+        format.html { redirect_to users_path, notice: 'ユーザを一括で編集しました。' }
+      end
     end
         
     if params[:commit] == "選択削除"
-      #「select_users」の数字とUserモデルのidが一致するデータを取
-      users = User.where(id: @select_users)
+
       #ユーザ一括削除
       if users.destroy_all
         #user_countにcselect_usersの値の数を代入
