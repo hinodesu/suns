@@ -8,7 +8,6 @@
 <p>
 <font color = "#006400"><b>項目を確認してください</b></font>
 </p>
-<%= link_to '一覧に戻る', users_path %>
 
 
 
@@ -18,25 +17,29 @@
   <% if params[:commit] == "選択編集" %>
     <div class="field" style="float:left;">
       <%= label_tag :年 %> 
-      <%=select_tag :grade,({"１":"1","２":"2","３":"3"}) %>
+      <%=select_tag 'user[grade]',options_for_select({１:"1",２:"2",３:"3"}) %>
     </div>
 
     <div class="field" style="float:left;">
       <%= label_tag :組 %> 
-      <%=select_tag :class_room,({"１":"1","２":"2","３":"3","４":"4"}) %>
+      <%=select_tag 'user[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"}) %>
     </div>
 
-    <%=submit_tag "一括編集"%>
+    <br>
+    <div style="float:left;"><%=submit_tag "選択編集"%></div>
 
   <% else %>
 
-    <%=submit_tag "一括削除"%>
+    <%=submit_tag "選択削除"%>
 
   <% end %>
 
 
 
   <table border="1" width="100%">
+
+  <div align="right"><%= link_to '一覧に戻る', users_path %></div>
+
 
     <thead>
 
