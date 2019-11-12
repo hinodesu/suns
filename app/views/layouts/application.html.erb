@@ -4,16 +4,22 @@
     <title>Suns</title>
     <%= csrf_meta_tags %>
 
-    <table>
+    <table class = "hd">
      <tr>
       <td><%= link_to 'Suns', home_top_path %></td>
       <td><%= link_to '提出物一覧', submissions_path %></td>
       <td><%= link_to 'お知らせ一覧', notifications_path %></td>
-      <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %></td>
+      <td>
+      <% if @annual_event %>
+      <a href="http://localhost:3000/assets/67657855_2350024025221048_4480904606704795699_n-dc51f7e1fbb6e87694a4d2029fe60f633fc1e09b3935aacacc244b57832b028d.jpg" >行事予定</a>
+        <!--<%= link_to '行事予定', asset_url("#{@annual_event.filename}"), target: :_blank %>-->
+      <% end %>
+      </td>
       <td><%= link_to 'ユーザー一覧', users_path %></td>
       <td><%= link_to 'ログアウト',home_logout_path %></td>
      </tr>
      </table>
+
      <br>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,7 +27,7 @@
     <!--<h3 style="text-align: left">お知らせ・提出物管理システム</h3>-->
 
     <span>
-  <div style="font-size:35px; text-align:right"><%=  Date.current.strftime('%Y/%m/%d(%a)') %><%= link_to 'Back', :back %></div>
+  <div style="font-size:35px; text-align:right"><%=  Date.current.strftime('%Y/%m/%d(%a)') %></div>
 
   </span>
 
