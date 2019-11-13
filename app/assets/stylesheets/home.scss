@@ -14,36 +14,60 @@
     font-weight:bold;          /* 太字にする */
  }
 
- @-webkit-keyframes bg-color {
-   0% { background-color: #e74c3c19; }
-   20% { background-color: #f1c40f19; }
-   40% { background-color: #1abc9c19; }
-   60% { background-color: #3498db19; }
-   80% { background-color: #9b59b619; }
-   100% { background-color: #e74d3c19; }
- }
- @keyframes bg-color {
-   0% { background-color: #e74d3c19; }
-   20% { background-color: #f1c40f19; }
-   40% { background-color: #1abc9c19; }
-   60% { background-color: #3498db19; }
-   80% { background-color: #9c59b619; }
-   100% { background-color: #e74d3c19; }
- }
+html {
+  background-color: #cc0000;
+}
 
- body {
-        background-color: #e74d3c19;
-        animation: bg-color 60s infinite;
-        -webkit-animation: bg-color 70s infinite;
-      }
+HTML CSSResult
+EDIT ON
+html {
+  height:100%;
+}
 
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
       .btn-sticky-1 {
         display: inline-block;
         padding: 0.5em 1em;
         text-decoration: none;
         background: #f7f7f7;
         border-left: solid 6px #ff0000;/*左線*/
-        color: #ff7c5c;/*文字色*/
+        color: #645d5d;/*文字色*/
         font-weight: bold;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
       }
@@ -58,7 +82,7 @@
         text-decoration: none;
         background: #f7f7f7;
         border-left: solid 6px #0000ff;/*左線*/
-        color: #ff7c5c;/*文字色*/
+        color: #645d5d;/*文字色*/
         font-weight: bold;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
       }
@@ -73,7 +97,7 @@
         text-decoration: none;
         background: #f7f7f7;
         border-left: solid 6px #ffff00;/*左線*/
-        color: #ff7c5c;/*文字色*/
+        color: #645d5d;/*文字色*/
         font-weight: bold;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
       }
@@ -88,7 +112,7 @@
         text-decoration: none;
         background: #f7f7f7;
         border-left: solid 6px #00ff55;/*左線*/
-        color: #ff7c5c;/*文字色*/
+        color: #645d5d;/*文字色*/
         font-weight: bold;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
       }
@@ -103,7 +127,7 @@
         text-decoration: none;
         background: #f7f7f7;
         border-left: solid 6px #aa00ff;/*左線*/
-        color: #ff7c5c;/*文字色*/
+        color: #645d5d;/*文字色*/
         font-weight: bold;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
       }
@@ -112,3 +136,54 @@
         transform: translateY(2px);
       }
       
+      body { font: 400 1em/1.5 "Neuton"; background: #090d00; color: rgba(255,255,255,.25); text-align: center; margin: 0 }
+
+h6 {
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    display: inline-block;
+    border: 4px double rgba(255,255,255,.25);
+    border-width: 4px 0;
+    padding: 1.5em 0em;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    width: 40em;
+    margin: 0 0 0 -20em;
+  
+  span {
+
+    font: 700 4em/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: .25em 0 .325em;
+    font-size: 90px;
+      display: block;
+      margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255,255,255,.5);
+
+/* Clip Background Image */
+
+      background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+      -webkit-background-clip: text;
+      background-clip: text;
+
+/* Animate Background Image */
+
+      -webkit-text-fill-color: transparent;
+      -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+      -webkit-transform: translate3d(0,0,0);
+      -webkit-backface-visibility: hidden;
+
+  }
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
