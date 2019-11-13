@@ -13,12 +13,17 @@
  *= require_tree .
  *= require_self
  */
- hd {
-    font-size: 30px;
-    color: #0000ff;/*文字色*/
-    background: #ffffff;/*背景色*/
-    padding: .5em .75em;
-    border: 1px solid : #ff0000;
-    border-radius: 4px;
-  }
-  
+
+ header{
+  font-size: 30px;
+  background: -webkit-linear-gradient(to right, #e5033e, #b701b5, #4a02c2);
+  background: linear-gradient(to right, #e5033e, #b701b5, #4a02c2);
+  mix-blend-mode: screen;
+  line-height: 50px;
+  color: #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: rgba(184, 52, 52, 0.1) inset;
+
+ }
+

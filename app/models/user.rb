@@ -29,8 +29,5 @@ class User < ApplicationRecord
             errors[:base] << 'パスワードを入力してください'
         end
 
-
-
-
     end
 end
