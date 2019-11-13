@@ -4,6 +4,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
+    logger.debug("=================")
+    logger.debug(session[:login_user])
     @submissions = Submission.all
 
     # @submissions = Submission.all.order(:created_at => "desc")
@@ -50,34 +52,39 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
+    @submission = Submission.new(submission_params)
+    if params[:target].present?
+     #選んだクラスの取得
+     select_classrooms = params[:target].keys.map(&:to_i)
+     @submissions = []
 
-    #選んだクラスの取得
-    select_classrooms = params[:target].keys.map(&:to_i)
-    @submissions = []
+      select_classrooms.each do | gc |
+        #パラメータの上書き
+        params[:submission][:grade] = gc/10
+        params[:submission][:class_room] = gc%10
 
-    select_classrooms.each do | gc |
-      #パラメータの上書き
-      params[:submission][:grade] = gc/10
-      params[:submission][:class_room] = gc%10
+        @submission = Submission.new(submission_params)
+        if params[:submission][:filename].present?
+          @submission.filename = params[:submission][:filename].original_filename
+          File.open("app/assets/images/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
+          }
+        end
 
-      @submission = Submission.new(submission_params)
-      if params[:submission][:filename].present?
-        @submission.filename = params[:submission][:filename].original_filename
-        File.open("app/assets/images/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
-        }
+        @submissions << @submission
       end
 
-      @submissions << @submission
+      respond_to do |format|
+        if ::Submission.import(@submissions)
+        # if @submissions.save
+          format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
+        else
+          format.html { render :new }
+        end
+      end
+    else
+      render new_submission_path, error: "対象のクラスをチェックしてください。"
     end
 
-    respond_to do |format|
-      if ::Submission.import(@submissions)
-      # if @submissions.save
-        format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
 
   end
 
@@ -147,14 +154,20 @@ class SubmissionsController < ApplicationController
   end
 
   def select_edit
-    @select_submissions = params[:select_datas].keys.map(&:to_i)
-    @submissions = Submission.where(id: @select_submissions)
-    #if paraams[:select_edit][:commit] == "選択編集"
-    #if paraams[:select_edit][:commit] == "選択削除"
-    
+    if params[:select_datas].present?
+     @select_submissions = params[:select_datas].keys.map(&:to_i)
+     @submissions = Submission.where(id: @select_submissions)
+     #if paraams[:select_edit][:commit] == "選択編集"
+     #if paraams[:select_edit][:commit] == "選択削除"
+    else
+      redirect_to submissions_path, notice: "編集または削除するデータを一件以上チェックしてください。"
+    end
   end
 
   def select_edit_all
+    # if params[:select_datas].blank?
+    #   render :select_edit, notice: "データを一件以上チェックしてください。"
+    # end
       @select_submissions = params[:select_datas].keys.map(&:to_i)
       @submissions = Submission.where(id:@select_submissions)
       submission_count = 0
