@@ -1,0 +1,7 @@
+<h1>ユーザー一括登録</h1>
+
+<%= form_with(model: @user, local: true) do |form| %>
+    <%= render 'form3', user: @user, form: form %>
+<% end %>
+
+<%= link_to 'Back', users_path %>

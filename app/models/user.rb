@@ -24,10 +24,11 @@ class User < ApplicationRecord
             errors[:base] << '性別を選んでください'
         end
 
-        #passが空の時にエラーメッセージを追加する
+        #passwordが空の時にエラーメッセージを追加する
         if password.blank?
             errors[:base] << 'パスワードを入力してください'
         end
+
 
 
 

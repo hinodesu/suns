@@ -5,7 +5,7 @@
     <span>
       <%= link_to 'Top', home_top_path %>
       <br>
-      <%= link_to '一括登録', new_user_path %>
+      <%= link_to '一括登録', new_users_all_path %>
       &thinsp; 
       <%= link_to '１つずつ登録', new_user_path %>
     </span>
@@ -38,7 +38,7 @@
     <thead>
 
       <tr>    
-        <th><label for="all"><input type="checkbox" name="allChecked" id="all"></label></th>
+        <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
         <th>年</th>
         <th>組</th>
         <th>番</th>
@@ -70,10 +70,15 @@
 
 
 
-<script>
-  $(function() {
-    $('#all').on("click",function(){
-      $('.list').prop("checked", $(this).prop("checked"));
-    });
+<script type="text/javascript">
+$(function() {
+  return $(document).on("click", ".allChecked", function() {
+    if ($(this).prop('checked')) {
+      $(".list").prop('checked', true);
+      return $(this).prop('checked', true);
+    } else {
+      $(".list").prop('checked', false);
+    }
   });
+});
 </script>
