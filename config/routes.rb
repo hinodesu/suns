@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     post'/users_select_edit_all', to: 'users#select_edit_all'
     post'/submissions_select_edit_all', to: 'submissions#select_edit_all'
     post'/new_users_all', to: 'users#new_users_all'
+    get '/new_users', to: 'users#new_users'
+
 
 
     resources :submissions
