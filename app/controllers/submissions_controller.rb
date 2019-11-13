@@ -63,7 +63,7 @@ class SubmissionsController < ApplicationController
       @submission = Submission.new(submission_params)
       if params[:submission][:filename].present?
         @submission.filename = params[:submission][:filename].original_filename
-        File.open("/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
+        File.open("app/assets/images/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
         }
       end
 

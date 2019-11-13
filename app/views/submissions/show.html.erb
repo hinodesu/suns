@@ -22,8 +22,8 @@
   <strong>組</strong>
 </p>
 
-<table>
-</thead>
+<table align="left">
+<thead>
 
  <tr>
    <th>名前</th>
@@ -38,212 +38,50 @@
  <% end %>
 </tbody>
 </table>
-<p>
-  <strong>生徒1:</strong>
-  <% case @submission.student1 %>
-  <% when 0 %>
-  未提出
-  <% when 1 %>
-  再提出
-  <% when 2 %>
-  提出済
-  <% end %>
-</p>
 
-<p>
-  <strong>Student2:</strong>
-  <%= @submission.student2 %>
-</p>
-
-<p>
-  <strong>Student3:</strong>
-  <%= @submission.student3 %>
-</p>
-
-<p>
-  <strong>Student4:</strong>
-  <%= @submission.student4 %>
-</p>
-
-<p>
-  <strong>Student5:</strong>
-  <%= @submission.student5 %>
-</p>
-
-<p>
-  <strong>Student6:</strong>
-  <%= @submission.student6 %>
-</p>
-
-<p>
-  <strong>Student7:</strong>
-  <%= @submission.student7 %>
-</p>
-
-<p>
-  <strong>Student8:</strong>
-  <%= @submission.student8 %>
-</p>
-
-<p>
-  <strong>Student9:</strong>
-  <%= @submission.student9 %>
-</p>
-
-<p>
-  <strong>Student10:</strong>
-  <%= @submission.student10 %>
-</p>
-
-<p>
-  <strong>Student11:</strong>
-  <%= @submission.student11 %>
-</p>
-
-<p>
-  <strong>Student12:</strong>
-  <%= @submission.student12 %>
-</p>
-
-<p>
-  <strong>Student13:</strong>
-  <%= @submission.student13 %>
-</p>
-
-<p>
-  <strong>Student14:</strong>
-  <%= @submission.student14 %>
-</p>
-
-<p>
-  <strong>Student15:</strong>
-  <%= @submission.student15 %>
-</p>
-
-<p>
-  <strong>Student16:</strong>
-  <%= @submission.student16 %>
-</p>
-
-<p>
-  <strong>Student17:</strong>
-  <%= @submission.student17 %>
-</p>
-
-<p>
-  <strong>Student18:</strong>
-  <%= @submission.student18 %>
-</p>
-
-<p>
-  <strong>Student19:</strong>
-  <%= @submission.student19 %>
-</p>
-
-<p>
-  <strong>Student20:</strong>
-  <%= @submission.student20 %>
-</p>
-
-<p>
-  <strong>Student21:</strong>
-  <%= @submission.student21 %>
-</p>
-
-<p>
-  <strong>Student22:</strong>
-  <%= @submission.student22 %>
-</p>
-
-<p>
-  <strong>Student23:</strong>
-  <%= @submission.student23 %>
-</p>
-
-<p>
-  <strong>Student24:</strong>
-  <%= @submission.student24 %>
-</p>
-
-<p>
-  <strong>Student25:</strong>
-  <%= @submission.student25 %>
-</p>
-
-<p>
-  <strong>Student26:</strong>
-  <%= @submission.student26 %>
-</p>
-
-<p>
-  <strong>Student27:</strong>
-  <%= @submission.student27 %>
-</p>
-
-<p>
-  <strong>Student28:</strong>
-  <%= @submission.student28 %>
-</p>
-
-<p>
-  <strong>Student29:</strong>
-  <%= @submission.student29 %>
-</p>
-
-<p>
-  <strong>Student30:</strong>
-  <%= @submission.student30 %>
-</p>
-
-<p>
-  <strong>Student31:</strong>
-  <%= @submission.student31 %>
-</p>
-
-<p>
-  <strong>Student32:</strong>
-  <%= @submission.student32 %>
-</p>
-
-<p>
-  <strong>Student33:</strong>
-  <%= @submission.student33 %>
-</p>
-
-<p>
-  <strong>Student34:</strong>
-  <%= @submission.student34 %>
-</p>
-
-<p>
-  <strong>Student35:</strong>
-  <%= @submission.student35 %>
-</p>
-
-<p>
-  <strong>Student36:</strong>
-  <%= @submission.student36 %>
-</p>
-
-<p>
-  <strong>Student37:</strong>
-  <%= @submission.student37 %>
-</p>
-
-<p>
-  <strong>Student38:</strong>
-  <%= @submission.student38 %>
-</p>
-
-<p>
-  <strong>Student39:</strong>
-  <%= @submission.student39 %>
-</p>
-
-<p>
-  <strong>Student40:</strong>
-  <%= @submission.student40 %>
-</p>
+<table>
+<tr><th>提出状況</th></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student1] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student2] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student3] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student4] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student5] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student6] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student7] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student8] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student9] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student10] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student11] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student12] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student13] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student14] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student15] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student16] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student17] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student18] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student19] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student20] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student21] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student22] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student23] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student24] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student25] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student26] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student27] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student28] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student29] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student30] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student31] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student32] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student33] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student34] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student35] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student36] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student37] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student38] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student39] %></td></tr>
+<tr><td><%= SUBMISSION_LIST[@submission.student40] %></td></tr>
+</table>
 
 <table>
   <tr>
