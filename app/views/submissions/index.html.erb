@@ -25,7 +25,7 @@
 <% end %>
 
 <%= form_tag('/submissions_select_edit') do %>
-
+  <% if @user_code && @user_code.first == "t" %>
   <p>
    <%= submit_tag "選択編集" %>
    &thinsp;
@@ -33,7 +33,7 @@
   </p>
 
   <table border = "1" width = "100%">
-    </thead>
+    <thead>
 
      <tr>
        <th></th>
@@ -63,4 +63,29 @@
      <% end %>
    </tbody>
   </table>
+  <% else %>
+  <table border = "1" width = "100%">
+  <thead>
+
+   <tr>
+     <th><font size="4">科目</font></th>
+     <th><font size="4">タイトル</font></th>
+     <th><font size="4">期限</font></th>
+     <th></th>
+   </tr>
+ </thead>
+
+ <tbody>
+   <% @submissions.each do |submission| %>
+     <tr>
+       <td align="center"><%= submission.subject %></td>
+       <td align="center"><%= submission.title %></td>
+       <td align="center"><%= submission.deadline %></td>
+       <td align="center"><%= link_to '詳細', submission %></td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
+<% end %>
+
 <% end %>
