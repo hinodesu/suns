@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  # before_action :login_check
 
   def top
     @user_code = session[:login_user]

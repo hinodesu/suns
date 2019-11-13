@@ -8,21 +8,46 @@
 <p>
 <font color = "#006400"><b>項目を確認してください</b></font>
 </p>
-<%= link_to '一覧に戻る', users_path %>
 
 
 
 
 <%= form_tag('/users_select_edit_all') do %>
 
+<<<<<<< HEAD
   <div class="field">
     <%= label_tag :年 %> 
     <%=select_tag ({１:"1",２:"2",３:"3"})%>
     <%=select_tag ({１:"1",２:"2",３:"3"}) %>
   </div>
+=======
+  <% if params[:commit] == "選択編集" %>
+    <div class="field" style="float:left;">
+      <%= label_tag :年 %> 
+      <%=select_tag 'user[grade]',options_for_select({１:"1",２:"2",３:"3"}) %>
+    </div>
+
+    <div class="field" style="float:left;">
+      <%= label_tag :組 %> 
+      <%=select_tag 'user[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"}) %>
+    </div>
+
+    <br>
+    <div style="float:left;"><%=submit_tag "選択編集"%></div>
+
+  <% else %>
+
+    <%=submit_tag "選択削除"%>
+
+  <% end %>
+
+>>>>>>> 8b0e5fa11ff1441579fea13faec4859ffce41fc1
 
 
   <table border="1" width="100%">
+
+  <div align="right"><%= link_to '一覧に戻る', users_path %></div>
+
 
     <thead>
 
@@ -43,32 +68,19 @@
       <% @users.each do |user| %>
   
         <tr>
-          <td width="5%"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
-          <td width="5%"><%= user.grade %></td>
-          <td width="5%"><%= user.class_room %></td>
-          <td width="5%"><%= user.id %></td>
-          <td width="40%"><%= user.name %></td>
-          <td width="10%"><%= user.gender %></td>
-          <td width="15%"><%= link_to '編集', edit_user_path(user) %></td>
-          <td width="15%"><%= link_to '詳細', user %></td>
+          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
+          <td width="5%" align="center"><%= user.grade %></td>
+          <td width="5%" align="center"><%= user.class_room %></td>
+          <td width="5%" align="center"><%= user.id %></td>
+          <td width="40%" align="center"><%= user.name %></td>
+          <td width="10%" align="center"><%= user.gender %></td>
+          <td width="15%" align="center"><%= link_to '編集', edit_user_path(user) %></td>
+          <td width="15%" align="center"><%= link_to '詳細', user %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <% if params[:commit] == "選択編集" %>
-
-    <%=submit_tag "一括編集"%>
-
-    <%= form_with(model: @user, local: true) do |form| %>
-      <%= render 'form4', user: @user, form: form %>
-    <% end %>
-
-    <% else %>
-
-    <%=submit_tag "一括削除"%>
-
-  <% end %>
 
 <% end %>
 

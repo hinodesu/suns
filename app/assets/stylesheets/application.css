@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ hd {
+    font-size: 30px;
+    color: #0000ff;/*文字色*/
+    background: #ffffff;/*背景色*/
+    padding: .5em .75em;
+    border: 1px solid : #ff0000;
+    border-radius: 4px;
+  }
+  
