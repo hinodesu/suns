@@ -19,8 +19,8 @@
       <%= date_field_tag 'submission[deadline]' %>
     </div>
     <% end %>
-
-<table border = "1" width = "100%">
+    以下のデータを一括編集します。編集したくないデータは、チェックを外してください。
+ <table border = "1" width = "100%">
     </thead>
 
      <tr>
@@ -35,7 +35,7 @@
    <tbody>
      <% @submissions.each do |submission| %>
        <tr>
-         <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", submission.id, {:checked => "checked"} %></td>
+         <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", submission.id, {:checked => "checked"},:class => "list" %></td>
          <td align="center"><%= submission.subject %></td>
          <td align="center"><%= submission.title %></td>
          <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
@@ -43,11 +43,29 @@
        </tr>
      <% end %>
    </tbody>
-</table>
+ </table>
 
-<% if params[:commit] == "選択編集" %>
- <%= submit_tag "選択編集" %>
-<% else %>
- <%= submit_tag "選択削除" %>
-<% end %>　　　　　　　　　　　<%= link_to '一覧に戻る', submissions_path %>
+ <% if params[:commit] == "選択編集" %>
+ <%= submit_tag "選択編集" , onclick: "return isCheck()" %>
+ <% else %>
+ <%= submit_tag "選択削除" , onclick: "return isCheck()" %>
+ <% end %>　　　　　　　　　　　<%= link_to '一覧に戻る', submissions_path %>
 <% end %>
+
+<script type="text/javascript">
+function isCheck() {
+  var arr_checkBoxes = document.getElementsByClassName("list");
+  var count = 0;
+  for (var i = 0; i <arr_checkBoxes.length; i++) {
+    if (arr_checkBoxes[i].checked) {
+      count++;
+    }
+  }
+  if (count > 0) {
+    return true;
+  } else {
+    window.alert("項目を1つ上選択してください。");
+    return false;
+  }
+}
+</script>

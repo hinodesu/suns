@@ -37,6 +37,11 @@
 </tbody>
 </table>
 
+<div class="field">
+<%= form.label :画像 %>
+<%= form.file_field :filename %>
+</div>
+
   <div class="field">
     <table>
       <tr><th>提出状況</th></tr>
@@ -50,10 +55,6 @@
     </table>
   </div>
 
-  <div class="field">
-    <%= form.label :画像 %>
-    <%= form.file_field :filename %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
