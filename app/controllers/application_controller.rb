@@ -1,12 +1,18 @@
 class ApplicationController < ActionController::Base
   def login_check
-      if session[:user_id].blank?
-        redirect_to home_login_path, notice: "ログインされてないか、セッションが切れています。再度ログインしてください。", layout: nil
-      end
+    if session[:login_user].blank?
+      redirect_to home_login_path, notice: "ログインされてないか、セッションが切れています。再度ログインしてください。", layout: nil
+    end
 
-         if session[:user_id] == "s" 
-          redirect_to home_top_path, notice: "ログインされてないか、セッションが切れています。再度ログインしてください。", layout: nil
-         end
   end
+
+  def teacher_check
+    logger.debug("===========")
+    logger.debug(session[:login_user])
+    if session[:login_user] && session[:login_user].first == "s" 
+    redirect_to home_top_path, notice: "権限がないページにアクセスしようとしています。", layout: nil
+    end
+  end
+
   protect_from_forgery with: :exception
 end

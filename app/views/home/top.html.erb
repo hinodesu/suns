@@ -3,39 +3,30 @@
     
     <div style="text-align:left;float:left;font-size:20px">ログインユーザ：<%= @user_code %>
     
-    <% if @user_code %>
-      <%= link_to 'ログアウト',home_logout_path %>
-    <% else %>
-      <%= link_to 'ログイン',login_path %>
-    <% end %>
+      <% if @user_code %>
+        <%= link_to '►ログアウト',home_logout_path,class:"btn-logout" %>
+      <% else %>
+        <%= link_to 'ログイン',login_path,class:"btn-logout" %>
+      <% end %>
      
     </div>
   </div>
 </span>
 
 <h7>
-<div class="bg"></div>
-<div class="bg bg2"></div>
-<div class="bg bg3"></div>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
 </div>
-
-
 
 <h6>
   <span>
-  SUNS
+   SUNS
   </span>
 </h6>
 <br><br><br><br><br><br><br><br>
-
-
-
-  <!--<h1
-     style="text-align:center;font-size:105px"class ="title">suns
-  </h1>-->
-
-  <br>
-
+  
+    <p id="notice"><%= notice %></p>
   <p
     style="text-align:center;font-size:45px">
       <strong>
@@ -81,7 +72,7 @@
      <p
      style="text-align:center;font-size:45px">
      <strong>
-       <!--<%= link_to '行事予定登録',new_annual_event_path %>-->
+       <%= link_to '行事予定登録',new_annual_event_path,class: "btn-sticky-5" %>
      </strong><br>
    </p>
   <% end %>

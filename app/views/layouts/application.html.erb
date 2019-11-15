@@ -6,9 +6,9 @@
 
     <header>
     <tr>
-     <td><%= link_to 'Suns', home_top_path %></td>
-      <td><%= link_to '提出物一覧', submissions_path %></td>
-      <td><%= link_to 'お知らせ一覧', notifications_path %></td>
+     <td><%= link_to 'Suns', home_top_path,class: "btn-suns" %></td>
+      <td><%= link_to '提出物一覧', submissions_path,class: "btn-sub" %></td>
+      <td><%= link_to 'お知らせ一覧', notifications_path,class: "btn-not" %></td>
       
       <!--<% if @annual_event %>
       <a href="http://localhost:3000/assets/67657855_2350024025221048_4480904606704795699_n-dc51f7e1fbb6e87694a4d2029fe60f633fc1e09b3935aacacc244b57832b028d.jpg" >行事予定</a>
@@ -16,10 +16,10 @@
       <% end %>-->
 
       <% if @user_code && @user_code.first == "t" %>
-      <td><%= link_to 'ユーザー一覧', users_path %></td>
+      <td><%= link_to 'ユーザー一覧', users_path,class: "btn-users" %></td>
       <% end %>
 
-      <td><%= link_to 'ログアウト',home_logout_path %></td>
+      <td><%= link_to 'ログアウト',home_logout_path,class: "btn-suns" %></td>
       </tr>
      </header>
 

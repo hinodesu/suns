@@ -4,8 +4,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-    logger.debug("=================")
-    logger.debug(session[:login_user])
+    @user_code = session[:login_user]
     @submissions = Submission.all
 
     # @submissions = Submission.all.order(:created_at => "desc")
