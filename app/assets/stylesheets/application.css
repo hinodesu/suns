@@ -16,6 +16,7 @@
 
  header{
   font-size: 30px;
+<<<<<<< HEAD
   background: linear-gradient(to right, #e5033e, #b701b5, #4a02c2);
   mix-blend-mode: screen;
   line-height: 50px;
@@ -23,5 +24,7 @@
   -webkit-background-clip: text;
   box-shadow: rgba(184, 52, 52, 0.1) inset;
   
+=======
+>>>>>>> d3b84ad5fd288f4c74a31e9944fa7b26b9da056b
  }
  
