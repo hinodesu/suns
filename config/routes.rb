@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     post'/submissions_select_edit_all', to: 'submissions#select_edit_all'
     post'/new_users_all', to: 'users#new_users_all'
     get '/new_users', to: 'users#new_users'
+    get 'users/bulk_new'
+    post 'users/bulk_create', to: 'users#bulk_create'
+  
 
 
 

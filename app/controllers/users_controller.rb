@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'ユーザーの作成が完了しました。' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'ユーザーの更新が完了しました。' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'ユーザーの削除が完了しました。' }
       format.json { head :no_content }
     end
   end
@@ -155,7 +155,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def new_users_all
+  def bulk_new
+  end
+
+  def bulk_create
+    user_count = import_users
+    redirect_to users_path, notice: "#{user_count}件登録しました"
   end
 
 
@@ -168,5 +173,20 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:number, :grade, :class_room, :name, :kana, :gender, :password)
+    end
+
+    def import_users
+      # 登録処理前のレコード数
+      current_user_count = ::User.count
+      users = []
+      u_id = User.maximum(:id) + 1
+      # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
+      CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
+        users << User.new( number: row["学籍番号"], grade: row["学年"][-4], class_room: row["組"][-3], name: row["名前"] , kana: row["ふりがな"], gender: row["性別"] , password: row["パスワード"])
+      end
+      # importメソッドでバルクインサートできる
+      ::User.import(users)
+      # 何レコード登録できたかを返す
+      ::User.count - current_user_count
     end
 end
