@@ -5,11 +5,11 @@
     <span>
       <div style="font-size:20px; text-align:right"><%=  Date.current.strftime('%Y/%m/%d(%a)') %></div>
       <br>
-      <%= link_to 'Top', home_top_path %>
+      <%= link_to 'Top', home_top_path,class: "btn-sub" %>
       <br>
-      <%= link_to '一括登録', users_bulk_new_path %>
+      <%= link_to '一括登録', users_bulk_new_path,class: "btn-sub" %>
       &thinsp; 
-      <%= link_to '１つずつ登録', new_user_path %>
+      <%= link_to '１つずつ登録', new_user_path,class: "btn-sub" %>
     </span>
   </div>
 

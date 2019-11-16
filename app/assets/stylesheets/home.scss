@@ -117,7 +117,7 @@ body {
         box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
         transform: translateY(2px);
       }
-
+      
       .btn-sticky-5 {
         display: inline-block;
         padding: 0.5em 1em;
@@ -151,8 +151,8 @@ body {
         color: white;
       }
 
-      .btn-suns {
-        font-size:30px;
+      .btn-logout-head {
+        font-size:20px;
         position: relative;
         display: inline-block;
         font-weight: bold;
@@ -160,6 +160,24 @@ body {
         text-decoration: none;
         border-bottom: solid 2px #ff9100;
         border-radius: 2px;
+        color: #00BCD4; 
+        transition: .4s;
+      }
+
+      .btn-logout-head:hover {
+        background: #ff9100;
+        color: white;
+        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+      }
+
+      .btn-suns {
+        font-size:40px;
+        position: relative;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        border-radius: 20px;
         color: #00BCD4; 
         transition: .4s;
       }
@@ -171,7 +189,7 @@ body {
       }
 
       .btn-sub {
-        font-size:30px;
+        font-size:20px;
         position: relative;
         display: inline-block;
         font-weight: bold;
@@ -191,7 +209,7 @@ body {
       }
       
       .btn-not {
-        font-size:30px;
+        font-size:20px;
         position: relative;
         display: inline-block;
         font-weight: bold;
@@ -210,7 +228,7 @@ body {
       }
 
       .btn-anu {
-        font-size:30px;
+        font-size:20px;
         position: relative;
         display: inline-block;
         font-weight: bold;
@@ -229,7 +247,7 @@ body {
       }
 
       .btn-users {
-        font-size:30px;
+        font-size:20px;
         position: relative;
         display: inline-block;
         font-weight: bold;

@@ -27,7 +27,8 @@
     SUNS
   </span>
   <div class="title-bottom">
-    <font face="ＭＳ Ｐゴシック" size="2">お知らせ・提出物管理システム
+    <font face="ＭＳ Ｐゴシック" size="2">
+      お知らせ・提出物管理システム
     </font>
     <br>
   </div>
@@ -38,16 +39,14 @@
   <p
     style="text-align:center;font-size:45px">
       <strong>
-      <a href="http://localhost:3000/submissions" class="btn-sticky-1">提出物一覧</a>
-        <!--<%= link_to '提出物一覧',submissions_path %>-->
+        <%= link_to '提出物一覧',submissions_path,class: "btn-sticky-1" %>
       </strong><br>
   </p>
 
   <p
     style="text-align:center;font-size:45px">
     <strong>
-    <a href="http://localhost:3000/notifications" class="btn-sticky-2">お知らせ一覧</a>
-      <!--<%= link_to 'お知らせ一覧',notifications_path %>-->
+      <%= link_to 'お知らせ一覧',notifications_path,class: "btn-sticky-2" %>
     </strong><br>
   </p>
 
@@ -64,7 +63,6 @@
   <p
     style="text-align:center;font-size:45px">
     <strong>
-        <!--<a href="http://localhost:3000/users" class="btn-sticky-4">ユーザー一覧</a>-->
   <%= link_to 'ユーザー一覧',users_path,class: "btn-sticky-4" %>
     </strong><br>
   </p>
