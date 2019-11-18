@@ -1,7 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
 
+    validates :kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
     validate :error_check
+    
 
     def error_check
         #numberが空の時にエラーメッセージを追加する
