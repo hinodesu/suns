@@ -45,6 +45,8 @@ body {
   animation-duration:5s;
 }
 
+
+
 .today{
   text-align:right;
   font-size:30px;
@@ -321,3 +323,18 @@ h7 {
   }
 }
 
+
+table{
+  width: 65%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,table td{
+  padding: 7px 0;
+  text-align: center;
+}
+
+table tr:nth-child(odd){
+  background-color: #eee
+}
