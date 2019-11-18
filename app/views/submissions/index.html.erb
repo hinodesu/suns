@@ -13,15 +13,23 @@
 
 <%= form_tag('/submissions_search') do %>
   <p>
-   <font size="4">科目</font>
+    <font size="4">
+     科目
+    </font>
    <%= text_field_tag 'search[subject]', session[:search_subject] %>
-   <font size="4">期限</font>
-   <%= select_tag 'search[deadline]', options_for_select({期限前: "期限前", 期限切れ: "期限切れ"},{ :selected => session[:search_deadline]}), include_blank: true %>
+    <font size="4">
+      期限
+    </font>
+    <%= select_tag 'search[deadline]', options_for_select({期限前: "期限前", 期限切れ: "期限切れ"},
+    { :selected => session[:search_deadline]}), include_blank: true %>
   </p>
+
   <p>
-  <font size="4">タイトル</font>
-   <%= text_field_tag 'search[title]', session[:search_title] %>
-   <%= submit_tag '検索🔎' %>
+    <font size="4">
+      タイトル
+    </font>
+    <%= text_field_tag 'search[title]', session[:search_title] %>
+    <%= submit_tag '検索🔎' %>
   </p> 
 
 <% end %>
@@ -30,52 +38,51 @@
   <% if @user_code && @user_code.first == "t" %>
    <p>
      <%= submit_tag "選択編集", onclick: "return isCheck()"  %>
-     &thinsp;
+       &thinsp;
      <%= submit_tag "選択削除", onclick: "return isCheck()"  %>
    </p>
 
    <table border = "1" width = "100%">
-     <thead>
+      <thead>
 
-      <tr>
-        <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
-        <th><font size="4">科目</font></th>
-        <th><font size="4">タイトル</font></th>
-        <th><font size="4">対象</font></th>
-        <th><font size="4">期限</font></th>
-        <th></th>
-        <th></th>
-        <th colspan="3"></th>
-      </tr>
-     </thead>
+        <tr>
+          <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
+          <th><font size="4">科目</font></th>
+          <th><font size="4">タイトル</font></th>
+          <th><font size="4">対象</font></th>
+          <th><font size="4">期限</font></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
      <tbody>
-     <% @submissions.each do |submission| %>
-       <tr>
-         <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", submission.id,false,:class => "list" %></td>
-         <td align="center"><%= submission.subject %></td>
-         <td align="center"><%= submission.title %></td>
-         <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
-         <td align="center"><%= submission.deadline %></td>
+        <% @submissions.each do |submission| %>
+          <tr>
+            <td align="center">
+              <%= check_box_tag "select_datas[#{ submission.id }]", submission.id,false,:class => "list" %>
+            </td>
+            <td align="center"><%= submission.subject %></td>
+            <td align="center"><%= submission.title %></td>
+            <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
+            <td align="center"><%= submission.deadline %></td>
 
-         <td align="center"><%= link_to '詳細', submission %></td>
-         <td align="center"><%= link_to '編集', edit_submission_path(submission) %></td>
-         <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       </tr>
-     <% end %>
+            <td align="center"><%= link_to '詳細', submission %></td>
+            <td align="center"><%= link_to '編集', edit_submission_path(submission) %></td>
+            <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
      </tbody>
    </table>
+
   <% else %>
    <table border = "1" width = "100%">
-     <thead>
-
-      <tr>
-        <th><font size="4">科目</font></th>
-        <th><font size="4">タイトル</font></th>
-        <th><font size="4">期限</font></th>
-        <th></th>
-      </tr>
-     </thead>
+      <thead>
+        <tr>
+          <th><font size="4">科目</font></th>
+          <th><font size="4">タイトル</font></th>
+          <th><font size="4">期限</font></th>
+        </tr>
+      </thead>
 
      <tbody>
        <% @submissions.each do |submission| %>

@@ -1,30 +1,44 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <%= @user.grade %>
-  <strong>年</strong>
-  
-  <%= @user.class_room %>
-  <strong>組</strong>
+<p id="notice">
+  <%= notice %>
 </p>
 
 <p>
-  <strong>名前:</strong>
+  <%= @user.grade %>
+  <strong>
+    年
+  </strong>
+  
+  <%= @user.class_room %>
+  <strong>
+    組
+  </strong>
+</p>
+
+<p>
+  <strong>
+    名前:
+  </strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>フリガナ:</strong>
+  <strong>
+    フリガナ:
+  </strong>
   <%= @user.kana %>
 </p>
 
 <p>
-  <strong>性別:</strong>
+  <strong>
+    性別:
+  </strong>
   <%= @user.gender %>
 </p>
 
 <p>
-  <strong>学籍番号:</strong>
+  <strong>
+    学籍番号:
+  </strong>
   <%= @user.number %>
 </p>
 

@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     logger.debug(password)
     if user = User.find_by(number: @user_number)
       if user.authenticate(password)
-      session[:login_user] = @user_number
+        session[:login_user] = @user_number
         # メニューバーに表示するログインユーザー名をsessionにセットする
         session[:login_user_name] = user.try(:name)
         redirect_to home_top_path
