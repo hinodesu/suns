@@ -26,6 +26,7 @@
   <span>
     SUNS
   </span>
+
   <div class="title-bottom">
     <font face="ＭＳ Ｐゴシック" size="2">
       お知らせ・提出物管理システム
@@ -35,51 +36,55 @@
 </div>
 <br><br><br><br><br><br><br><br>
   
-    <p id="notice"><%= notice %></p>
-  <p
-    style="text-align:center;font-size:45px">
-      <strong>
-        <%= link_to '提出物一覧',submissions_path,class: "btn-sticky-1" %>
-      </strong><br>
-  </p>
+    <p id="notice">
+    <%= notice %></p>
 
-  <p
-    style="text-align:center;font-size:45px">
+<p
+style="text-align:center;font-size:45px">
     <strong>
-      <%= link_to 'お知らせ一覧',notifications_path,class: "btn-sticky-2" %>
+      <%= link_to '提出物一覧',submissions_path,class: "btn-sticky-1" %>
     </strong><br>
-  </p>
+</p>
 
-  <p
-    style="text-align:center;font-size:45px">
-    <strong>
-      <% if @annual_event %>
-        <%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-sticky-3", target: :_blank %>
-      <% end %>
-    </strong><br>
-  </p>
+<p
+style="text-align:center;font-size:45px">
+  <strong>
+    <%= link_to 'お知らせ一覧',notifications_path,class: "btn-sticky-2" %>
+  </strong><br>
+</p>
+
+<p
+ style="text-align:center;font-size:45px">
+  <strong>
+    <% if @annual_event %>
+      <%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-sticky-3", target: :_blank %>
+    <% end %>
+  </strong><br>
+</p>
 
 <% if @user_code && @user_code.first == "t" %>
   <p
-    style="text-align:center;font-size:45px">
+  style="text-align:center;font-size:45px">
     <strong>
-  <%= link_to 'ユーザー一覧',users_path,class: "btn-sticky-4" %>
+      <%= link_to 'ユーザー一覧',users_path,class: "btn-sticky-4" %>
     </strong><br>
   </p>
 
   <% if @annual_event.present? %>
     <p
     style="text-align:center;font-size:45px">
-    <strong>
-     <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) ,class: "btn-sticky-5" %>
-    </strong><br>
+      <strong>
+        <%= link_to '行事予定編集',edit_annual_event_path(@annual_event) ,class: "btn-sticky-5" %>
+      </strong><br>
    </p>
+
   <% else %>
+
      <p
      style="text-align:center;font-size:45px">
-     <strong>
-       <%= link_to '行事予定登録',new_annual_event_path,class: "btn-sticky-5" %>
-     </strong><br>
+       <strong>
+         <%= link_to '行事予定登録',new_annual_event_path,class: "btn-sticky-5" %>
+       </strong><br>
    </p>
   <% end %>
 <% end %>

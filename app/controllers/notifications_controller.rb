@@ -72,10 +72,10 @@ class NotificationsController < ApplicationController
   def update
 
      #画像設定
-     if params[:notification][:filename].present?
+      if params[:notification][:filename].present?
         @notification.filename = params[:notification][:filename].original_filename
-     #画像の保存
-      File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
+       #画像の保存
+       File.open("app/assets/images/#{@notification.filename}",'w+b'){ |f| f.write(params[:notification][:filename].read)
        }
       end
     

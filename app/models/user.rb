@@ -30,6 +30,5 @@ class User < ApplicationRecord
         if password.blank?
             errors[:base] << 'パスワードを入力してください'
         end
-
     end
 end

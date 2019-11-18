@@ -1,7 +1,10 @@
-<b><font size="6">提出物編集</font></b>
+<b><font size="6">
+  提出物編集
+</font></b>
 
 <%= form_with(model: @submission, local: true) do |form| %>
   <%= render 'form1', submission: @submission, form: form %>
   <%= render 'form2', submission: @submission, form: form %>
 <% end %>
+
 <%= link_to 'Back', submissions_path %>

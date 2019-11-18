@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Filename:</strong>
+  <strong>ファイル名:</strong>
   <%= @notification.filename %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong>カテゴリー:</strong>
   <%= @notification.category %>
 </p>
 
 <p>
-  <strong>D day:</strong>
+  <strong>表示日付:</strong>
   <%= @notification.d_day %>
 </p>
 
@@ -19,12 +19,12 @@
   <tr>
    <td>
      <% if @notification.filename.present? %>
-     <%= image_tag @notification.filename %>
+       <%= image_tag @notification.filename %>
      <% end %>
    </td>
   </tr>
 
 </table>
 
-<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to '編集', edit_notification_path(@notification) %> |
 <%= link_to 'Back', notifications_path %>

@@ -1,12 +1,15 @@
 <%= form_with(model: notification, local: true) do |form| %>
   <% if notification.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
+      <h2>
+          <%= pluralize(notification.errors.count, "error") %>
+          prohibited this notification from being saved:
+        </h2>
 
       <ul>
-      <% notification.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% notification.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -28,7 +31,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= submit_tag "登録" %>
   </div>
 
 
