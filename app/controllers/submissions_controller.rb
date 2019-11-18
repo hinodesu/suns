@@ -6,11 +6,12 @@ class SubmissionsController < ApplicationController
   def index
     @user_code = session[:login_user]
     @submissions = Submission.all
+    @today = Date.today.to_s
 
     # @submissions = Submission.all.order(:created_at => "desc")
 
     if session[:search_subject].present?
-      @submissions = @submissions.where("subject like '%" + session[:search_subject] + "%'").order(deadline => "asc")
+      @submissions = @submissions.where("subject like '%" + session[:search_subject] + "%'").order(:deadline => "asc")
     else
       @submissions = Submission.all.order(:deadline => "asc")
     end
@@ -73,8 +74,9 @@ class SubmissionsController < ApplicationController
       end
 
       respond_to do |format|
-        if ::Submission.import(@submissions)
-        # if @submissions.save
+        if @submission.save
+          @submissions.pop
+          Submission.import(@submissions)
           format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
         else
           format.html { render :new }
@@ -126,6 +128,7 @@ class SubmissionsController < ApplicationController
   end
 
   def search
+    @user_code = session[:login_user]
     @today = Date.today.to_s
     @submissions = Submission.all.order(:deadline => "asc")
     session[:search_subject] = nil
