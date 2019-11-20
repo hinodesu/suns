@@ -18,7 +18,7 @@
           <% if @annual_event %>
             <%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %>
           <% end %>
-
+          <% @user_code = session[:login_user] %>
           <% if @user_code && @user_code.first == "t" %>
             <td><%= link_to 'ユーザー一覧', users_path,class: "btn-users" %></td>
           <% end %>

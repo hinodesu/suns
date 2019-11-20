@@ -25,52 +25,35 @@
   </tr>
 </table>
 
-<table align="left">
-  </thead>
-  <tr>
-    <th>
-      名前
-      </th>
-  </tr>
-  </thead>
+  <div class="field">
+    <%= form.label :画像 %>
+    <%= form.file_field :filename %>
+  </div>
 
-  <tbody>
-    <% @members.each_with_index do |member,index| %>
-      <tr>
-        <td align="center">
-          <%= member.name %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+<table>
+<thead>
+
+ <tr>
+   <th>名前</th>
+   <th>提出状況</th>
+ </tr>
+</thead>
+
+<tbody>
+ <% @members.each_with_index do |member,index| %>
+   <tr>
+     <td align="center"><%= member.name %></td>
+     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 0 %>未提出</label></td>
+     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 1 %>再提出</label></td>
+     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 2 %>提出済</label></td>
+   </tr>
+ <% end %>
+</tbody>
 </table>
 
-<div class="field">
-  <%= form.label :画像 %>
-  <%= form.file_field :filename %>
-</div>
 
-<div class="field">
-  <table>
-    <tr>
-      <th>
-        提出状況
-      </th>
-    </tr>
-    
-    <% @members.each_with_index do |member,index| %>
-      <tr>
-        <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 0 %>未提出</label></td>
-        <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 1 %>再提出</label></td>
-        <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 2 %>提出済</label></td>
-      </tr>
-    <% end %>
-  </table>
-</div>
-
-
-<div class="actions">
-  <%= form.submit %>
-</div>
+  <div class="actions">
+    <%= form.submit "編集" %>
+  </div>
 
 
