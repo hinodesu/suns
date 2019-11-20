@@ -21,13 +21,12 @@
 
   <div class="field">
     <%= form.label :カテゴリー %>
-    <%= form.number_field :category, id: :notification_category ,min: 1,max: 2 %>
-
+    <label><%= form.radio_button :category, 1%>時間割    <%= form.radio_button :category, 2%>お知らせ</label>
   </div>
 
   <div class="field">
     <%= form.label :表示日付 %>
-    <%= form.date_select :d_day, id: :notification_d_day %>
+    <%= form.date_field :d_day, id: :notification_d_day %>
   </div>
 
   <div class="actions">
