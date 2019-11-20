@@ -46,8 +46,14 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-   params[:user][:grade] = params[:user][:number][-4]
-   params[:user][:class_room] = params[:user][:number][-3]
+
+    if params[:user][:number][0] == "s"
+      params[:user][:grade] = params[:user][:number][-4]
+      params[:user][:class_room] = params[:user][:number][-3]
+    else
+      params[:user][:grade] = "0"
+      params[:user][:class_room] = "0"
+    end
 
     @user = User.new(user_params)
 
@@ -160,6 +166,7 @@ class UsersController < ApplicationController
   end
 
   def bulk_create
+    logger.debug("=========OK=======")
     user_count = import_users
     redirect_to users_path, notice: "#{user_count}件登録しました"
   end
@@ -178,15 +185,19 @@ class UsersController < ApplicationController
 
     def import_users
       # 登録処理前のレコード数
+      logger.debug("=========１=======")
       current_user_count = ::User.count
       users = []
       u_id = User.maximum(:id) + 1
+      logger.debug("=========２=======")
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
       CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
-        users << User.new( number: row["学籍番号"], grade: row["学年"][-4], class_room: row["組"][-3], name: row["名前"] , kana: row["ふりがな"], gender: row["性別"] , password: row["パスワード"])
+        users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["ふりがな"], gender: row["性別"] , password: row["パスワード"])
       end
+      logger.debug("=========３=======")
       # importメソッドでバルクインサートできる
       ::User.import(users)
+      logger.debug("=========４=======")
       # 何レコード登録できたかを返す
       ::User.count - current_user_count
     end

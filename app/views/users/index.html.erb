@@ -18,7 +18,7 @@
 
 <%= form_tag('/users_search') do %>
   <p>
-    年&thinsp;    組    名前
+    年&thinsp;　　組　　名前
     <br>
  <%= select_tag 'search[grade]',options_for_select({１:"1",２:"2",３:"3"},{ :selected => session[:search_grade]}),include_blank: true %><%= select_tag 'search[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"},{ :selected => session[:search_class_room]}),include_blank: true %><%= text_field_tag 'search[name]',session[:search_name] %><%= submit_tag '検索🔍' %>
   </p>

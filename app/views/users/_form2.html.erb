@@ -1,58 +1,53 @@
-<% if user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2>❣ 入力項目に<%= pluralize(user.errors.count,"") %>つのエラーがあります</h2>
 
-    <ul>
-    <% user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
     <% end %>
-    </ul>
+
+  <div class="field">
+    <%= form.label :学籍番号 %>
+    <%= form.text_field :number, id: :user_number %>
   </div>
-<% end %>
-
-<div class="field">
-  <%= form.label :学籍番号 %>
-  <%= form.text_field :number, id: :user_number %>
-</div>
 
 
-<!-- <div class="field">
-<%= form.label :"年" %>
-<%= form.select :grade,{"":"","1":"1","2":"2","3":"3"}%>
-</div> -->
+  <!-- <div class="field">
+  <%= form.label :"年" %>
+  <%= form.select :grade,{"":"","1":"1","2":"2","3":"3"}%>
+  </div> -->
 
-<!-- <div class="field">
-<%= form.label :"組" %>
-<%= form.select :class_room,{"":"","1":"1","2":"2","3":"3","4":"4"}%>
-</div> -->
+  <!-- <div class="field">
+  <%= form.label :"組" %>
+  <%= form.select :class_room,{"":"","1":"1","2":"2","3":"3","4":"4"}%>
+  </div> -->
 
 
-<div class="field">
-  <%= form.label :名前 %>
-  <%= form.text_field :name, id: :user_name %>
-</div>
+  <div class="field">
+    <%= form.label :名前 %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
 
-<div class="field">
-  <%= form.label :フリガナ %>
-  <%= form.text_field :kana, id: :user_kana %>
-</div>
+  <div class="field">
+    <%= form.label :フリガナ %>
+    <%= form.text_field :kana, id: :user_kana %>
+  </div>
 
-<div class="field">
-  <%= form.label :性別 %>
-  <label>
-    <%= form.radio_button :gender,  "男"%>男    
-    <%= form.radio_button :gender,  "女"%>女
-  </label>
-</div>
+  <div class="field">
+    <%= form.label :性別 %>
+    <label><%= form.radio_button :gender,  "男"%>男    <%= form.radio_button :gender,  "女"%>女</label>
+    </div>
 
-<div class="field">
-  <%= form.label :パスワード %>
-  <%= form.text_field :password, id: :user_password %>
-  <%= form.label :パスワード確認 %>
-  <%= form.password_field :password_confirmation %>
-</div>
+  <div class="field">
+    <%= form.label :パスワード %>
+    <%= form.password_field :password, id: :user_password %>
+    <%= form.label :パスワード確認 %>
+    <%= form.password_field :password_confirmation %>
+  </div>
 
-<div class="actions">
-  <%= submit_tag "登録" %>
-</div>
-
+  <div class="actions">
+    <%= submit_tag "登録" %>

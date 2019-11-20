@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        number: 学籍番号
+        name: 名前
+        kana: フリガナ
+        gender: 性別
+        password: パスワード
+        password_confirmation: パスワード確認
