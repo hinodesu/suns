@@ -9,9 +9,9 @@
     text-align: right; /* 文章を右寄せする */
  }
  .titlebar {
-    background-color: #cc0000; /* 背景を赤色に */
-    color:white;               /* 文字を白色に */
-    font-weight:bold;          /* 太字にする */
+  background-color: #cc0000; /* 背景を赤色に */
+  color:white;               /* 文字を白色に */
+  font-weight:bold;          /* 太字にする */
  }
 
 HTML CSSResult
@@ -45,279 +45,261 @@ body {
   animation-duration:5s;
 }
 
+
+
 .today{
   text-align:right;
   font-size:30px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #000000;
-        border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #000000;
+  border-radius: 2px;
 }
 
 
-      .btn-sticky-1 {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        background: #f7f7f7;
-        border-left: solid 6px #ff0000;/*左線*/
-        color: #645d5d;/*文字色*/
-        font-weight: bold;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      .btn-sticky:active {
-        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-        transform: translateY(2px);
-      }
+.btn-sticky-1 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #ff0000;/*左線*/
+  color: #645d5d;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .btn-sticky-2 {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        background: #f7f7f7;
-        border-left: solid 6px #0000ff;/*左線*/
-        color: #645d5d;/*文字色*/
-        font-weight: bold;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      .btn-sticky:active {
-        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-        transform: translateY(2px);
-      }
+.btn-sticky-2 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #0000ff;/*左線*/
+  color: #645d5d;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .btn-sticky-3 {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        background: #f7f7f7;
-        border-left: solid 6px #f1e420;/*左線*/
-        color: #645d5d;/*文字色*/
-        font-weight: bold;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      .btn-sticky:active {
-        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-        transform: translateY(2px);
-      }
 
-      .btn-sticky-4 {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        background: #f7f7f7;
-        border-left: solid 6px #00ff55;/*左線*/
-        color: #645d5d;/*文字色*/
-        font-weight: bold;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      .btn-sticky:active {
-        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-        transform: translateY(2px);
-      }
-      
-      .btn-sticky-5 {
-        display: inline-block;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        background: #f7f7f7;
-        border-left: solid 6px #aa00ff;/*左線*/
-        color: #645d5d;/*文字色*/
-        font-weight: bold;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      .btn-sticky:active {
-        box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-        transform: translateY(2px);
-      }
-      
-      .btn-logout {
-        font-size:17px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #ff9100;
-        border-radius: 2px;
-        color: #00BCD4;   
-        transition: .4s;
-      }
-      
-      .btn-logout:hover {
-        background: #ff9100;
-        color: white;
-      }
+.btn-sticky-3 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #f1e420;/*左線*/
+  color: #645d5d;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .btn-logout-head {
-        font-size:20px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #ff9100;
-        border-radius: 2px;
-        color: #00BCD4; 
-        transition: .4s;
-      }
+.btn-sticky-4 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #00ff55;/*左線*/
+  color: #645d5d;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .btn-logout-head:hover {
-        background: #ff9100;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
+.btn-sticky-5 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #aa00ff;/*左線*/
+  color: #645d5d;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .btn-suns {
-        font-size:40px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-radius: 20px;
-        color: #00BCD4; 
-        transition: .4s;
-      }
-      
-      .btn-suns:hover {
-        background: #ff9100;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
+.btn-logout {
+  font-size:17px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #ff9100;
+  border-radius: 2px;
+  color: #00BCD4;   
+  transition: .4s;
+}
 
-      .btn-sub {
-        font-size:20px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #ff0000;
-        border-radius: 2px;
-        color: #00BCD4;
-    
-        transition: .4s;
-      }
-      
-      .btn-sub:hover {
-        background: #ff0000;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
-      
-      .btn-not {
-        font-size:20px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #0000ff;
-        border-radius: 2px;
-        color: #00BCD4;    
-        transition: .4s;
-      }
-      
-      .btn-not:hover {
-        background: #0000ff;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
+.btn-logout:hover {
+  background: #ff9100;
+  color: white;
+}
 
-      .btn-anu {
-        font-size:20px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #f1e420;
-        border-radius: 2px;
-        color: #00BCD4;   
-        transition: .4s;
-      }
-      
-      .btn-anu:hover {
-        background: #f1e420;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
+.btn-logout-head {
+  font-size:20px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #ff9100;
+  border-radius: 2px;
+  color: #00BCD4; 
+  transition: .4s;
+}
 
-      .btn-users {
-        font-size:20px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-bottom: solid 2px #00ff55;
-        border-radius: 2px;
-        color: #00BCD4;
-        transition: .4s;
-      }
-      
-      .btn-users:hover {
-        background: #00ff55;
-        color: white;
-        box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
-      }
+.btn-logout-head:hover {
+  background: #ff9100;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-      .title-bottom {
-        font-size:15px;
-        position: relative;
-        display: inline-block;
-        font-weight: bold;
-        padding: 0.25em 0.5em;
-        text-decoration: none;
-        border-radius: 2px;
-        color: rgb(0, 0, 0);   
-        transition: .4s;
-      }
-      
+.btn-suns {
+  font-size:40px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-radius: 20px;
+  color: #00BCD4; 
+  transition: .4s;
+}
+
+.btn-suns:hover {
+  background: #ff9100;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.btn-sub {
+  font-size:20px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #ff0000;
+  border-radius: 2px;
+  color: #00BCD4;    
+  transition: .4s;
+}
+
+.btn-sub:hover {
+  background: #ff0000;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.btn-not {
+  font-size:20px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #0000ff;
+  border-radius: 2px;
+  color: #00BCD4;    
+  transition: .4s;
+}
+
+.btn-not:hover {
+  background: #0000ff;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.btn-anu {
+  font-size:20px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #f1e420;
+  border-radius: 2px;
+  color: #00BCD4;   
+  transition: .4s;
+}
+
+.btn-anu:hover {
+  background: #f1e420;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.btn-users {
+  font-size:20px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 2px #00ff55;
+  border-radius: 2px;
+  color: #00BCD4;
+  transition: .4s;
+}
+
+.btn-users:hover {
+  background: #00ff55;
+  color: white;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.title-bottom {
+  font-size:15px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-radius: 2px;
+  color: rgb(0, 0, 0);   
+  transition: .4s;
+}
+
       
 .suns {
-    text-align:center;
-    text-transform: uppercase;
-    letter-spacing: .3em;
-    display: inline-block;
-    border-top: 1px solid #000000;
-    border-bottom: 2px solid #000000;
-    border-width: 2px 0;
-    padding: 0.2em 0em;
-    position: absolute;
-    top: 17%;
-    left: 50%;
-    width: 30em;
-    margin: 0 0 0 -15em;
-  
-  span {
+  text-align:center;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  display: inline-block;
+  border-top: 1px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-width: 2px 0;
+  padding: 0.2em 0em;
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  width: 30em;
+  margin: 0 0 0 -15em;
 
-    font: 700 4em/1 "Oswald", sans-serif;
-    letter-spacing: 0;
-    padding: .25em 0 .250em;
-    font-size: 84px;
-      display: block;
-      margin: 0 auto;
-    text-shadow: 0 0 80px rgba(255,255,255,.5);
+span {
+
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: .25em 0 .250em;
+  font-size: 84px;
+    display: block;
+    margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
 
 /* Clip Background Image */
 
-      background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
-      -webkit-background-clip: text;
-      background-clip: text;
+    background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
 
 /* Animate Background Image */
 
-      -webkit-text-fill-color: transparent;
-      -webkit-animation: aitf 45s linear infinite;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 45s linear infinite;
 
 /* Activate hardware acceleration for smoother animations */
 
-      -webkit-transform: translate3d(0,0,0);
-      -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
 
   }
 }
@@ -332,7 +314,6 @@ h7 {
     100% { background-position: 100% 50%; }
 }
 
-
 @keyframes slide {
   0% {
     transform:translateX(-25%);
@@ -342,3 +323,18 @@ h7 {
   }
 }
 
+
+table{
+  width: 65%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,table td{
+  padding: 7px 0;
+  text-align: center;
+}
+
+table tr:nth-child(odd){
+  background-color: #eee
+}

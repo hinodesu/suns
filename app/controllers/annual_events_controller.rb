@@ -58,12 +58,12 @@ class AnnualEventsController < ApplicationController
       }
     end
 
-        #パラメータの修正
-        if params[:annual_event][:filename].present?
+      #パラメータの修正
+      if params[:annual_event][:filename].present?
           params[:annual_event][:filename] = params[:annual_event][:filename].original_filename
-         else
+        else
           params[:annual_event][:filename] = ""
-         end
+      end
 
     respond_to do |format|
       if @annual_event.update(annual_event_params)

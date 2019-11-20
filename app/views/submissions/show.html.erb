@@ -1,5 +1,11 @@
-<p id="notice"><%= notice %></p>
-<b><font size="6">提出物詳細</font></b>
+<p id="notice">
+  <%= notice %>
+</p>
+
+<b><font size="6">
+  提出物詳細
+</font></b>
+
 <p>
   <strong>科目</strong>
   <%= @submission.subject %>
@@ -16,9 +22,9 @@
 </p>
 
 <p>
-  <%= @submission.grade %>
+    <%= @submission.grade %>
   <strong>年</strong>
-  <%= @submission.class_room %>
+    <%= @submission.class_room %>
   <strong>組</strong>
 </p>
 
@@ -40,54 +46,54 @@
 </table>
 
 <table>
-<tr><th>提出状況</th></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student1] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student2] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student3] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student4] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student5] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student6] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student7] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student8] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student9] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student10] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student11] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student12] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student13] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student14] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student15] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student16] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student17] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student18] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student19] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student20] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student21] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student22] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student23] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student24] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student25] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student26] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student27] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student28] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student29] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student30] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student31] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student32] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student33] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student34] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student35] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student36] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student37] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student38] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student39] %></td></tr>
-<tr><td><%= SUBMISSION_LIST[@submission.student40] %></td></tr>
+  <tr><th>提出状況</th></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
+  <tr><td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td></tr>
 </table>
 
 <table>
   <tr>
    <td>
      <% if @submission.filename.present? %>
-     <%= image_tag @submission.filename %>
+       <%= image_tag @submission.filename %>
      <% end %>
     </td>
   </tr>

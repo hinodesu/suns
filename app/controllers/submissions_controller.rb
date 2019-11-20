@@ -15,16 +15,19 @@ class SubmissionsController < ApplicationController
     else
       @submissions = Submission.all.order(:deadline => "asc")
     end
+
     if session[:search_deadline] == "期限前"
       @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "asc")
     else
       @submissions = Submission.all.order(:deadline => "asc")
     end
+
     if session[:search_deadline] == "期限切れ"
       @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "asc")
     else
       @submissions = Submission.all.order(:deadline => "asc")
     end
+
     if session[:search_title].present?
       @submissions = @submissions.where("title like '%" + session[:search_title] + "%'").order(:deadline => "asc")
     else
@@ -106,6 +109,7 @@ class SubmissionsController < ApplicationController
       else
        params[:submission][:filename] = ""
       end
+
     respond_to do |format|
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
@@ -144,14 +148,17 @@ class SubmissionsController < ApplicationController
       @submissions = @submissions.where("deadline >= '" + @today + "'").order(:deadline => "asc")
       session[:search_deadline] = params[:search][:deadline]
     end
+
     if params[:search][:deadline] == "期限切れ"
       @submissions = @submissions.where("deadline < '" + @today + "'").order(:deadline => "asc")
       session[:search_deadline] = params[:search][:deadline]
     end
+
     if params[:search][:title].present?
       @submissions = @submissions.where("title like '%" + params[:search][:title] + "%'").order(:deadline => "asc")
       session[:search_title] = params[:search][:title]
     end
+
     render :index
   end
 
@@ -177,7 +184,8 @@ class SubmissionsController < ApplicationController
       submissions = Submission.where(id: @select_submissions)
       
     if params[:commit] == "選択編集"
-      if submissions.update_all(subject: params[:submission][:subject], title: params[:submission][:title], deadline: params[:submission][:deadline])
+      if submissions.update_all(subject: params[:submission][:subject], 
+        title: params[:submission][:title], deadline: params[:submission][:deadline])
       end
       respond_to do |format|
         format.html { redirect_to submissions_path, notice: '提出物を一括で編集しました。' }

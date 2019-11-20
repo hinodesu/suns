@@ -1,24 +1,29 @@
-  <% if submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+<% if submission.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(submission.errors.count, "error") %> 
+      prohibited this submission from being saved:
+    </h2>
 
-      <ul>
+    <ul>
       <% submission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li>
+          <%= message %>
+        </li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <table>
-   <tr>
-     <td>
-       <% if @submission.filename.present? %>
-         <%= image_tag @submission.filename %>
-       <% end %>
-      </td>
-   </tr>
-  </table>
+<table>
+  <tr>
+    <td>
+      <% if @submission.filename.present? %>
+        <%= image_tag @submission.filename %>
+      <% end %>
+    </td>
+  </tr>
+</table>
 
   <div class="field">
     <%= form.label :画像 %>
