@@ -7,7 +7,11 @@
 
 <p>
   <strong>カテゴリー:</strong>
-  <%= @notification.category %>
+  <% if @notification.category == 1 %>
+  時間割
+<% else %>
+  お知らせ
+<% end %>
 </p>
 
 <p>
