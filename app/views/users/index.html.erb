@@ -5,8 +5,6 @@
     <span>
       <div style="font-size:20px; text-align:right"><%=  Date.current.strftime('%Y/%m/%d(%a)') %></div>
       <br>
-      <%= link_to 'Top', home_top_path,class: "btn-sub" %>
-      <br>
       <%= link_to '一括登録', users_bulk_new_path,class: "btn-sub" %>
       &thinsp; 
       <%= link_to '１つずつ登録', new_user_path,class: "btn-sub" %>
@@ -30,13 +28,12 @@
   <table border="1" width="100%">
 
   
-    <caption align="right">
 
       <%=submit_tag "選択編集", onclick: "return isCheck()" %>
       &thinsp; 
       <%=submit_tag "選択削除", onclick: "return isCheck()" %>
-    </caption>
-
+      <br>
+      <br>
     <thead>
 
       <tr>    
