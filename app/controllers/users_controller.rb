@@ -57,13 +57,18 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'ユーザーの作成が完了しました。' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if params[:user][:password] != params[:user][:password_conifirmation]
+      @user.errors[:base] << 'パスワードとパスワード確認が異なります'
+      render :new
+    else
+      respond_to do |format|
+        if @user.save
+          format.html { redirect_to @user, notice: 'ユーザーの作成が完了しました。' }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -125,14 +130,17 @@ class UsersController < ApplicationController
 
 
   def select_edit
+    if params[:select_datas].present?
+      @select_users = params[:select_datas].keys.map(&:to_i)
+      @users = User.where(id:@select_users)
 
-    @select_users = params[:select_datas].keys.map(&:to_i)
-    @users = User.where(id:@select_users)
-
-    #if params[:select_edit][:commit] == "選択編集"
-    #end
-    #if params[:select_edit][:commit] == "選択削除"
-    #end
+      #if params[:select_edit][:commit] == "選択編集"
+      #end
+      #if params[:select_edit][:commit] == "選択削除"
+      #end
+    else
+      redirect_to users_path, notice: "編集または削除するデータを一件以上チェックしてください。"
+    end  
   end
 
   def select_edit_all

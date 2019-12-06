@@ -26,11 +26,11 @@
     </div>
 
     <br>
-    <div style="float:left;"><%=submit_tag "選択編集"%></div>
+    <div style="float:left;"><%=submit_tag "選択編集", onclick: "return isCheck()" %></div>
 
   <% else %>
 
-    <%=submit_tag "選択削除"%>
+    <%=submit_tag "選択削除", onclick: "return isCheck()" %>
 
   <% end %>
 
@@ -58,7 +58,7 @@
       <% @users.each do |user| %>
   
         <tr>
-          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"} %></td>
+          <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"},:class => "list" %></td>
           <td width="5%" align="center"><%= user.grade %></td>
           <td width="5%" align="center"><%= user.class_room %></td>
           <td width="5%" align="center"><%= user.id %></td>
@@ -73,5 +73,23 @@
 
 
 <% end %>
+
+<script type="text/javascript">
+function isCheck() {
+	var arr_checkBoxes = document.getElementsByClassName("list");
+	var count = 0;
+	for (var i = 0; i < arr_checkBoxes.length; i++) {
+		if (arr_checkBoxes[i].checked) {
+			count++;
+		}
+	}
+	if (count > 0) {
+		return true;
+	} else {
+		window.alert("項目を選択してください。");
+		return false;
+	}
+}
+</script>
 
 

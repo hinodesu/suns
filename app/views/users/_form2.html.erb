@@ -39,7 +39,8 @@
 
   <div class="field">
     <%= form.label :性別 %>
-    <label><%= form.radio_button :gender,  "男"%>男    <%= form.radio_button :gender,  "女"%>女</label>
+    <label><%= form.radio_button :gender,  "男"%>男</label>
+    <label><%= form.radio_button :gender,  "女"%>女</label>
     </div>
 
   <div class="field">
@@ -51,3 +52,18 @@
 
   <div class="actions">
     <%= submit_tag "登録" %>
+
+<script type="text/javascript">
+  function isCheck() {
+    var user_password = document.getElementsById("user_password");
+    var user_password_confirmation = document.getElementsByClassName("user_password_confirmation");
+    window.alert(user_password);
+    return false;
+  }
+
+  $(document).on("change", "#user_number", function(){
+    let str = $(this).val()
+    str = str.replace( /[^!-~]/g , "" );
+    $(this).val(str);
+  });
+</script>
