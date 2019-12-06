@@ -23,6 +23,8 @@
             <td><%= link_to 'ユーザー一覧', users_path,class: "btn-users" %></td>
           <% end %>
             <td><%= link_to 'ログアウト',home_logout_path,class: "btn-logout-head" %></td>
+            <td><div style="font-size:20px; text-align:right;font-weight: bold">
+            <%=  Date.current.strftime('%Y/%m/%d(%a)') %></div></td> 
       </tr>
     </header>
 
