@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.bg {
+.bg.sub {
     animation:slide 3s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #ff0000 50%,#ffffff 50% );
     bottom:0;
@@ -14,12 +14,12 @@
     z-index:-1;
 }
     
-    .bg2 {
+    .bg2.sub {
     animation-direction:alternate-reverse;
     animation-duration:4s;
   }
   
- .bg3 {
+ .bg3.sub {
     animation-duration:5s;
  
   }
