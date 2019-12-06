@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
 
-    if params[:user][:password] != params[:user][:password_conifirmation]
+    if params[:user][:password] != params[:user][:password_confirmation]
       @user.errors[:base] << 'パスワードとパスワード確認が異なります'
       render :new
     else

@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def teacher_check
-     logger.debug("===========")
-     logger.debug(session[:login_user])
     if session[:login_user] && session[:login_user].first == "s" 
      redirect_to home_top_path, notice: "権限がないページにアクセスしようとしています。", layout: nil
     end
