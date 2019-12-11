@@ -15,13 +15,14 @@
   <% end %>
 
   <div class="field">
-   <%= form.label :ファイル選択 %>
-   <%= form.file_field :filename %>
+   <%= form.label :カテゴリー %>
+   <label><%= form.radio_button :category, 1%>時間割    <%= form.radio_button :category, 2%>お知らせ</label>
   </div>
 
+
   <div class="field">
-    <%= form.label :カテゴリー %>
-    <label><%= form.radio_button :category, 1%>時間割    <%= form.radio_button :category, 2%>お知らせ</label>
+   <%= form.label :ファイル選択 %>
+   <%= form.file_field :filename %>
   </div>
 
   <div class="field">
