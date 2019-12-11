@@ -10,13 +10,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <header>
+    <table>
       <tr>
         <td><%= link_to 'Suns', home_top_path,class: "btn-suns" %></td>
         <td><%= link_to '提出物一覧', submissions_path,class: "btn-sub" %></td>
         <td><%= link_to 'お知らせ一覧', notifications_path,class: "btn-not" %></td>
       
           <% if @annual_event %>
-            <%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %>
+            <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %></td>
           <% end %>
           <% @user_code = session[:login_user] %>
           <% if @user_code && @user_code.first == "t" %>
@@ -26,8 +27,10 @@
             <td><div style="font-size:20px; text-align:right;font-weight: bold">
             <%=  Date.current.strftime('%Y/%m/%d(%a)') %></div></td> 
       </tr>
+      </table>
     </header>
 
+     <br>
      <br>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
