@@ -77,8 +77,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 
-    @user = User.new(user_params)
-
     if params[:user][:password] != params[:user][:password_confirmation]
       @user.errors[:base] << 'パスワードとパスワード確認が異なります'
       render :edit
@@ -162,7 +160,7 @@ class UsersController < ApplicationController
       if users.update_all(grade: params[:user][:grade], class_room: params[:user][:class_room])
       end
       respond_to do |format|
-        format.html { redirect_to users_path, notice: 'ユーザを一括で編集しました。' }
+        format.html { redirect_to users_path, notice: 'ユーザーを一括で編集しました。' }
       end
     end
         

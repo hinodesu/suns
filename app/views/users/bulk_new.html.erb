@@ -1,22 +1,25 @@
+
 <% if flash[:notice] %>
   <div class="alert alert-info" role="alert"><%= flash[:notice] %></div>
 <% end %>
 
+
 <h1>ユーザー一括登録</h1>
 
 <div>
+csvファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
     <div class="search_item">
       <%= f.file_field 'users_file' %>
     </div>
     <br>
     <div>
-      <%= submit_tag "登録" %>
+      <%= submit_tag "登録" %>　<%= link_to 'Back', users_path %>
+
     </div>
   <% end %>
 </div>
 
-<br>
-<%= link_to 'Back', users_path %>
+
 
 
