@@ -7,7 +7,7 @@
 <h1 style="text-align:left">お知らせ一覧</h1>
 
 <table width="90%">
- <thead >
+ <thead class="notific">
   <tr>
     <th width="50%">時間割</th>
     <th>お知らせ</th>
@@ -16,7 +16,7 @@
 
  <tbody class="notif">
    <div class = "inline-block_test" >
-     <tr class="center">
+     <tr class = "center">
        <% if @today_timetable.present? %>
          <td>
          <%= link_to asset_url("#{@today_timetable.filename}"), target: "_blank" do %>
@@ -41,11 +41,13 @@
   </tbody>
 </table>
 
+<br>
+
 <% if @user_code && @user_code.first == "t" %>
   <font size="3">
     <%= link_to '新規作成', new_notification_path,class: "btn-not" %>
     <table border="1">
-      <thead class="notif">
+      <thead class="notific">
         <tr>
           <th>表示日付</th>
           <th>カテゴリー</th>
