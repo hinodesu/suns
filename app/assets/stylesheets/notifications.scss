@@ -1,3 +1,31 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-not {
+    font-size:20px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    border-bottom: solid 2px #0000ff;
+    border-radius: 2px;
+    color: #00BCD4;    
+    transition: .4s;
+}
+  
+.btn-not:hover {
+    background: #0000ff;
+    color: white;
+    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.notif{
+    border:double 2px #0000ff;
+    background-color: #ffffff;
+}
+
+h1{
+    font-size :30px;
+    color :#0000ff;
+}

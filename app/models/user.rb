@@ -28,22 +28,22 @@ class User < ApplicationRecord
             errors[:base] << '性別を選択してください'
         end
 
-        if filename.blank?
-            errors[:base] << 'ファイルを選択してください'
-        end
+        # if filename.blank?
+        #     errors[:base] << 'ファイルを選択してください'
+        # end
       
         #passwordが空の時にエラーメッセージを追加する
         #if password.blank?
         #   errors[:base] << 'パスワードを入力してください'
         #end
 
-        unless filename.blank?
-            case File.extname(filename)
-            when".csv"
-            else
-                errors[:base] <<'登録できる拡張子はcsvです。'
-            end
-        end
+        # unless filename.blank?
+        #     case File.extname(filename)
+        #     when".csv"
+        #     else
+        #         errors[:base] <<'登録できる拡張子はcsvです。'
+        #     end
+        # end
     
     end
 
