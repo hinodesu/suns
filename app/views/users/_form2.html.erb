@@ -11,7 +11,10 @@
     <% end %>
 
   <div class="field">
-    <%= form.label :学籍番号 %>
+  <div style="display:inline-flex">
+    <%= form.label :学籍番号 %>(半角で入力してください)
+  </div>
+  <br>
     <%= form.text_field :number, id: :user_number %>
   </div>
 

@@ -180,8 +180,8 @@ class UsersController < ApplicationController
 
   def bulk_create
     logger.debug("=========OK=======")
-    user_count = import_users
-    redirect_to users_path, notice: "#{user_count}件登録しました"
+       user_count = import_users
+        redirect_to users_path, notice: "#{user_count}件登録しました"
   end
 
 
