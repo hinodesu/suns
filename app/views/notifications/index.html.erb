@@ -3,23 +3,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <meta charset=”utf-8″>
-<style>
-  .center{text-align: center;}
-</style>
 
-<h1 style="text-align:left">お知らせ一覧</h1>
+<h1 style="text-align:left" class="tit" >お知らせ一覧</h1>
 
 <table width="90%">
- <thead>
+ <thead class="notific">
   <tr>
     <th width="50%">時間割</th>
     <th>お知らせ</th>
-  </tr>
+    </tr>
  </thead>
 
- <tbody>
+ <tbody class="notif">
    <div class = "inline-block_test" >
-     <tr class="center">
+     <tr class = "center">
        <% if @today_timetable.present? %>
          <td>
          <%= link_to asset_url("#{@today_timetable.filename}"), target: "_blank" do %>
@@ -44,25 +41,27 @@
   </tbody>
 </table>
 
+<br>
+
 <% if @user_code && @user_code.first == "t" %>
   <font size="3">
-    <%= link_to '新規作成', new_notification_path %>
+    <%= link_to '新規作成', new_notification_path,class: "btn-not" %>
     <table border="1">
-      <thead>
+      <thead class="notific">
         <tr>
           <th>表示日付</th>
           <th>カテゴリー</th>
-          <th>詳細</th>
+          <th>詳細</td>
           <th>編集</th>
           <th>削除</th>
         </tr>
       </thead>
 
-      <tbody>
+      <tbody class="notif">
         <% @notifications.each do |notification| %>
           <tr>
             <td>
-              <%= notification.d_day %>
+              <%= notification.d_day.strftime('%Y/%m/%d') %>
             </td>
             <td>
             <% if notification.category == 1 %>
