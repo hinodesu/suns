@@ -4,7 +4,7 @@
 <html lang="ja">
 <meta charset=”utf-8″>
 
-<h1 style="text-align:left">お知らせ一覧</h1>
+<h1 style="text-align:left" class="tit" >お知らせ一覧</h1>
 
 <table width="90%">
  <thead class="notific">
@@ -61,7 +61,7 @@
         <% @notifications.each do |notification| %>
           <tr>
             <td>
-              <%= notification.d_day %>
+              <%= notification.d_day.strftime('%Y/%m/%d') %>
             </td>
             <td>
             <% if notification.category == 1 %>
