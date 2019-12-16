@@ -95,6 +95,8 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
+    @members = User.where(grade: @submission.grade ,class_room: @submission.class_room)
+
      #画像設定
      if params[:submission][:filename].present?
        @submission.filename = params[:submission][:filename].original_filename

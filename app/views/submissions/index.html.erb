@@ -70,9 +70,9 @@
             <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
             <td align="center"><%= submission.deadline %></td>
 
-            <td align="center"><%= link_to '詳細', submission %></td>
-            <td align="center"><%= link_to '編集', edit_submission_path(submission) %></td>
-            <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td align="center"><%= link_to '詳細', submission, class:"btn-sub"%></td>
+            <td align="center"><%= link_to '編集', edit_submission_path(submission), class:"btn-sub"%></td>
+            <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-sub"%></td>
           </tr>
         <% end %>
      </tbody>
@@ -95,7 +95,7 @@
            <td align="center"><%= submission.subject %></td>
            <td align="center"><%= submission.title %></td>
            <td align="center"><%= submission.deadline %></td>
-           <td align="center"><%= link_to '詳細', submission %></td>
+           <td align="center"><%= link_to '詳細', submission, class:"btn-sub"%></td>
          </tr>
        <% end %>
      </tbody>
