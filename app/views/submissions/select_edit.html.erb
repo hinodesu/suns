@@ -54,7 +54,8 @@
    <%= submit_tag "選択編集" , onclick: "return isCheck()" %>
  <% else %>
    <%= submit_tag "選択削除" , onclick: "return isCheck()" %>
- <% end %>　　　　　　　　　　　<%= link_to '一覧に戻る', submissions_path %>
+ <% end %>
+   <%= link_to '一覧に戻る', submissions_path,class:"btn-sub" %>
 <% end %>
 
 <script type="text/javascript">
