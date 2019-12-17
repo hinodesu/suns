@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<b><font size="6">ユーザー一覧</font></b> 
+<div class="usub"></div>
+  <div class="usub usub2"></div>
+  <div class="usub usub3"></div>
+
+
+<b class="utitle">ユーザー一覧</font></b> 
   <div style="text-align: right;float:right">
     <span>
       <br>
@@ -36,33 +41,33 @@
       <%=submit_tag "選択削除", onclick: "return isCheck()" %>
       <br>
       <br>
-    <thead>
+    <thead class="uback2">
 
       <tr>    
         <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
-        <th>年</th>
-        <th>組</th>
-        <th>番</th>
-        <th>名前</th>
-        <th>性別</th>
+        <th class="fs25">年</th>
+        <th class="fs25">組</th>
+        <th class="fs25">番</th>
+        <th class="fs25">名前</th>
+        <th class="fs25">性別</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="uback">
 
       <% @users.each_with_index do |user, idx| %>
       
         <tr>
           <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, false, :class => "list" %></td>
-          <td width="5%" align="center"><%= user.grade %></td>
-          <td width="5%" align="center"><%= user.class_room %></td>
-          <td width="5%" align="center"><%= idx+1 %></td>
-          <td width="40%" align="center"><%= user.name %></td>
-          <td width="10%" align="center"><%= user.gender %></td>
-          <td width="15%" align="center"><%= link_to '編集', edit_user_path(user),class: "btn-users" %></td>
-          <td width="15%" align="center"><%= link_to '詳細', user,class: "btn-users" %></td>
+          <td width="5%" class="fs20"><%= user.grade %></td>
+          <td width="5%" class="fs20"><%= user.class_room %></td>
+          <td width="5%" class="fs20"><%= idx+1 %></td>
+          <td width="40%" class="fs20"><%= user.name %></td>
+          <td width="10%" class="fs20"><%= user.gender %></td>
+          <td width="15%" class="fs20"><%= link_to '編集', edit_user_path(user),class: "btn-users" %></td>
+          <td width="15%" class="fs20"><%= link_to '詳細', user,class: "btn-users" %></td>
         </tr>
       <% end %>
     </tbody>

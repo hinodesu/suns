@@ -9,9 +9,9 @@
   </div>
 <% end %>
 
-<div class="bgsub"></div>
-  <div class="bgsub bgsub2"></div>
-  <div class="bgsub bgsub3"></div>
+<div class="ssub"></div>
+  <div class="ssub ssub2"></div>
+  <div class="ssub ssub3"></div>
 
 <%= form_tag('/submissions_search') do %>
   <p>
@@ -45,14 +45,14 @@
    </p>
 
    <table border = "1" width = "100%">
-      <thead class="subm">
+      <thead class="submis">
 
         <tr>
           <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
-          <th class="sutmt3">科目</th>
-          <th class="sutmt3">タイトル</th>
-          <th class="sutmt3">対象</th>
-          <th class="sutmt3">期限</th>
+          <th class="fs25">科目</th>
+          <th class="fs25">タイトル</th>
+          <th class="fs25">対象</th>
+          <th class="fs25">期限</th>
           <th colspan="1"></th>
           <th colspan="1"></th>
           <th colspan="1"></th>
@@ -65,10 +65,10 @@
             <td align="center">
               <%= check_box_tag "select_datas[#{ submission.id }]", submission.id,false,:class => "list" %>
             </td>
-            <td class="sutmt2"><%= submission.subject %></td>
-            <td class="sutmt2"><%= submission.title %></td>
-            <td class="sutmt2"><%= submission.grade %>-<%= submission.class_room %></td>
-            <td class="sutmt2"><%= submission.deadline %></td>
+            <td class="fs20"><%= submission.subject %></td>
+            <td class="fs20"><%= submission.title %></td>
+            <td class="fs20"><%= submission.grade %>-<%= submission.class_room %></td>
+            <td class="fs20"><%= submission.deadline %></td>
 
             <td align="center"><%= link_to '詳細', submission, class:"btn-sub"%></td>
             <td align="center"><%= link_to '編集', edit_submission_path(submission), class:"btn-sub"%></td>
@@ -80,22 +80,22 @@
 
   <% else %>
    <table border = "1" width = "90%">
-      <thead>
+      <thead class="submis">
         <tr>
-          <th><font size="4">科目</font></th>
-          <th><font size="4">タイトル</font></th>
-          <th><font size="4">期限</font></th>
+          <th class="fs25">科目</th>
+          <th class="fs25">タイトル</th>
+          <th class="fs25">期限</th>
           <th colspan="1"></th>
         </tr>
       </thead>
 
-     <tbody>
+     <tbody class="subm">
        <% @submissions.each do |submission| %>
          <tr>
-           <td align="center"><%= submission.subject %></td>
-           <td align="center"><%= submission.title %></td>
-           <td align="center"><%= submission.deadline %></td>
-           <td align="center"><%= link_to '詳細', submission, class:"btn-sub"%></td>
+           <td class="fs20"><%= submission.subject %></td>
+           <td class="fs20"><%= submission.title %></td>
+           <td class="fs20"><%= submission.deadline %></td>
+           <td class="fs20"><%= link_to '詳細', submission, class:"btn-sub"%></td>
          </tr>
        <% end %>
      </tbody>

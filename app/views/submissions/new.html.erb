@@ -1,6 +1,11 @@
 <b><font size="6">
   提出物登録
 </font></b>
+
+<div class="ssub"></div>
+  <div class="ssub ssub2"></div>
+  <div class="ssub ssub3"></div>
+
 <%= form_with(model: @submission, local: true) do |form| %>
   <%= render 'form1', submission: @submission, form: form %>
   <%= render 'form3', submission: @submission, form: form %>
