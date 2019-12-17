@@ -51,15 +51,4 @@
   </tbody>
 </table>
 
-<table>
-  <tr>
-   <td>
-     <% if @submission.filename.present? %>
-       <%= image_tag @submission.filename %>
-     <% end %>
-    </td>
-  </tr>
-  
-</table>
-
 <%= link_to '戻る', submissions_path %>
