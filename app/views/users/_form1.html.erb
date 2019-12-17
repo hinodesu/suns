@@ -12,7 +12,7 @@
 
 <div class="field">
 <div style="display:inline-flex">
-  <%= form.label :学籍番号 %>(半角で入力してください)
+  <%= form.label :学籍番号 %><font color = "#228b22">(半角で入力してください)</font>
 </div>
 <br>
   <%= form.text_field :number, id: :user_number %>
@@ -46,10 +46,17 @@
 </div>
 
 <div class="field">
-<%= form.label :パスワード %>
-<%= form.password_field :password, id: :user_password %>
-<%= form.label :パスワード確認 %>
-<%= form.password_field :password_confirmation %>
+  <div style="display:inline-flex">
+    <%= form.label :パスワード %><font color = "#228b22">(更新したい場合のみ入力してください。)</font>
+  </div>
+  <br>
+  <%= form.password_field :password, id: :user_password %>
+  <br>
+  <div style="display:inline-flex">
+    <%= form.label :パスワード確認 %><font color = "#228b22">(更新したい場合のみ入力してください。)</font>
+  </div>
+  <br>
+  <%= form.password_field :password_confirmation %>
 </div>
 
 <div class="actions">
