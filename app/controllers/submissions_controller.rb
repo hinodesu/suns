@@ -67,12 +67,6 @@ class SubmissionsController < ApplicationController
         params[:submission][:class_room] = gc%10
 
         @submission = Submission.new(submission_params)
-        if params[:submission][:filename].present?
-          @submission.filename = params[:submission][:filename].original_filename
-          File.open("app/assets/images/#{@submission.filename}", 'w+b') { |f| f.write(params[:submission][:filename].read)
-          }
-        end
-
         @submissions << @submission
       end
 
@@ -96,21 +90,6 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1.json
   def update
     @members = User.where(grade: @submission.grade ,class_room: @submission.class_room)
-
-     #画像設定
-     if params[:submission][:filename].present?
-       @submission.filename = params[:submission][:filename].original_filename
-       #画像の保存
-       File.open("app/assets/images/#{@submission.filename}",'w+b'){ |f| f.write(params[:submission][:filename].read)
-        }
-      end
-  
-      #パラメータの修正
-      if params[:submission][:filename].present?
-       params[:submission][:filename] = params[:submission][:filename].original_filename
-      else
-       params[:submission][:filename] = ""
-      end
 
     respond_to do |format|
       if @submission.update(submission_params)
