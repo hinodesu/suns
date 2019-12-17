@@ -1,6 +1,41 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bcsub {
+    animation:slide 2.5s ease-in-out infinite alternate;
+    background-image: linear-gradient(60deg, #cccccc 35%,#00aaff 65% );
+    bottom:0;
+    left:-50%;
+    opacity:.6;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+
+.bcsub {
+    animation:slide 2.5s ease-in-out infinite alternate;
+    background-image: linear-gradient(60deg, #cccccc 35%,#5577dd 65% );
+    bottom:0;
+    left:-50%;
+    opacity:.6;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+
+  .bcsub2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bcsub3 {
+    animation-duration:5s;
+  }
+  
+
 .btn-not {
     font-size:20px;
     position: relative;
