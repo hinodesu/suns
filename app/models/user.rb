@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
     validate :gender_check
     has_secure_password
-    validates :password_confirmation, presence: true
+    #validates :password_confirmation, presence: true
     
 
     def gender_check

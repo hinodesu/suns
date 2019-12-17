@@ -4,13 +4,18 @@
 <html lang="ja">
 <meta charset=”utf-8″>
 
-<h1 style="text-align:left" class="tit" >お知らせ一覧</h1>
+<div class="bcsub"></div>
+  <div class="bcsub bcsub2"></div>
+  <div class="bcsub bcsub3"></div>
+
+
+<h1 style="text-align:left" class="notift" >お知らせ一覧</h1>
 
 <table width="90%">
  <thead class="notific">
   <tr>
-    <th width="50%">時間割</th>
-    <th>お知らせ</th>
+    <th width="50%" class="notift3">時間割</th>
+    <th class="notift3">お知らせ</th>
     </tr>
  </thead>
 
@@ -44,38 +49,36 @@
 <br>
 
 <% if @user_code && @user_code.first == "t" %>
-  <font size="3">
     <%= link_to '新規作成', new_notification_path,class: "btn-not" %>
     <table border="1">
       <thead class="notific">
         <tr>
-          <th>表示日付</th>
-          <th>カテゴリー</th>
-          <th>詳細</td>
-          <th>編集</th>
-          <th>削除</th>
+          <th class="notift3">表示日付</th>
+          <th class="notift3">カテゴリー</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody class="notif">
         <% @notifications.each do |notification| %>
           <tr>
-            <td>
+            <td class="notift2">
               <%= notification.d_day.strftime('%Y/%m/%d') %>
             </td>
-            <td>
+            <td class="notift2">
             <% if notification.category == 1 %>
               時間割
             <% else %>
               お知らせ
             <% end %>
             </td>
-            <td><%= link_to '詳細', notification %></td>
-            <td><%= link_to '編集', edit_notification_path(notification) %></td>
-            <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+            <td><%= link_to '詳細', notification,class: "btn-not" %></td>
+            <td><%= link_to '編集', edit_notification_path(notification),class: "btn-not" %></td>
+            <td><%= link_to '削除', notification, method: :delete, data: { confirm: '本当に削除しますか?' },class: "btn-not" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  </font>
 <% end %>

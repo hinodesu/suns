@@ -1,6 +1,8 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_annual_event
+
   def index
     #日付の降順に並べる
     @notifications = Notification.all.order(:d_day => "desc")

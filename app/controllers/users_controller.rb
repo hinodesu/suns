@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :teacher_check
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_annual_event
 
   # GET /users
   # GET /users.json
@@ -137,7 +138,7 @@ class UsersController < ApplicationController
   def select_edit
     if params[:select_datas].present?
       @select_users = params[:select_datas].keys.map(&:to_i)
-      @users = User.where(id:@select_users)
+      @users = User.where(id:@select_users).order(:grade).order(:class_room).order(:kana => "desc")
 
       #if params[:select_edit][:commit] == "選択編集"
       #end
@@ -180,8 +181,16 @@ class UsersController < ApplicationController
 
   def bulk_create
     logger.debug("=========OK=======")
-       user_count = import_users
-        redirect_to users_path, notice: "#{user_count}件登録しました"
+      if users_file = nil
+
+        redirect_to users_path, notice: "ファイルを選択してください。"
+
+      else
+        user_count = import_users
+        redirect_to users_path, notice: "#{user_count}件登録しました。"
+
+      end
+
   end
 
 
