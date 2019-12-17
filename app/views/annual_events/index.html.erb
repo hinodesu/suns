@@ -20,7 +20,7 @@
             <td><%= link_to '閲覧', annual_event %></td>
             <td><%= link_to '編集', edit_annual_event_path(annual_event) %></td>
             <td><%= link_to '削除', annual_event, method: :delete, data: { confirm: '本当に削除しますか？?' } %></td>
-            <td><%= link_to '登録', new_annual_event_path %></td>
+            <td><%= link_to '登録', new_annual_event_path,class:"btn.submit" %></td>
           <% end %>
       </tr>
     <% end %>

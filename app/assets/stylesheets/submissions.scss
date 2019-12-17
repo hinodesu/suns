@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.bgsub {
+.ssub {
     animation:slide 2.5s ease-in-out infinite alternate;
     background-image: linear-gradient(60deg, #cccccc 35%,#ff9292 65% );
     bottom:0;
@@ -15,7 +15,7 @@
   }
   
 
-.bgsub {
+.ssub {
     animation:slide 2.5s ease-in-out infinite alternate;
     background-image: linear-gradient(60deg, #cccccc 35%,#cc3b3b 65% );
     bottom:0;
@@ -27,12 +27,31 @@
     z-index:-1;
   }
 
-  .bgsub2 {
+  .ssub2 {
     animation-direction:alternate-reverse;
     animation-duration:4s;
   }
   
-  .bgsub3 {
+  .ssub3 {
     animation-duration:5s;
   }
   
+/* 表のデザイン関連 */
+.subm{
+  font-size: 20px;
+  border:double 2px #ff0000;
+  background-color: #ffffff;
+}
+
+.submis{
+  font-size: 20px;
+  border:double 2px #ff0000;
+  background-color: rgb(240, 119, 119);
+}
+
+
+.submt{
+  font-size :30px;
+  color :#ff0000;
+  text-shadow: 0 0 0.2em rgba(255,255,255,1);
+}
