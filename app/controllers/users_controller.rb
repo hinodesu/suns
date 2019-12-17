@@ -169,6 +169,7 @@ class UsersController < ApplicationController
 
       #ユーザ一括削除
       if users.destroy_all
+        
         #user_countにcselect_usersの値の数を代入
         user_count = @select_users.size
       end
@@ -181,16 +182,13 @@ class UsersController < ApplicationController
 
   def bulk_create
     logger.debug("=========OK=======")
-      if users_file = nil
-
-        redirect_to users_path, notice: "ファイルを選択してください。"
-
+     #if users_file = nil
+      if params[:select_datas].blank?
+        redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
       else
         user_count = import_users
-        redirect_to users_path, notice: "#{user_count}件登録しました。"
-
+        redirect_to users_path, notice:"#{user_count}件登録しました。"
       end
-
   end
 
 
