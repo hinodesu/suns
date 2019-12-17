@@ -1,12 +1,16 @@
 <%= form_with(model: annual_event, local: true) do |form| %>
   <% if annual_event.errors.any? %>
+  
     <div id="error_explanation">
-      <h2><%= pluralize(annual_event.errors.count, "error") %> prohibited this annual_event from being saved:</h2>
+      <h2>
+          <%= pluralize(annual_event.errors.count, "error") %> 
+          prohibited this annual_event from being saved:
+        </h2>
 
       <ul>
-      <% annual_event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% annual_event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -18,7 +22,7 @@
 
   <span>
     <div class="actions">
-      <%= submit_tag "登録" %>
+      <%= submit_tag "登録", class:"btn-sub" %>
     </div>
   </span>
 <% end %>

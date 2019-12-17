@@ -16,7 +16,7 @@
         <td><%= link_to '提出物一覧', submissions_path,class: "btn-sub" %></td>
         <td><%= link_to 'お知らせ一覧', notifications_path,class: "btn-not" %></td>
       
-          <% if @annual_event %>
+        <% if @annual_event %>
             <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %></td>
           <% end %>
           <% @user_code = session[:login_user] %>
@@ -38,7 +38,7 @@
     <!--<h3 style="text-align: left">お知らせ・提出物管理システム</h3>-->
 
     <!--<span>
-       <div style="font-size:35px; text-align:right;font-weight: bold"><%=  Date.current.strftime('%Y/%m/%d(%a)') %></div> 
+       <div style="font-size:35px; text-align:right;font-weight: bold"><%=  Date.current.strftime('%Y/%m/%d(%u)') %></div> 
      </span> -->
 
   </head>

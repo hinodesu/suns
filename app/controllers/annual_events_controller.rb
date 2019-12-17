@@ -50,28 +50,37 @@ class AnnualEventsController < ApplicationController
   # PATCH/PUT /annual_events/1.json
   def update
 
-    if params[:annual_event][:filename].present?
-      @annual_event.filename = params[:annual_event][:filename].original_filename
-
-      File.open("app/assets/images/#{@annual_event.filename}",'w+b'){ |f|
-        f.write(params[:annual_event][:filename].read)
-      }
-    end
-
-      #パラメータの修正
+    if params[:annual_event].blank?
+      @annual_event.errors[:base] << 'ファイルが空です'
+      render :edit
+    else
       if params[:annual_event][:filename].present?
+        @annual_event.filename = params[:annual_event][:filename].original_filename
+
+        File.open("app/assets/images/#{@annual_event.filename}",'w+b'){ |f|
+          f.write(params[:annual_event][:filename].read)
+        }
+      #パラメータの修正
           params[:annual_event][:filename] = params[:annual_event][:filename].original_filename
-        else
-          params[:annual_event][:filename] = ""
+      else
+        params[:annual_event][:filename] = ""
       end
 
-    respond_to do |format|
-      if @annual_event.update(annual_event_params)
-        format.html { redirect_to home_top_path, notice: 'Annual event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @annual_event }
-      else
-        format.html { render :edit }
-        format.json { render json: @annual_event.errors, status: :unprocessable_entity }
+        # if @annual_event.save
+        #   redirect_to 
+        #   edit_annual_event_path
+        # else
+        #   render :new
+        # end
+
+      respond_to do |format|
+        if @annual_event.update(annual_event_params)
+          format.html { redirect_to home_top_path, notice: 'Annual event was successfully updated.' }
+          format.json { render :show, status: :ok, location: @annual_event }
+        else
+          format.html { render :edit }
+          format.json { render json: @annual_event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

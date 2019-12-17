@@ -16,7 +16,7 @@
 
 <p>
   <strong>表示日付:</strong>
-  <%= @notification.d_day %>
+  <%= @notification.d_day.strftime('%Y/%m/%d') %>
 </p>
 
 <table>
@@ -31,4 +31,4 @@
 </table>
 
 <%= link_to '編集', edit_notification_path(@notification) %> |
-<%= link_to 'Back', notifications_path %>
+<%= link_to '戻る', notifications_path %>
