@@ -9,12 +9,11 @@
 csvファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
     <div class="search_item">
-      <%= f.file_field 'users_file' %>
+      <%= f.file_field 'users_file' %>　　　      <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %>
     </div>
     <br>
     <div>
-      <%= submit_tag "登録" %>　<%= link_to '戻る', users_path,class: "btn-users" %>
-
+      <%= submit_tag "登録" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
 </div>

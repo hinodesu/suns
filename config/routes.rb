@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get '/new_users', to: 'users#new_users'
     get 'users/bulk_new'
     post 'users/bulk_create', to: 'users#bulk_create'
-  
+    get 'users/download', to: 'users#download'
 
 
 

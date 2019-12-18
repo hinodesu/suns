@@ -191,6 +191,10 @@ class UsersController < ApplicationController
       end
   end
 
+  def download
+    download_file_name = "public/master/test.csv"
+    send_file download_file_name
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -221,4 +225,6 @@ class UsersController < ApplicationController
       # 何レコード登録できたかを返す
       ::User.count - current_user_count
     end
+
+
 end
