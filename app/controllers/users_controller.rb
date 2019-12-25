@@ -9,22 +9,22 @@ class UsersController < ApplicationController
    # @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
 
    if session[:search_grade].present?
-      @users = User.where("grade like '%" + session[:search_grade] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.where("grade like '%" + session[:search_grade] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
     else
-      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "asc")
     end
 
     if session[:search_class_room].present?
-      @users = User.where("class_room like '%" + session[:search_class_room] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.where("class_room like '%" + session[:search_class_room] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
     else
-      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "asc")
     end
 
 
     if session[:search_name].present?
-      @users = User.where("name like '%" + session[:search_name] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.where("name like '%" + session[:search_name] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
     else
-      @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.all.order(:grade).order(:class_room).order(:kana => "asc")
     end
   
 
@@ -106,7 +106,7 @@ class UsersController < ApplicationController
 
   def search
 
-    @users = User.all.order(:grade).order(:class_room).order(:kana => "desc")
+    @users = User.all.order(:grade).order(:class_room).order(:kana => "asc")
     session[:search_grade] = nil
     session[:search_class_room] = nil
     session[:search_name] = nil
@@ -114,17 +114,17 @@ class UsersController < ApplicationController
 
 
     if params[:search][:grade].present?
-      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = @users.where("grade like '%" + params[:search][:grade] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
       session[:search_grade] = params[:search][:grade]
     end
 
     if params[:search][:class_room].present?
-      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = @users.where("class_room like '%" + params[:search][:class_room] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
       session[:search_class_room] = params[:search][:class_room]
     end
 
     if params[:search][:name].present?
-      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:grade).order(:class_room).order(:kana => "desc")
+      @users = @users.where("name like '%" + params[:search][:name] + "%'").order(:grade).order(:class_room).order(:kana => "asc")
       session[:search_name] = params[:search][:name]
     end
 
@@ -138,7 +138,7 @@ class UsersController < ApplicationController
   def select_edit
     if params[:select_datas].present?
       @select_users = params[:select_datas].keys.map(&:to_i)
-      @users = User.where(id:@select_users).order(:grade).order(:class_room).order(:kana => "desc")
+      @users = User.where(id:@select_users).order(:grade).order(:class_room).order(:kana => "asc")
 
       #if params[:select_edit][:commit] == "選択編集"
       #end
