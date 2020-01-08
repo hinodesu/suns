@@ -139,7 +139,7 @@ class UsersController < ApplicationController
     if params[:select_datas].present?
       @select_users = params[:select_datas].keys.map(&:to_i)
       @users = User.where(id:@select_users).order(:grade).order(:class_room).order(:kana => "asc")
-
+      @users_default_class = @users.first.grade + 1
       #if params[:select_edit][:commit] == "選択編集"
       #end
       #if params[:select_edit][:commit] == "選択削除"

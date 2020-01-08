@@ -19,7 +19,7 @@
   <% if params[:commit] == "選択編集" %>
     <div class="field" style="float:left;">
       <%= label_tag :年 %> 
-      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}) %>
+      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}, :selected => @users_default_class) %>
     </div>
 
     <div class="field" style="float:left;">
