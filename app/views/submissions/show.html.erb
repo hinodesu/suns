@@ -6,9 +6,9 @@
   提出物詳細
 </font></b>
 
-<div class="ssub"></div>
-  <div class="ssub ssub2"></div>
-  <div class="ssub ssub3"></div>
+<div class="s-sub"></div>
+  <div class="s-sub s-sub2"></div>
+  <div class="s-sub s-sub3"></div>
 
 <p>
   <strong>科目</strong>
@@ -33,13 +33,13 @@
 </p>
 
 <table border = "1" width = "100%">
-  <thead class = "submis">
+  <thead class = "s-hyou2">
     <tr>
       <th>名前</th>
       <th>提出状況</th>
     </tr>
   </thead>
-  <tbody class = "subm">
+  <tbody class = "s-hyou">
     <% @members.each_with_index do |member,index| %>
       <tr>
        <% if @submission[Submission.column_names[ index + 7 ].to_sym] == 0 %>
