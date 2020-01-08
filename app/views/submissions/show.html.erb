@@ -6,6 +6,10 @@
   提出物詳細
 </font></b>
 
+<div class="ssub"></div>
+  <div class="ssub ssub2"></div>
+  <div class="ssub ssub3"></div>
+
 <p>
   <strong>科目</strong>
   <%= @submission.subject %>
@@ -28,24 +32,24 @@
   <strong>組</strong>
 </p>
 
-<table>
-  <thead>
+<table border = "1" width = "100%">
+  <thead class = "submis">
     <tr>
       <th>名前</th>
       <th>提出状況</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class = "subm">
     <% @members.each_with_index do |member,index| %>
       <tr>
        <% if @submission[Submission.column_names[ index + 7 ].to_sym] == 0 %>
-         <td align="center" style="color:#ff0000"><%= member.name %></td>
+         <td align="center" style="color:#ff0000"><font size="4"><%= member.name %></font></td>
        <% elsif @submission[Submission.column_names[ index + 7 ].to_sym] == 1 %>
-         <td align="center" style="color:#ffa500"><%= member.name %></td>
+         <td align="center" style="color:#ffa500"><font size="4"><%= member.name %></font></td>
        <% else %>
-         <td align="center"><%= member.name %></td>
+         <td align="center"><font size="4"><%= member.name %></font></td>
        <% end %>
-       <td><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></td>
+       <td><font size="4"><%= SUBMISSION_LIST[@submission[Submission.column_names[ index + 7 ].to_sym]] %></font></td>
       </tr>
     <% end %>
   </tbody>
