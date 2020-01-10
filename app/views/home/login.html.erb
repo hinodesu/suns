@@ -1,13 +1,22 @@
 <br><br><br><br><br><br><br><br>
-
-<div class="log-form">
-<h1 style="text-align:center;font-size:25px;color:red;">
-  ログイン
+<div style="text-align:center;
+font-weight:bold; 
+color:#000000;
+font-size:15px;
+width:27%;
+padding: 0.5em 1em;
+margin: auto;
+color: #5d627b;
+background: white;
+border-top: solid 5px #ff6600;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);">
+  <h1>
+    ログイン
   </h1>
 
-<% if flash[:alert] %>
-  <p style="color:red;text-align:center;"><%= flash[:alert] %></p>
-<% end %>
+   <% if flash[:alert] %>
+    <p style="color:red;text-align:center;"><%= flash[:alert] %></p>
+   <% end %>
 
 <h1 style="text-align:center;font-size:25px">
 <%= form_tag('/check') do %>
@@ -18,8 +27,8 @@
     <%= label_tag :パスワード %><br>
     <%= password_field_tag :password %><br><br>
 
-    <div class="actions">
+    
       <%= submit_tag "ログイン" %></h1>
+    
     </div>
-  </div>
 <% end %>
