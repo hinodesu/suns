@@ -4,13 +4,13 @@
 
 
 <% if params[:commit] == "選択編集" %>
-  <h1>ユーザー選択編集</h1>
+  <h1 class="u-title">ユーザー選択編集</h1>
   <p>
   <font color = "#006400"><b>以下のデータを一括編集します。編集したくないデータは、チェックを外してください。</b></font>
   </p>
   
 <% else %>
-  <h1>ユーザー選択削除</h1>
+  <h1 class="u-title">ユーザー選択削除</h1>
   <p>
   <font color = "#006400"><b>以下のデータを一括削除します。削除したくないデータは、チェックを外してください。</b></font>
   </p>
@@ -49,7 +49,7 @@
 
     <thead class="uback2">
     
-      <tr>    
+      <tr class="uback2">    
         <th></th>
         <th class="fs25">年</th>
         <th class="fs25">組</th>
@@ -64,11 +64,11 @@
   
         <tr>
           <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"},:class => "list" %></td>
-          <td width="5%" class="fs20" align="center"><%= user.grade %></td>
-          <td width="5%" class="fs20" align="center"><%= user.class_room %></td>
-          <td width="40%" class="fs20" align="center"><%= user.name %></td>
-          <td width="10%" class="fs20" align="center"><%= user.gender %></td>
-          <td width="15%" class="fs20" align="center"><%= link_to '詳細', user,class: "btn-users" %></td>
+          <td width="5%" align="center" class="fs20"><%= user.grade %></td>
+          <td width="5%" align="center" class="fs20"><%= user.class_room %></td>
+          <td width="40%" align="center" class="fs20"><%= user.name %></td>
+          <td width="10%" align="center" class="fs20"><%= user.gender %></td>
+          <td width="15%" align="center"><%= link_to '詳細', user,class: "btn-users" %></td>
         </tr>
       <% end %>
     </tbody>

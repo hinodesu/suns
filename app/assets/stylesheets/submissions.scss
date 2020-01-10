@@ -4,7 +4,7 @@
 
 .s-sub {
     animation:slide 2.5s ease-in-out infinite alternate;
-    background-image: linear-gradient(60deg, #cccccc 35%,#ff9292 65% );
+    background-image: linear-gradient(60deg, #ffffff 35%,#ff9292 65% );
     bottom:0;
     left:-50%;
     opacity:.6;
@@ -17,7 +17,7 @@
 
 .s-sub {
     animation:slide 2.5s ease-in-out infinite alternate;
-    background-image: linear-gradient(60deg, #cccccc 35%,#cc3b3b 65% );
+    background-image: linear-gradient(60deg, #ffffff 35%,#cc3b3b 65% );
     bottom:0;
     left:-50%;
     opacity:.6;
@@ -39,13 +39,13 @@
 /* 表のデザイン関連 */
 .s-hyou{
   font-size: 20px;
-  border:double 2px #ff0000;
+  border:solid 2px #000;
   background-color: #ffffff;
 }
 
 .s-hyou2{
   font-size: 20px;
-  border:double 2px #ff0000;
+  border:solid 2px #000;
   background-color: rgb(240, 119, 119);
 }
 
