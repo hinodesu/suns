@@ -19,12 +19,12 @@
   <% if params[:commit] == "選択編集" %>
     <div class="field" style="float:left;">
       <%= label_tag :年 %> 
-      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}) %>
+      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}, :selected => @users_default_class),:class => "select_grade" %>
     </div>
 
     <div class="field" style="float:left;">
       <%= label_tag :組 %> 
-      <%=select_tag 'user[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"}) %>
+      <%=select_tag 'user[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"}),:class => "select_class_room" %>
     </div>
 
     <br>
@@ -75,18 +75,43 @@
 <script type="text/javascript">
 function isCheck() {
 	var arr_checkBoxes = document.getElementsByClassName("list");
-	var count = 0;
+  var count = 0;
+	var select_grade = document.getElementsByClassName("select_grade");
+	var select_class_room = document.getElementsByClassName("select_class_room");
+  var user_count = 0;
+  var flg1 = false;
+  var flg2 = false;
 	for (var i = 0; i < arr_checkBoxes.length; i++) {
 		if (arr_checkBoxes[i].checked) {
 			count++;
 		}
 	}
-	if (count > 0) {
-		return true;
+  if (count > 0) {
+		flg1 = true;
 	} else {
 		window.alert("項目を選択してください。");
-		return false;
+		flg1 = false;
 	}
+
+  user_count = <%= User.where(grade: 2, class_room: 0).count %>
+
+  if (user_count == 0) {
+		flg2 = true;
+	} else {
+    result = window.confirm("選択したクラスに既に生徒が存在しますが、以下の生徒を追加してもよろしいですか？");
+    if (result) {
+      flg2 = true;
+    } else {
+      flg2 = false;
+    } 
+  }
+  
+
+  if (flg1 && flg2){
+    return true;
+  } else {
+    return false;
+  }
 }
 </script>
 

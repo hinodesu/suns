@@ -1,7 +1,9 @@
-<h1 style="text-align:center;font-size:25px"></h1>
+<br><br><br><br><br><br><br><br>
+
+<div class="log-form">
+<h1 style="text-align:center;font-size:25px;color:red;">
   ログイン
-  </font>
-<br>
+  </h1>
 
 <% if flash[:alert] %>
   <p style="color:red;text-align:center;"><%= flash[:alert] %></p>
@@ -16,8 +18,8 @@
     <%= label_tag :パスワード %><br>
     <%= password_field_tag :password %><br><br>
 
-  <div class="actions">
-    <%= submit_tag "ログイン" %></h1>
+    <div class="actions">
+      <%= submit_tag "ログイン" %></h1>
+    </div>
   </div>
-  
 <% end %>

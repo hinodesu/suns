@@ -8,7 +8,9 @@
 
 
 <h1>ユーザー一括登録</h1>
-
+<div><br>
+  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %><br>
+</div><br>
 <div>
 csvファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
@@ -20,7 +22,5 @@ csvファイル
       <%= submit_tag "登録" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
-
-  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %>
 </div>
 

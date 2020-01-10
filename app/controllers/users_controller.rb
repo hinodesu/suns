@@ -139,7 +139,7 @@ class UsersController < ApplicationController
     if params[:select_datas].present?
       @select_users = params[:select_datas].keys.map(&:to_i)
       @users = User.where(id:@select_users).order(:grade).order(:class_room).order(:kana => "asc")
-
+      @users_default_class = @users.first.grade + 1
       #if params[:select_edit][:commit] == "選択編集"
       #end
       #if params[:select_edit][:commit] == "選択削除"
@@ -183,7 +183,7 @@ class UsersController < ApplicationController
   def bulk_create
     logger.debug("=========OK=======")
      #if users_file = nil
-      if params[:select_datas].blank?
+      if params[:users_file].blank?
         redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
       else
         user_count = import_users
@@ -216,7 +216,7 @@ class UsersController < ApplicationController
       logger.debug("=========２=======")
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
       CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
-        users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["ふりがな"], gender: row["性別"] , password: row["パスワード"])
+        users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
       end
       logger.debug("=========３=======")
       # importメソッドでバルクインサートできる
