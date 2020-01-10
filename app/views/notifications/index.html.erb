@@ -4,22 +4,22 @@
 <html lang="ja">
 <meta charset=”utf-8″>
 
-<div class="nsub"></div>
-  <div class="nsub nsub2"></div>
-  <div class="nsub nsub3"></div>
+<div class="n-sub"></div>
+  <div class="n-sub n-sub2"></div>
+  <div class="n-sub n-sub3"></div>
 
 
-<h1 style="text-align:left" class="notift" >お知らせ一覧</h1>
+<h1 style="text-align:left" class="n-title" >お知らせ一覧</h1>
 
 <table width="90%">
- <thead class="notific">
+ <thead class="n-hyou">
   <tr>
     <th width="50%" class="fs25">時間割</th>
     <th class="fs25">お知らせ</th>
     </tr>
  </thead>
 
- <tbody class="notif">
+ <tbody class="n-hyou">
    <div class = "inline-block_test" >
      <tr class = "center">
        <% if @today_timetable.present? %>
@@ -51,7 +51,7 @@
 <% if @user_code && @user_code.first == "t" %>
     <%= link_to '新規作成', new_notification_path,class: "btn-not" %>
     <table border="1">
-      <thead class="notific">
+      <thead class="n-hyou2">
         <tr>
           <th class="fs25">表示日付</th>
           <th class="fs25">カテゴリー</th>
@@ -61,7 +61,7 @@
         </tr>
       </thead>
 
-      <tbody class="notif">
+      <tbody class="n-hyou">
         <% @notifications.each do |notification| %>
           <tr>
             <td class="fs20">

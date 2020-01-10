@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<b><font class="submt">提出物一覧</font></b>
+<b><font class="s-title">提出物一覧</font></b>
 <% if @user_code && @user_code.first == "t" %>
   <div style = "text-align: right;float;right">
     <span>
@@ -9,9 +9,9 @@
   </div>
 <% end %>
 
-<div class="ssub"></div>
-  <div class="ssub ssub2"></div>
-  <div class="ssub ssub3"></div>
+<div class="s-sub"></div>
+  <div class="s-sub s-sub2"></div>
+  <div class="s-sub s-sub3"></div>
 
 <%= form_tag('/submissions_search') do %>
   <p>
@@ -45,7 +45,7 @@
    </p>
 
    <table border = "1" width = "100%">
-      <thead class="submis">
+      <thead class="s-hyou2">
 
         <tr>
           <th><label for="all"><input type="checkbox" class="allChecked" id="all"></label></th>
@@ -59,7 +59,7 @@
         </tr>
       </thead>
 
-     <tbody class="subm">
+     <tbody class="s-hyou">
         <% @submissions.each do |submission| %>
           <tr>
             <td align="center">
@@ -80,7 +80,7 @@
 
   <% else %>
    <table border = "1" width = "90%">
-      <thead class="submis">
+      <thead class="s-hyou2">
         <tr>
           <th class="fs25">科目</th>
           <th class="fs25">タイトル</th>
@@ -89,7 +89,7 @@
         </tr>
       </thead>
 
-     <tbody class="subm">
+     <tbody class="s-hyou">
        <% @submissions.each do |submission| %>
          <tr>
            <td class="fs20"><%= submission.subject %></td>
