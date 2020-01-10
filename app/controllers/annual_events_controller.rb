@@ -51,7 +51,7 @@ class AnnualEventsController < ApplicationController
   def update
 
     if params[:annual_event].blank?
-      @annual_event.errors[:base] << 'ファイルが空です'
+      @annual_event.errors[:base] << 'ファイルを選択してください'
       render :edit
     else
       if params[:annual_event][:filename].present?
