@@ -1,6 +1,7 @@
 <div class="u-sub"></div>
-  <div class="u-sub u-sub2"></div>
-  <div class="u-sub u-sub3"></div>
+<div class="u-sub u-sub2"></div>
+<div class="u-sub u-sub3"></div>
+
 
 <% if params[:commit] == "選択編集" %>
   <h1 class="u-title">ユーザー選択編集</h1>
@@ -46,14 +47,14 @@
       <%= link_to '戻る', users_path,class: "btn-users" %>
     </div>
 
-    <thead>
+    <thead class="uback2">
     
       <tr class="uback2">    
         <th></th>
-        <th>年</th>
-        <th>組</th>
-        <th>名前</th>
-        <th>性別</th>
+        <th class="fs25">年</th>
+        <th class="fs25">組</th>
+        <th class="fs25">名前</th>
+        <th class="fs25">性別</th>
         <th></th>
       </tr>
     </thead>
