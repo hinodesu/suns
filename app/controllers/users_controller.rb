@@ -158,11 +158,6 @@ class UsersController < ApplicationController
 
 
     if params[:commit] == "選択編集"
-      if users.update_all(grade: params[:user][:grade], class_room: params[:user][:class_room])
-      end
-      respond_to do |format|
-        format.html { redirect_to users_path, notice: 'ユーザーを一括で編集しました。' }
-      end
     end
         
     if params[:commit] == "選択削除"
@@ -176,6 +171,20 @@ class UsersController < ApplicationController
       redirect_to users_path, notice: "#{user_count}件のユーザーを削除しました。"
     end
   end
+
+  #確認画面
+def select_edit_kakunin
+end
+
+#確定処理
+def select_edit_kettei
+  users = User.where(id: @select_users)
+  if users.update_all(grade: params[:user][:grade], class_room: params[:user][:class_room])
+  end
+  respond_to do |format|
+    format.html { redirect_to users_path, notice: 'ユーザーを一括で編集しました。' }
+  end
+end
 
   def bulk_new
   end

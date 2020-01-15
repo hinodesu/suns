@@ -1,7 +1,11 @@
+<div class="s-sub"></div>
+  <div class="s-sub s-sub2"></div>
+  <div class="s-sub s-sub3"></div>
+
 <% if params[:commit] == "選択編集" %>
-      <h1>提出物選択編集</h1>
+      <b><font class="s-title">提出物選択編集</font></b>
 <% else %>
-      <h1>提出物選択削除</h1>
+      <b><font class="s-title">提出物選択削除</font></b>
 <% end %>
 
 <%= form_tag('/submissions_select_edit_all') do %>
@@ -25,18 +29,18 @@
       以下のデータを一括削除します。削除したくないデータは、チェックを外してください。
       <% end %>
  <table border = "1" width = "100%">
-    <thead>
+    <thead class="s-hyou2">
 
      <tr>
        <th></th>
-       <th>科目</th>
-       <th>タイトル</th>
-       <th>対象</th>
-       <th>期限</th>
+       <th class="fs25">科目</th>
+       <th class="fs25">タイトル</th>
+       <th class="fs25">対象</th>
+       <th class="fs25">期限</th>
      </tr>
    </thead>
 
-   <tbody>
+   <tbody class="s-hyou">
      <% @submissions.each do |submission| %>
        <tr>
          <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", 

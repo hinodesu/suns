@@ -1,16 +1,14 @@
 
 <table border = "1" width = "100%">
-<thead class = "s-hyou">
+<thead class = "s-hyou2">
 
  <tr>
    <th>名前</th>
-   <th>提出状況</th>
-   <th></th>
-   <th></th>
+   <th colspan="3">提出状況</th>
  </tr>
 </thead>
 
-<tbody class = "s-hyou2">
+<tbody class = "s-hyou">
  <% @members.each_with_index do |member,index| %>
    <tr>
      <td align="center"><%= member.name %></td>
