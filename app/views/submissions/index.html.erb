@@ -9,27 +9,18 @@
   </div>
 <% end %>
 
-<div class="s-sub"></div>
-  <div class="s-sub s-sub2"></div>
-  <div class="s-sub s-sub3"></div>
-
 <%= form_tag('/submissions_search') do %>
-  <p>
-    <font size="4">
+  <p class="fs20">
      科目
-    </font>
    <%= text_field_tag 'search[subject]', session[:search_subject] %>
-    <font size="4">
       期限
     </font>
     <%= select_tag 'search[deadline]', options_for_select({期限前: "期限前", 期限切れ: "期限切れ"},
     { :selected => session[:search_deadline]}), include_blank: true %>
   </p>
 
-  <p>
-    <font size="4">
+  <p class="fs20">
       タイトル
-    </font>
     <%= text_field_tag 'search[title]', session[:search_title] %>
     <%= submit_tag '検索🔎' %>
   </p> 
@@ -132,3 +123,8 @@ function isCheck() {
   }
 }
 </script>
+
+<div class="s-sub"></div>
+  <div class="s-sub s-sub2"></div>
+  <div class="s-sub s-sub3"></div>
+

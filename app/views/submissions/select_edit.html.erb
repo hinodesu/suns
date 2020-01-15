@@ -10,17 +10,17 @@
 
 <%= form_tag('/submissions_select_edit_all') do %>
     <% if params[:commit] == "選択編集" %>
-      <div class="field">
+      <div class="fs20">
         <%= label_tag :科目 %>
         <%= text_field_tag 'submission[subject]' %>
       </div>
 
-      <div class="field">
+      <div class="fs20">
         <%= label_tag :タイトル %>
         <%= text_field_tag 'submission[title]' %>
       </div>
 
-      <div class="field">
+      <div class="fs20">
         <%= label_tag :期限 %>
         <%= date_field_tag 'submission[deadline]' %>
       </div>
