@@ -31,7 +31,7 @@
       タイトル
     </font>
     <%= text_field_tag 'search[title]', session[:search_title] %>
-    <%= submit_tag '検索🔎' %>
+    <%= submit_tag '検索🔎',class:"submit" %>
   </p> 
 
 <% end %>
@@ -39,9 +39,9 @@
 <%= form_tag('/submissions_select_edit') do %>
   <% if @user_code && @user_code.first == "t" %>
    <p>
-     <%= submit_tag "選択編集", onclick: "return isCheck()"  %>
+     <%= submit_tag "選択編集",class:"submit", onclick: "return isCheck()"  %>
        &thinsp;
-     <%= submit_tag "選択削除", onclick: "return isCheck()"  %>
+     <%= submit_tag "選択削除",class:"submit", onclick: "return isCheck()"  %>
    </p>
 
    <table border = "1" width = "100%">

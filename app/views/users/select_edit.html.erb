@@ -32,11 +32,11 @@
     </div>
 
     <br>
-    <div style="float:left;"><%=submit_tag "選択編集", onclick: "return isCheck()" %></div>
+    <div style="float:left;"><%=submit_tag "選択編集",class:"submit", onclick: "return isCheck()" %></div>
 
   <% else %>
 
-    <%=submit_tag "選択削除",  data: { confirm: '本当に削除しますか？' },onclick: "return isCheck()" %>
+    <%=submit_tag "選択削除",class:"submit",  data: { confirm: '本当に削除しますか？' },onclick: "return isCheck()" %>
 
   <% end %>
 
