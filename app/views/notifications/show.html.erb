@@ -4,12 +4,12 @@
   <div class="n-sub n-sub2"></div>
   <div class="n-sub n-sub3"></div>
   
-<p>
+<p class="fs25">
   <strong>ファイル名:</strong>
   <%= @notification.filename %>
 </p>
 
-<p>
+<p class="fs25">
   <strong>カテゴリー:</strong>
   <% if @notification.category == 1 %>
   時間割
@@ -18,7 +18,7 @@
 <% end %>
 </p>
 
-<p>
+<p class="fs25">
   <strong>表示日付:</strong>
   <%= @notification.d_day.strftime('%Y/%m/%d') %>
 </p>

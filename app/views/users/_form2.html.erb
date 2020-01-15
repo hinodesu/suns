@@ -12,10 +12,10 @@
 
   <div class="field">
   <div style="display:inline-flex">
-    <%= form.label :学籍番号 %><font color = "#228b22">(半角で入力してください)</font>
+    <%= form.label :学籍番号 %><font color = "#228b22">(半角)</font>
   </div>
   <br>
-    <%= form.text_field :number, id: :user_number %>
+    <%= form.text_field :number, id: :user_number, placeholder: '入力してください' %>
   </div>
 
 
@@ -32,12 +32,12 @@
 
   <div class="field">
     <%= form.label :名前 %>
-    <%= form.text_field :name, id: :user_name %>
+    <%= form.text_field :name, id: :user_name, placeholder: '入力してください' %>
   </div>
 
   <div class="field">
     <%= form.label :フリガナ %>
-    <%= form.text_field :kana, id: :user_kana %>
+    <%= form.text_field :kana, id: :user_kana, placeholder: '入力してください' %>
   </div>
 
   <div class="field">
@@ -48,9 +48,9 @@
 
   <div class="field">
     <%= form.label :パスワード %>
-    <%= form.password_field :password, id: :user_password %>
+    <%= form.password_field :password, id: :user_password, placeholder: '入力してください' %>
     <%= form.label :パスワード確認 %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, placeholder: '入力してください' %>
   </div>
 
   <div class="actions">

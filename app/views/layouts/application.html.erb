@@ -8,34 +8,6 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <header>
-    
-    <table>
-      <tr>
-        <td><%= link_to 'SunS', home_top_path,class: "btn-suns" %></td>
-        <td><%= link_to '提出物一覧', submissions_path,class: "btn-sub" %></td>
-        <td><%= link_to 'お知らせ一覧', notifications_path,class: "btn-not" %></td>
-      
-        <% if @annual_event %>
-            <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %></td>
-          <% end %>
-          <% @user_code = session[:login_user] %>
-          <% if @user_code && @user_code.first == "t" %>
-            <td><%= link_to 'ユーザー一覧', users_path,class: "btn-users" %></td>
-          <% end %>
-            <td><%= link_to 'ログアウト',home_logout_path,class: "btn-logout-head" %></td>
-            <td><div style="font-size:20px; text-align:right;font-weight: bold">
-            <%=  Date.current.strftime('%Y/%m/%d(%a)') %></div></td> 
-      </tr>
-      </table>
-    </header>
-
-     <br>
-     <br>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--<h3 style="text-align: left">お知らせ・提出物管理システム</h3>-->
 
     <!--<span>
@@ -45,6 +17,28 @@
   </head>
 
   <body>
+    <header>
+      <table>
+        <tr>
+          <td><%= link_to 'SunS', home_top_path,class: "btn-suns" %></td>
+          <td><%= link_to '提出物一覧', submissions_path,class: "btn-sub" %></td>
+          <td><%= link_to 'お知らせ一覧', notifications_path,class: "btn-not" %></td>
+        
+          <% if @annual_event %>
+              <td><%= link_to '行事予定', asset_url("#{@annual_event.filename}"),class: "btn-anu", target: :_blank %></td>
+            <% end %>
+            <% @user_code = session[:login_user] %>
+            <% if @user_code && @user_code.first == "t" %>
+              <td><%= link_to 'ユーザー一覧', users_path,class: "btn-users" %></td>
+            <% end %>
+              <td><%= link_to 'ログアウト',home_logout_path,class: "btn-logout-head" %></td>
+              <td><div style="font-size:20px; text-align:right;font-weight: bold">
+              <%=  Date.current.strftime('%Y/%m/%d(%a)') %></div></td> 
+        </tr>
+      </table>
+    </header>
+    <br>
+    <br>
     <%= yield %>
   </body>
 

@@ -1,4 +1,3 @@
-
 <% if submission.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -14,18 +13,18 @@
     </ul>
   </div>
 <% end %>
-
-<div class="field">
+<br>
+<div class="fs20">
   <%= form.label :科目 %>
-  <%= form.text_field :subject, id: :submission_subject %>
+  <%= form.text_field :subject, id: :submission_subject, placeholder: '入力してください'%>
 </div>
-
-<div class="field">
+<br>
+<div class="fs20">
   <%= form.label :タイトル %>
-  <%= form.text_field :title, id: :submission_title %>
+  <%= form.text_field :title, id: :submission_title, placeholder: '入力してください'%>
 </div>
-
-<div class="field">
+<br>
+<div class="fs20">
   <%= form.label :期限 %>
-  <%= form.date_field :deadline, id: :submission_deadline %>
+  <%= form.date_field :deadline, id: :submission_deadline, placeholder: '入力してください'%>
 </div>
