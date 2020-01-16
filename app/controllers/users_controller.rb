@@ -214,6 +214,12 @@ end
       end
   end
 
+  def bulk_kakunin
+  end
+
+  def bulk_kettei
+  end
+
   def download
     download_file_name = "public/master/test.csv"
     send_file download_file_name

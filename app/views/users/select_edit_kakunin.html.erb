@@ -4,7 +4,7 @@
 
 <h1 class="u-title">ユーザー選択編集確認</h1>
 <p>
-<font color = "#006400"><b>編集内容を確認してください。誤りがない場合選択編集ボタンを押してください。</b></font>
+<h3><font color = "#ff0000"><b><%= @user_grade %>年<%= @user_class %>組には既にデータが入っています。以下のユーザーを<%= @user_grade %>年<%= @user_class %>組に追加してもよろしければ編集ボタンを押してください。</b></font></h3>
 </p>
 
 
@@ -35,5 +35,5 @@
         </tbody>
     </table>
     <br>
-    <div style="float:left;"><%=submit_tag "追加" %></div>
+    <div style="float:left;"><%=submit_tag "編集",class:"submit" %></div>
 <% end %>
