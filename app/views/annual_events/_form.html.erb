@@ -1,6 +1,6 @@
 <%= form_with(model: annual_event, local: true) do |form| %>
   <% if annual_event.errors.any? %>
-  
+
     <div id="error_explanation">
       <h2>
           <%= pluralize(annual_event.errors.count, "error") %> 
@@ -23,6 +23,7 @@
   <span>
     <div class="actions">
       <%= submit_tag "登録", class:"submit" %>
+      <%= link_to '戻る', home_top_path %>
     </div>
   </span>
 <% end %>
