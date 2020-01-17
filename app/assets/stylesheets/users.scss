@@ -4,7 +4,7 @@
 
 .u-sub {
     animation:slide 2.5s ease-in-out infinite alternate;
-    background-image: linear-gradient(60deg, #ffffff 35%,#45be61 65% );
+    background-image: linear-gradient(60deg, #ffffff 35%,#34ad50 65% );
     bottom:0;
     left:-50%;
     opacity:.6;
@@ -25,20 +25,20 @@
   
 /* 表のデザイン関連 */
 .uback{
-    font-size: 20px;
-    border:solid 2px #000;
-    background-color: #ffffff;
+  font-size: 20px;
+  border:solid 2px #000;
+  background-color: #ffffff;
 }
 
 .uback2{
-    font-size: 20px;
-    border:solid 2px #000;
-    background-color: rgb(94, 252, 128);
+  font-size: 20px;
+  border:solid 2px #000;
+  background-color: rgb(94, 252, 128);
 }
 
 
 .u-title{
-    font-size :45px;
-    color :#000000;
-    text-shadow: 0 0 0.2em rgba(255,255,255,1);
+  font-size :45px;
+  color :#000000;
+  text-shadow: 0 0 0.2em rgba(255,255,255,1);
 }
