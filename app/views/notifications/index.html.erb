@@ -9,7 +9,10 @@
   <div class="n-sub n-sub3"></div>
 
 
-<h1 style="text-align:left" class="n-title" >お知らせ一覧</h1>
+<b style="text-align:left" class="n-title" >お知らせ一覧</b>
+
+<br>
+<br>
 
 <table width="90%">
  <thead class="n-hyou">
@@ -48,11 +51,12 @@
 
 <br>
 <br>
-<br>
 
 <% if @user_code && @user_code.first == "t" %>
     <%= link_to '登録', new_notification_path,class: "btn-not" %>
+  <br>
     <table border="1">
+  <br>
       <thead class="n-hyou2">
         <tr>
           <th class="fs25">表示日付</th>
