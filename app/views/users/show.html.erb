@@ -9,7 +9,7 @@
   <%= notice %>
 </p>
 
-<p>
+<p class="fs25">
   <%= @user.grade %>
   <strong>
     年
@@ -21,28 +21,28 @@
   </strong>
 </p>
 
-<p>
+<p class="fs25">
   <strong>
     名前:
   </strong>
   <%= @user.name %>
 </p>
 
-<p>
+<p class="fs25">
   <strong>
     フリガナ:
   </strong>
   <%= @user.kana %>
 </p>
 
-<p>
+<p class="fs25">
   <strong>
     性別:
   </strong>
   <%= @user.gender %>
 </p>
 
-<p>
+<p class="fs25">
   <strong>
     学籍番号:
   </strong>
@@ -57,4 +57,4 @@
 -->
 
 <%= link_to '編集', edit_user_path(@user),class: "btn-users" %> |
-<%= link_to '戻る', users_path,class: "btn-users" %>
+<%= link_to '戻る', users_path,class:"submit" %>

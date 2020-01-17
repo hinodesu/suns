@@ -5,7 +5,7 @@
 <div class="u-sub u-sub3"></div>
 
 
-<b class="u-title">ユーザー一覧</font></b> 
+<b><font class="u-title">ユーザー一覧</font></b> 
   <div style="text-align: right;float:right">
     <span>
       <br>
@@ -24,7 +24,11 @@
   <p>
     年&thinsp;　　組　　名前
     <br>
+<<<<<<< HEAD
+ <%= select_tag 'search[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"},{ :selected => session[:search_grade]}),include_blank: true %><%= select_tag 'search[class_room]',options_for_select({１:"1",２:"2",３:"3",４:"4"},{ :selected => session[:search_class_room]}),include_blank: true %><%= text_field_tag 'search[name]',session[:search_name] %><%= submit_tag '検索🔍',class:"submit" %>
+=======
  <%= select_tag 'search[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"},{ :selected => session[:search_grade]}),include_blank: true %><%= select_tag 'search[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"},{ :selected => session[:search_class_room]}),include_blank: true %><%= text_field_tag 'search[name]',session[:search_name] %><%= submit_tag '検索🔍' %>
+>>>>>>> c1553968c5e05f3c997d2d8add15f0a452f692f9
   </p>
 <% end %> 
 <p><font color = "#228b22"><b>※生徒以外を検索したい場合は、0年を検索してください。</b></font></p>

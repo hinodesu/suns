@@ -3,6 +3,9 @@
 <div class="n-sub"></div>
   <div class="n-sub n-sub2"></div>
   <div class="n-sub n-sub3"></div>
+
+  <b class="n-title">お知らせ詳細</b>
+
   
 <p class="fs25">
   <strong>ファイル名:</strong>
@@ -34,5 +37,7 @@
 
 </table>
 
+<p class="fs20">
 <%= link_to '編集', edit_notification_path(@notification) %> |
-<%= link_to '戻る', notifications_path %>
+<%= link_to '戻る', notifications_path,class:"submit" %>
+</p>
