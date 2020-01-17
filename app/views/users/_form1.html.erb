@@ -10,14 +10,15 @@
 </div>
 <% end %>
 
-<div class="field">
+<br>
+<div class="fs20">
 <div style="display:inline-flex">
   <%= form.label :学籍番号 %><font color = "#228b22">(半角)</font>
 </div>
 <br>
   <%= form.text_field :number, id: :user_number %>
 </div>
-
+<br>
 <!-- <div class="field">
 <%= form.label :"年" %>
 <%= form.select :grade,{"":"","1":"1","2":"2","3":"3"}%>
@@ -29,28 +30,34 @@
 </div> -->
 
 
-<div class="field">
+<div class="fs20">
 <%= form.label :名前 %>
 <%= form.text_field :name, id: :user_name %>
 </div>
+<br>
 
-<div class="field">
+<div class="fs20">
 <%= form.label :フリガナ %>
 <%= form.text_field :kana, id: :user_kana %>
 </div>
+<br>
 
-<div class="field">
+<div class="fs20">
 <%= form.label :性別 %>
+<br>
 <label><%= form.radio_button :gender,  "男"%>男</label>
+<br>
 <label><%= form.radio_button :gender,  "女"%>女</label>
 </div>
+<br>
 
-<div class="field">
+<div class="fs20">
   <div style="display:inline-flex">
     <%= form.label :パスワード %><font color = "#228b22">(更新したい場合のみ入力してください。)</font>
   </div>
   <br>
   <%= form.password_field :password, id: :user_password %>
+  <br>
   <br>
   <div style="display:inline-flex">
     <%= form.label :パスワード確認 %><font color = "#228b22">(更新したい場合のみ入力してください。)</font>
@@ -58,6 +65,7 @@
   <br>
   <%= form.password_field :password_confirmation %>
 </div>
+<br>
 
 <div class="actions">
 <%= submit_tag "更新" %>
