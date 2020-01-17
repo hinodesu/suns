@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     
     post'/users_search', to: 'users#search'
     post'/', to: 'user#search'
-    post '/submissions_search', to: 'submissions#search'
-    post '/', to: 'submissions#search'
+    post'/submissions_search', to: 'submissions#search'
+    post'/', to: 'submissions#search'
     post'/users_select_edit', to: 'users#select_edit'
     post'/submissions_select_edit', to: 'submissions#select_edit'
     post'/users_select_edit_all', to: 'users#select_edit_all'
@@ -22,8 +22,12 @@ Rails.application.routes.draw do
     post'/new_users_all', to: 'users#new_users_all'
     get '/new_users', to: 'users#new_users'
     get 'users/bulk_new'
-    post 'users/bulk_create', to: 'users#bulk_create'
+    post'users/bulk_create', to: 'users#bulk_create'
     get 'users/download', to: 'users#download'
+    get '/users_select_edit_kakunin', to: 'users#select_edit_kakunin'
+    post'/users_select_edit_kettei', to: 'users#select_edit_kettei'
+    get '/users_bulk_kakunin', to:'users#bulk_kakunin'
+    post '/users_bulk_kettei', to:'users#bulk_kettei'
 
 
 

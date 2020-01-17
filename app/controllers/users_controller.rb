@@ -150,14 +150,23 @@ class UsersController < ApplicationController
   end
 
   def select_edit_all
-      @select_users = params[:select_datas].keys.map(&:to_i)
+      session[:select_users] = params[:select_datas].keys.map(&:to_i)
+      @select_users = session[:select_users]
       @users = User.where(id:@select_users)
+      session[:user_grade] = params[:user][:grade]
+      session[:user_class] = params[:user][:class_room]
       user_count = 0
       #「select_users」の数字とUserモデルのidが一致するデータを取
       users = User.where(id: @select_users)
 
 
     if params[:commit] == "選択編集"
+      @users_kizon = User.where(grade: params[:user][:grade], class_room: params[:user][:class_room])
+      if @users_kizon
+        redirect_to users_select_edit_kakunin_path
+      else
+        redirect_to users_select_edit_kettei_path
+      end
     end
         
     if params[:commit] == "選択削除"
@@ -174,12 +183,17 @@ class UsersController < ApplicationController
 
   #確認画面
 def select_edit_kakunin
+  @select_users = session[:select_users]
+  @users = User.where(id:@select_users)
+  @user_grade = session[:user_grade]
+  @user_class = session[:user_class]
 end
 
 #確定処理
 def select_edit_kettei
+  @select_users = params[:select_datas].keys.map(&:to_i)
   users = User.where(id: @select_users)
-  if users.update_all(grade: params[:user][:grade], class_room: params[:user][:class_room])
+  if users.update_all(grade: session[:user_grade], class_room: session[:user_class])
   end
   respond_to do |format|
     format.html { redirect_to users_path, notice: 'ユーザーを一括で編集しました。' }
@@ -198,6 +212,12 @@ end
         user_count = import_users
         redirect_to users_path, notice:"#{user_count}件登録しました。"
       end
+  end
+
+  def bulk_kakunin
+  end
+
+  def bulk_kettei
   end
 
   def download

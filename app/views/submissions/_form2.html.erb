@@ -1,29 +1,30 @@
-
+<br>
 <table border = "1" width = "100%">
 <thead class = "s-hyou2">
 
  <tr>
-   <th>名前</th>
-   <th colspan="3">提出状況</th>
+   <th class="fs25">名前</th>
+   <th colspan="3" class="fs25">提出状況</th>
  </tr>
 </thead>
 
 <tbody class = "s-hyou">
  <% @members.each_with_index do |member,index| %>
    <tr>
-     <td align="center"><%= member.name %></td>
-     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 0 %>未提出</label></td>
-     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 1 %>再提出</label></td>
-     <td><label><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 2 %>提出済</label></td>
+     <td align="center"><font size="4"><%= member.name %></td>
+     <td><label><font size="4"><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 0 %>未提出</label></td>
+     <td><label><font size="4"><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 1 %>再提出</label></td>
+     <td><label><font size="4"><%= form.radio_button Submission.column_names[ index + 7 ].to_sym, 2 %>提出済</label></td>
    </tr>
  <% end %>
 </tbody>
 </table>
-
+<br>
 
   <div class="actions">
-    <%= form.submit "編集" %>
-    <%= link_to '戻る', submissions_path,class:"btn-sub" %>
+    <%= form.submit "編集",class:"submit" %>
+    <%= link_to '戻る', submissions_path, class:"submit" %>
   </div>
+
 
 
