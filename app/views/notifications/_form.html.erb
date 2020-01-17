@@ -14,24 +14,34 @@
     </div>
   <% end %>
 
+  <b class="fs20">
   <div class="field">
    <%= form.label :カテゴリー %>
+   <br>
    <label><%= form.radio_button :category, 1%>時間割    <%= form.radio_button :category, 2%>お知らせ</label>
   </div>
 
+  <br>
 
   <div class="field">
    <%= form.label :ファイル選択 %>
+   <br>
    <%= form.file_field :filename %>
   </div>
 
+  <br>
+
   <div class="field">
     <%= form.label :表示日付 %>
+    <br>
     <%= form.date_field :d_day, id: :notification_d_day %>
   </div>
 
+  </b>
+
   <div class="actions">
     <%= submit_tag "登録",class:"submit" %>
+    <%= link_to '戻る',notifications_path,class:"submit" %>
   </div>
 
 

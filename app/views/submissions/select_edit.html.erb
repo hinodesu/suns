@@ -10,23 +10,24 @@
 
 <%= form_tag('/submissions_select_edit_all') do %>
     <% if params[:commit] == "選択編集" %>
+      <br>
       <div class="fs20">
         <%= label_tag :科目 %>
         <%= text_field_tag 'submission[subject]' %>
       </div>
-
+      <br>
       <div class="fs20">
         <%= label_tag :タイトル %>
         <%= text_field_tag 'submission[title]' %>
       </div>
-
+      <br>
       <div class="fs20">
         <%= label_tag :期限 %>
         <%= date_field_tag 'submission[deadline]' %>
       </div>
       以下のデータを一括編集します。編集したくないデータは、チェックを外してください。
       <% else %>
-      以下のデータを一括削除します。削除したくないデータは、チェックを外してください。
+      <br>以下のデータを一括削除します。削除したくないデータは、チェックを外してください。
       <% end %>
  <table border = "1" width = "100%">
     <thead class="s-hyou2">
@@ -45,15 +46,15 @@
        <tr>
          <td align="center"><%= check_box_tag "select_datas[#{ submission.id }]", 
          submission.id, {:checked => "checked"},:class => "list" %></td>
-         <td align="center"><%= submission.subject %></td>
-         <td align="center"><%= submission.title %></td>
-         <td align="center"><%= submission.grade %>-<%= submission.class_room %></td>
-         <td align="center"><%= submission.deadline %></td>
+         <td class="fs20"><%= submission.subject %></td>
+         <td class="fs20"><%= submission.title %></td>
+         <td class="fs20"><%= submission.grade %>-<%= submission.class_room %></td>
+         <td class="fs20"><%= submission.deadline %></td>
        </tr>
      <% end %>
    </tbody>
  </table>
-
+ <br>
  <% if params[:commit] == "選択編集" %>
    <%= submit_tag "選択編集",class:"submit" , onclick: "return isCheck()" %>
  <% else %>

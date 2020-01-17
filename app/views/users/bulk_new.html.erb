@@ -9,7 +9,7 @@
 
 
 
-<h1 class="u-title">ユーザー一括登録</h1>
+<b class="u-title">ユーザー一括登録</b>
 <div><br>
   <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %><br>
 </div><br>
@@ -20,8 +20,19 @@ csvファイル
       <%= f.file_field 'users_file' %>
     </div>
     <br>
+
+    <div class="field" style="float:left;">
+      <%= label_tag :年 %> 
+      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}, :selected => @users_default_class),:class => "select_grade" %>
+    </div>
+
+    <div class="field" style="float:left;">
+      <%= label_tag :組 %> 
+      <%=select_tag 'user[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"}),:class => "select_class_room" %>
+    </div>
+    <br>
     <div>
-      <%= submit_tag "確認",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
+      <%= submit_tag "登録",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
 </div>
