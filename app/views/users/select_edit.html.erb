@@ -6,13 +6,13 @@
 <% if params[:commit] == "選択編集" %>
   <b class="u-title">ユーザー選択編集</b>
   <p>
-  <font color = "#006400"><b>以下のデータを一括編集します。編集したくないデータは、チェックを外してください。</b></font>
+  <font color = "#006400"><b><h3>以下のデータを一括編集します。編集したくないデータは、チェックを外してください。</h3></b></font>
   </p>
   
 <% else %>
   <b class="u-title">ユーザー選択削除</b>
   <p>
-  <font color = "#006400"><b>以下のデータを一括削除します。削除したくないデータは、チェックを外してください。</b></font>
+  <font color = "#006400"><b><h3>以下のデータを一括削除します。削除したくないデータは、チェックを外してください。</h3></b></font>
   </p>
 
 <% end %>
@@ -22,12 +22,12 @@
 <%= form_tag('/users_select_edit_all') do %>
 
   <% if params[:commit] == "選択編集" %>
-    <div class="field" style="float:left;">
+    <div class="fs20" class="field" style="float:left;">
       <%= label_tag :年 %> 
       <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}, :selected => @users_default_class),:class => "select_grade" %>
     </div>
 
-    <div class="field" style="float:left;">
+    <div class="fs20" class="field" style="float:left;">
       <%= label_tag :組 %> 
       <%=select_tag 'user[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"}),:class => "select_class_room" %>
     </div>
@@ -43,7 +43,7 @@
 
   <table border="1" width="100%">
 
-    <div align="right">
+    <div style="text-align: right;float:right">
       <%= link_to '戻る', users_path,class: "btn-users" %>
     </div>
 

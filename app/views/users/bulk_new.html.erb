@@ -1,20 +1,23 @@
+<div class="u-sub"></div>
+<div class="u-sub u-sub2"></div>
+<div class="u-sub u-sub3"></div>
+
+<b class="u-title">ユーザー一括登録</b>
+<br>
+<br>
 <% if flash[:error] %>
   <div class="alert alert-info" role="alert" style="color:red;"><%= flash[:error] %></div>
 <% end %>
 
-<div class="u-sub"></div>
-  <div class="u-sub u-sub2"></div>
-  <div class="u-sub u-sub3"></div>
 
-
-
-
-<b class="u-title">ユーザー一括登録</b>
-<div><br>
-  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %><br>
-</div><br>
 <div>
-csvファイル
+  <br>
+  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %>
+  <br>
+</div>
+  <br>
+<div class="fs20">
+  csvファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
     <div class="search_item">
       <%= f.file_field 'users_file' %>
