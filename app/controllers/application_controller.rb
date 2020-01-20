@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def teacher_check
-    if session[:login_user] && session[:login_user].first == "s" 
+    unless session[:login_user] && session[:login_user].first == "t" 
      redirect_to home_top_path, notice: "権限がないページにアクセスしようとしています。", layout: nil
     end
   end

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <b><font class="s-title">提出物一覧</font></b>
 <% if @user_code && @user_code.first == "t" %>
@@ -11,22 +11,24 @@
     </span>
   </div>
 <% end %>
-
+<p id="notice"><%= notice %></p>
 <%= form_tag('/submissions_search') do %>
-  <p class="fs20">
+  <b class="fs20">
      科目
    <%= text_field_tag 'search[subject]', session[:search_subject] %>
       期限
     </font>
     <%= select_tag 'search[deadline]', options_for_select({期限前: "期限前", 期限切れ: "期限切れ"},
     { :selected => session[:search_deadline]}), include_blank: true %>
-  </p>
+  </b>
 
-  <p class="fs20">
+  <p>
+  <b class="fs20">
       タイトル
     <%= text_field_tag 'search[title]', session[:search_title] %>
     <%= submit_tag '検索🔎',class:"submit" %>
-  </p> 
+  </b>
+  </p>
 
 <% end %>
 

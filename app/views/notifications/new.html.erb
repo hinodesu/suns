@@ -7,3 +7,8 @@
   <div class="n-sub n-sub3"></div>
 
 <%= render 'form', notification: @notification %>
+
+<div class="actions">
+<%= submit_tag "登録",class:"submit" %>
+<%= link_to '戻る',notifications_path,class:"submit" %>
+</div>

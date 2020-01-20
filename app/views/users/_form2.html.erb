@@ -10,7 +10,8 @@
     </div>
     <% end %>
   <br>
-  <div class="fs20">
+  <b class="fs20">
+  <div class="field">
   <div style="display:inline-flex">
     <%= form.label :学籍番号 %><font color = "#228b22">(半角)</font>
   </div>
@@ -19,19 +20,19 @@
   </div>
 
   <br>
-  <div class="fs20">
+  <div class="field">
     <%= form.label :名前 %>
     <%= form.text_field :name, id: :user_name, placeholder: '入力してください' %>
   </div>
 
   <br>
-  <div class="fs20">
+  <div class="field">
     <%= form.label :フリガナ %>
     <%= form.text_field :kana, id: :user_kana, placeholder: '入力してください' %>
   </div>
 
   <br>
-  <div class="fs20">
+  <div class="field">
     <%= form.label :性別 %>
     <br>
     <label><%= form.radio_button :gender,  "男"%>男</label>
@@ -40,7 +41,7 @@
     </div>
 
   <br>
-  <div class="fs20">
+  <div class="field">
     <%= form.label :パスワード %>
     <%= form.password_field :password, id: :user_password, placeholder: '入力してください' %>
     <br>
@@ -48,7 +49,7 @@
     <%= form.label :パスワード確認 %>
     <%= form.password_field :password_confirmation, placeholder: '入力してください' %>
   </div>
-
+  </b>
   <br>
   <div class="actions">
     <%= submit_tag "登録",class:"submit" %>

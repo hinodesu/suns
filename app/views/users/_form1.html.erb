@@ -11,37 +11,43 @@
 <% end %>
 
 <br>
-<div class="fs20">
+<b class="fs20">
+<div class="field">
 <div style="display:inline-flex">
   <%= form.label :学籍番号 %><font color = "#228b22">(半角)</font>
 </div>
+</b>
 <br>
   <%= form.text_field :number, id: :user_number %>
 </div>
 
 <br>
-<div class="fs20">
+<b class="fs20">
+<div class="field">
 <%= form.label :名前 %>
 <%= form.text_field :name, id: :user_name %>
 </div>
+</b>
 <br>
-
-<div class="fs20">
+<b class="fs20">
+<div class="field">
 <%= form.label :フリガナ %>
 <%= form.text_field :kana, id: :user_kana %>
 </div>
+</b>
 <br>
-
-<div class="fs20">
+<b class="fs20">
+<div class="field">
 <%= form.label :性別 %>
 <br>
 <label><%= form.radio_button :gender,  "男"%>男</label>
 <br>
 <label><%= form.radio_button :gender,  "女"%>女</label>
 </div>
+</b>
 <br>
-
-<div class="fs20">
+<b class="fs20">
+<div class="field">
   <div style="display:inline-flex">
     <%= form.label :パスワード %><font color = "#228b22">(更新したい場合のみ入力してください。)</font>
   </div>
@@ -55,6 +61,7 @@
   <br>
   <%= form.password_field :password_confirmation %>
 </div>
+</b>
 <br>
 
 <div class="actions">

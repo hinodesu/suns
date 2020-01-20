@@ -75,7 +75,7 @@ class SubmissionsController < ApplicationController
         if @submission.save
           @submissions.pop
           Submission.import(@submissions)
-          format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
+          format.html { redirect_to submissions_path, notice: '提出物が登録が完了しました。' }
         else
           format.html { render :new }
         end
@@ -94,7 +94,7 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.update(submission_params)
-        format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+        format.html { redirect_to @submission, notice: '提出物の更新が完了しました。' }
         format.json { render :show, status: :ok, location: @submission }
       else
         format.html { render :edit }
@@ -108,7 +108,7 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission.destroy
     respond_to do |format|
-      format.html { redirect_to submissions_url, notice: 'Submission was successfully destroyed.' }
+      format.html { redirect_to submissions_url, notice: '提出物の削除が完了しました。' }
       format.json { head :no_content }
     end
   end

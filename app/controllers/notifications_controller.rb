@@ -60,7 +60,7 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.save
-        format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
+        format.html { redirect_to @notification, notice: 'お知らせの作成が完了しました。' }
         format.json { render :show, status: :created, location: @notification }
       else
         format.html { render :new }
@@ -90,7 +90,7 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.update(notification_params)
-        format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
+        format.html { redirect_to @notification, notice: 'お知らせの更新が完了しました。' }
         format.json { render :show, status: :ok, location: @notification }
       else
         format.html { render :edit }
@@ -104,7 +104,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.html { redirect_to notifications_url, notice: 'お知らせの削除が完了しました。' }
       format.json { head :no_content }
     end
   end
