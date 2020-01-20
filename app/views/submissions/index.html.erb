@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <b><font class="s-title">提出物一覧</font></b>
 <% if @user_code && @user_code.first == "t" %>
@@ -11,7 +11,7 @@
     </span>
   </div>
 <% end %>
-
+<p id="notice"><%= notice %></p>
 <%= form_tag('/submissions_search') do %>
   <p class="fs20">
      科目

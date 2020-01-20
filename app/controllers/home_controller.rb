@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   def login
     @user_code = ""
     session.clear if session.present?
-  #ヘッダーを表示しない
+    #ヘッダーを表示しない
     render layout: nil
   end
 
