@@ -25,9 +25,9 @@ Rails.application.routes.draw do
     post'users/bulk_create', to: 'users#bulk_create'
     get 'users/download', to: 'users#download'
     get '/users_select_edit_kakunin', to: 'users#select_edit_kakunin'
-    post'/users_select_edit_kettei', to: 'users#select_edit_kettei'
-    get '/users_bulk_kakunin', to:'users#bulk_kakunin'
-    post '/users_bulk_kettei', to:'users#bulk_kettei'
+    get '/users_select_edit_kettei', to: 'users#select_edit_kettei'
+    post '/users_select_edit_kakunin', to: 'users#select_edit_kakunin'
+    post '/users_select_edit_kettei', to: 'users#select_edit_kettei'
 
 
 

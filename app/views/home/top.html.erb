@@ -1,22 +1,15 @@
-<span>
-  <div style="font-size:35px">
-    
-    <div style="text-align:left;float:left;font-size:20px;font-family: sans-serif ;">ログインユーザ：<%= @user_code %>
+  <div style="font-size:20px;font-wetght: bold ;display: flex;
+    justify-content: space-between;">ログインユーザー：<%= @user_code %>
     
       <% if @user_code %>
         <%= link_to '►ログアウト',home_logout_path,class:"btn-logout" %>
       <% else %>
         <%= link_to 'ログイン',login_path,class:"btn-logout" %>
       <% end %>
+         
+           <%=  Date.current.strftime('%Y/%m/%d(%a)') %>
      
     </div>
-  </div>
-  <!--<span>
-    <div class="today">
-      <%=  Date.current.strftime('%Y/%m/%d(%a)') %>
-    </div> 
-  </span>-->
-</span>
 
   <div class="bg"></div>
   <div class="bg bg2"></div>
@@ -28,13 +21,14 @@
   </span>
 
   <div class="title-bottom">
-    <font face="ＭＳ Ｐゴシック" size="2">
+    <font face="ＭＳ Ｐゴシック" size="3">
       お知らせ・提出物管理システム
     </font>
     <br>
   </div>
 </div>
 <br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
   
     
 

@@ -15,17 +15,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :画像 %>
+  <div class:fs20>
+    <div class="field">
+    <br>
+    <%= form.label :ファイルを選択 %>
+  </div>
     <%= form.file_field :filename %>
   </div>
-
+<br>
   <span>
     <div class="actions">
-      <%= submit_tag "更新", class:"btn-submit" %>
-      <%= submit_tag "登録", class:"submit" %>
-      <%= link_to '戻る', home_top_path %>
-
+      <%= submit_tag "更新", class:"submit" %>
+      <%= link_to '戻る', home_top_path, class:"submit" %>
     </div>
   </span>
 <% end %>

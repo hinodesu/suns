@@ -162,7 +162,7 @@ class UsersController < ApplicationController
 
     if params[:commit] == "選択編集"
       @users_kizon = User.where(grade: params[:user][:grade], class_room: params[:user][:class_room])
-      if @users_kizon
+      if @users_kizon.present?
         redirect_to users_select_edit_kakunin_path
       else
         redirect_to users_select_edit_kettei_path
@@ -191,7 +191,11 @@ end
 
 #確定処理
 def select_edit_kettei
-  @select_users = params[:select_datas].keys.map(&:to_i)
+  if params[:select_datas].present?
+    @select_users = params[:select_datas].keys.map(&:to_i)
+  else
+    @select_users = session[:select_users]
+  end
   users = User.where(id: @select_users)
   if users.update_all(grade: session[:user_grade], class_room: session[:user_class])
   end
@@ -204,20 +208,22 @@ end
   end
 
   def bulk_create
-    logger.debug("=========OK=======")
      #if users_file = nil
-      if params[:users_file].blank?
-        redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
-      else
+    # １年生の各クラスの既存生徒を取得
+    class1_1 = User.where(grade: 1, class_room: 1).count
+    class1_2 = User.where(grade: 1, class_room: 2).count
+    class1_3 = User.where(grade: 1, class_room: 3).count
+    class1_4 = User.where(grade: 1, class_room: 4).count
+    if params[:users_file].blank?
+      redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
+    else
+      if class1_1 >= 10 || class1_2 >= 10  || class1_3 >= 10  || class1_4 >= 10
+        render :bulk_new,flash:{error:'1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください'}
+      else  
         user_count = import_users
         redirect_to users_path, notice:"#{user_count}件登録しました。"
       end
-  end
-
-  def bulk_kakunin
-  end
-
-  def bulk_kettei
+    end
   end
 
   def download
@@ -238,19 +244,15 @@ end
 
     def import_users
       # 登録処理前のレコード数
-      logger.debug("=========１=======")
       current_user_count = ::User.count
       users = []
       u_id = User.maximum(:id) + 1
-      logger.debug("=========２=======")
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
       CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
         users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
       end
-      logger.debug("=========３=======")
       # importメソッドでバルクインサートできる
       ::User.import(users)
-      logger.debug("=========４=======")
       # 何レコード登録できたかを返す
       ::User.count - current_user_count
     end

@@ -1,28 +1,44 @@
+<div class="u-sub"></div>
+<div class="u-sub u-sub2"></div>
+<div class="u-sub u-sub3"></div>
+
+<b class="u-title">ユーザー一括登録</b>
+<br>
+<br>
 <% if flash[:error] %>
   <div class="alert alert-info" role="alert" style="color:red;"><%= flash[:error] %></div>
 <% end %>
 
-<div class="u-sub"></div>
-  <div class="u-sub u-sub2"></div>
-  <div class="u-sub u-sub3"></div>
 
-
-
-
-<b class="u-title">ユーザー一括登録</b>
-<div><br>
-  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %><br>
-</div><br>
 <div>
-csvファイル
+  <br>
+  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %>
+  <br>
+</div>
+  <br>
+<div class="fs20">
+  csvファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
     <div class="search_item">
       <%= f.file_field 'users_file' %>
     </div>
     <br>
+
+    <p class="fs20">追加するクラスを選択してください
+    <br>
+    <br>
+      <font size="3">
+      <input type="radio" name="num_of_inq" value="複数クラス">複数クラス
+      <input type="radio" name="num_of_inq" value="0組">0組（生徒以外）
+      <input type="radio" name="num_of_inq" value="1組">1組
+      <input type="radio" name="num_of_inq" value="2組">2組
+      <input type="radio" name="num_of_inq" value="3組">3組
+      <input type="radio" name="num_of_inq" value="4組">4組
+      </font>
+    </p>
+    <br>
     <div>
-      <%= submit_tag "確認",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
+      <%= submit_tag "登録",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
 </div>
-

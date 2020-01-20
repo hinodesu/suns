@@ -2,6 +2,9 @@
 <div class="u-sub u-sub2"></div>
 <div class="u-sub u-sub3"></div>
 
+<h1 class="u-title">ユーザー詳細</h1>
+
+
 <p id="notice">
   <%= notice %>
 </p>
@@ -45,13 +48,6 @@
   </strong>
   <%= @user.number %>
 </p>
-
-<!-- 
-<p>
-  <strong>パスワード:</strong>
-  <%= @user.password %>
-</p>
--->
 
 <%= link_to '編集', edit_user_path(@user),class: "btn-users" %> |
 <%= link_to '戻る', users_path,class:"submit" %>
