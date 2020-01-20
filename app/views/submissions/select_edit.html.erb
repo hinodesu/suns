@@ -13,12 +13,12 @@
       <br>
       <div class="fs20">
         <%= label_tag :科目 %>
-        <%= text_field_tag 'submission[subject]' %>
+        <%= text_field_tag 'submission[subject]', '', placeholder: '入力してください' %>
       </div>
       <br>
       <div class="fs20">
         <%= label_tag :タイトル %>
-        <%= text_field_tag 'submission[title]' %>
+        <%= text_field_tag 'submission[title]', '', placeholder: '入力してください' %>
       </div>
       <br>
       <div class="fs20">
@@ -60,7 +60,7 @@
  <% else %>
    <%= submit_tag "選択削除",class:"submit" , onclick: "return isCheck()" %>
  <% end %>
-   <%= link_to '一覧に戻る', submissions_path,class:"btn-sub" %>
+   <%= link_to '一覧に戻る', submissions_path,class:"submit" %>
 <% end %>
 
 <script type="text/javascript">
