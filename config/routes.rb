@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     get 'users/download', to: 'users#download'
     get '/users_select_edit_kakunin', to: 'users#select_edit_kakunin'
     get '/users_select_edit_kettei', to: 'users#select_edit_kettei'
+    post '/users_select_edit_kakunin', to: 'users#select_edit_kakunin'
+    post '/users_select_edit_kettei', to: 'users#select_edit_kettei'
 
 
 

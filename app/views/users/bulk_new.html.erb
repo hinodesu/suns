@@ -24,19 +24,21 @@
     </div>
     <br>
 
-    <div class="field" style="float:left;">
-      <%= label_tag :年 %> 
-      <%=select_tag 'user[grade]',options_for_select({０:"0",１:"1",２:"2",３:"3"}, :selected => @users_default_class),:class => "select_grade" %>
-    </div>
-
-    <div class="field" style="float:left;">
-      <%= label_tag :組 %> 
-      <%=select_tag 'user[class_room]',options_for_select({０:"0",１:"1",２:"2",３:"3",４:"4"}),:class => "select_class_room" %>
-    </div>
+    <p class="fs20">追加するクラスを選択してください
+    <br>
+    <br>
+      <font size="3">
+      <input type="radio" name="num_of_inq" value="複数クラス">複数クラス
+      <input type="radio" name="num_of_inq" value="0組">0組（生徒以外）
+      <input type="radio" name="num_of_inq" value="1組">1組
+      <input type="radio" name="num_of_inq" value="2組">2組
+      <input type="radio" name="num_of_inq" value="3組">3組
+      <input type="radio" name="num_of_inq" value="4組">4組
+      </font>
+    </p>
     <br>
     <div>
       <%= submit_tag "登録",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
 </div>
-
