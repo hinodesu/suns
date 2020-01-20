@@ -17,21 +17,16 @@
 
   <div class:fs20>
     <div class="field">
+    <br>
     <%= form.label :ファイルを選択 %>
   </div>
     <%= form.file_field :filename %>
   </div>
-
+<br>
   <span>
     <div class="actions">
-      <%= submit_tag "更新", class:"btn-submit" %>
-      <%= submit_tag "登録", class:"submit" %>
-<<<<<<< HEAD
+      <%= submit_tag "更新", class:"submit" %>
       <%= link_to '戻る', home_top_path, class:"submit" %>
-=======
-      <%= link_to '戻る', home_top_path %>
-
->>>>>>> 061e69a3d3b1cfc78a74b71f15520397eec2e7f8
     </div>
   </span>
 <% end %>
