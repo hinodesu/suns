@@ -208,7 +208,6 @@ end
   end
 
   def bulk_create
-    logger.debug("=========OK=======")
      #if users_file = nil
     # １年生の各クラスの既存生徒を取得
     class1_1 = User.where(grade: 1, class_room: 1).count
@@ -245,19 +244,15 @@ end
 
     def import_users
       # 登録処理前のレコード数
-      logger.debug("=========１=======")
       current_user_count = ::User.count
       users = []
       u_id = User.maximum(:id) + 1
-      logger.debug("=========２=======")
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
       CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
         users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
       end
-      logger.debug("=========３=======")
       # importメソッドでバルクインサートできる
       ::User.import(users)
-      logger.debug("=========４=======")
       # 何レコード登録できたかを返す
       ::User.count - current_user_count
     end
