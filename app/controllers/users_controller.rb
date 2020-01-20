@@ -209,21 +209,37 @@ end
 
   def bulk_create
      #if users_file = nil
-    # １年生の各クラスの既存生徒を取得
-    class1_1 = User.where(grade: 1, class_room: 1).count
-    class1_2 = User.where(grade: 1, class_room: 2).count
-    class1_3 = User.where(grade: 1, class_room: 3).count
-    class1_4 = User.where(grade: 1, class_room: 4).count
     if params[:users_file].blank?
-      redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
+     redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
     else
-      if class1_1 >= 10 || class1_2 >= 10  || class1_3 >= 10  || class1_4 >= 10
-        render :bulk_new,flash:{error:'1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください'}
-      else  
-        user_count = import_users
-        redirect_to users_path, notice:"#{user_count}件登録しました。"
+      if params[:num_of_inq] == "1" || params[:num_of_inq] == "2" || params[:num_of_inq] == "3" || params[:num_of_inq] == "4"
+      kizon_student = User.where(grade: 1, class_room: params[:num_of_inq].to_i).count
+        if kizon_student >= 10
+          flash.now[:error] = "1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください"
+          render :bulk_new
+        else
+          user_count = import_users
+          redirect_to users_path, notice:"#{user_count}件登録しました。"
+        end
+      else
+        redirect_to users_path
       end
     end
+    # １年生の各クラスの既存生徒を取得
+    #class1_1 = User.where(grade: 1, class_room: 1).count
+    #class1_2 = User.where(grade: 1, class_room: 2).count
+    #class1_3 = User.where(grade: 1, class_room: 3).count
+    #class1_4 = User.where(grade: 1, class_room: 4).count
+    #if params[:users_file].blank?
+    #  redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
+    #else
+    #  if class1_1 >= 10 || class1_2 >= 10  || class1_3 >= 10  || class1_4 >= 10
+    #    render :bulk_new,flash:{error:'1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください'}
+    #  else  
+    #    user_count = import_users
+    #    redirect_to users_path, notice:"#{user_count}件登録しました。"
+    #  end
+    #end
   end
 
   def download
