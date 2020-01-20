@@ -37,7 +37,7 @@ class AnnualEventsController < ApplicationController
 
     respond_to do |format|
       if @annual_event.save
-        format.html { redirect_to home_top_path, notice: 'Annual event was successfully created.' }
+        format.html { redirect_to home_top_path, notice: '行事予定の作成が完了しました。' }
         format.json { render :show, status: :created, location: @annual_event }
       else
         format.html { render :new }
@@ -75,7 +75,7 @@ class AnnualEventsController < ApplicationController
 
       respond_to do |format|
         if @annual_event.update(annual_event_params)
-          format.html { redirect_to home_top_path, notice: 'Annual event was successfully updated.' }
+          format.html { redirect_to home_top_path, notice: '行事予定の変更が完了しました。' }
           format.json { render :show, status: :ok, location: @annual_event }
         else
           format.html { render :edit }
@@ -90,7 +90,7 @@ class AnnualEventsController < ApplicationController
   def destroy
     @annual_event.destroy
     respond_to do |format|
-      format.html { redirect_to annual_events_url, notice: 'Annual event was successfully destroyed.' }
+      format.html { redirect_to annual_events_url, notice: '行事予定の削除が完了しました。' }
       format.json { head :no_content }
     end
   end

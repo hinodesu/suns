@@ -1,19 +1,20 @@
-  <div style="font-size:20px;font-wetght: bold ;display: flex;
-    justify-content: space-between;">ログインユーザー：<%= @user_code %>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div style="font-size:20px; font-weight:bold; ">　　
+  <%=  Date.current.strftime('%Y/%m/%d(%a)') %>
+</div>
+  <div style="font-size:20px;text-align:right;">
+    ログインユーザー：<%= @user_code %>
     
       <% if @user_code %>
         <%= link_to '►ログアウト',home_logout_path,class:"btn-logout" %>
       <% else %>
         <%= link_to 'ログイン',login_path,class:"btn-logout" %>
       <% end %>
-         
-           <%=  Date.current.strftime('%Y/%m/%d(%a)') %>
-     
+              
     </div>
-
-  <div class="bg"></div>
-  <div class="bg bg2"></div>
-  <div class="bg bg3"></div>
 
 <div class="suns">
   <span>
