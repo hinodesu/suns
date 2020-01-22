@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :teacher_check
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   before_action :set_annual_event
+
+  before_action :login_check
 
   # GET /users
   # GET /users.json

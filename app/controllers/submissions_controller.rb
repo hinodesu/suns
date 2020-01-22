@@ -1,6 +1,12 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+
   before_action :set_annual_event
+
+  before_action :login_check
+
+  before_action :teacher_check
+
 
   # GET /submissions
   # GET /submissions.json

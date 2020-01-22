@@ -1,6 +1,11 @@
 class AnnualEventsController < ApplicationController
   before_action :set_annual_event, only: [:show, :edit, :update, :destroy]
 
+  before_action :login_check
+
+  before_action :teacher_check
+
+
   # GET /annual_events
   # GET /annual_events.json
   def index
