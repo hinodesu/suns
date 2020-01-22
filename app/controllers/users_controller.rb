@@ -153,8 +153,8 @@ class UsersController < ApplicationController
       session[:select_users] = params[:select_datas].keys.map(&:to_i)
       @select_users = session[:select_users]
       @users = User.where(id:@select_users)
-      session[:user_grade] = params[:user][:grade]
-      session[:user_class] = params[:user][:class_room]
+      session[:user_grade] = params[:user][:grade] if params[:user].present?
+      session[:user_class] = params[:user][:class_room] if params[:user].present?
       user_count = 0
       #「select_users」の数字とUserモデルのidが一致するデータを取
       users = User.where(id: @select_users)
@@ -219,27 +219,17 @@ end
           render :bulk_new
         else
           user_count = import_users
-          redirect_to users_path, notice:"#{user_count}件登録しました。"
+          validated_users_count = session[:validated_users_count]
+          if validated_users_count == 0
+            redirect_to users_path, notice:"#{user_count}件登録しました。"
+          else
+            redirect_to users_path, notice:"#{user_count}件登録しましたが、登録できなかったデータが#{validated_users_count}件あります。CSVファイルに入力したデータを再度確認してください。"
+          end
         end
       else
         redirect_to users_path
       end
     end
-    # １年生の各クラスの既存生徒を取得
-    #class1_1 = User.where(grade: 1, class_room: 1).count
-    #class1_2 = User.where(grade: 1, class_room: 2).count
-    #class1_3 = User.where(grade: 1, class_room: 3).count
-    #class1_4 = User.where(grade: 1, class_room: 4).count
-    #if params[:users_file].blank?
-    #  redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
-    #else
-    #  if class1_1 >= 10 || class1_2 >= 10  || class1_3 >= 10  || class1_4 >= 10
-    #    render :bulk_new,flash:{error:'1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください'}
-    #  else  
-    #    user_count = import_users
-    #    redirect_to users_path, notice:"#{user_count}件登録しました。"
-    #  end
-    #end
   end
 
   def download
@@ -270,7 +260,10 @@ end
       # importメソッドでバルクインサートできる
       ::User.import(users)
       # 何レコード登録できたかを返す
-      ::User.count - current_user_count
+      new_users_count = User.count - current_user_count
+      validated_users_count = users.size - new_users_count
+      session[:validated_users_count] = validated_users_count
+      return new_users_count
     end
 
 

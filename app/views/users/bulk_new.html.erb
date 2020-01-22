@@ -9,18 +9,30 @@
   <div class="alert alert-info" role="alert" style="color:red;"><%= flash[:error] %></div>
 <% end %>
 
+<font color="#228b22" size="3"><b>登録する際には以下のことに注意してください。</b></font>
+
+<div style="width: 35%; padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; border-radius: 5px; background-color: #ffffe0;">  
+  ・CSVファイルを必ずダウンロードして入力
+  <br>
+  ・全項目を必ず入力
+  <br>
+  ・学籍番号は半角で入力
+  <br>
+  ・フリガナはカタカナで入力
+</div>
+
 
 <div>
   <br>
-  <%= button_to 'csvテンプレートファイルのダウンロード', users_download_path, method: :get %>
+  <%= button_to 'CSVテンプレートファイルのダウンロード', users_download_path, method: :get,class:"submit" %>
   <br>
 </div>
   <br>
 <div class="fs20">
-  csvファイル
+  CSVファイル
   <%= form_with url: users_bulk_create_path, multipart: true do |f| %>
     <div class="search_item">
-      <%= f.file_field 'users_file' %>
+      <%= f.file_field 'users_file',class:"submit" %>
     </div>
     <br>
 
@@ -28,7 +40,6 @@
     <br>
     <br>
       <font size="3">
-      <input type="radio" name="num_of_inq" value="複数クラス">複数クラス
       <input type="radio" name="num_of_inq" value="0組">0組（生徒以外）
       <input type="radio" name="num_of_inq" value="1">1組
       <input type="radio" name="num_of_inq" value="2">2組
@@ -36,9 +47,13 @@
       <input type="radio" name="num_of_inq" value="4">4組
       </font>
     </p>
-    <br>
+    <p><font color="red" size="3">※登録には数分かかる場合があります。</font></p>
     <div>
       <%= submit_tag "登録",class:"submit" %>　<%= link_to '戻る', users_path,class: "btn-users" %>      
     </div>
   <% end %>
 </div>
+
+
+
+    
