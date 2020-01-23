@@ -83,7 +83,6 @@ function isCheck() {
 	var select_class_room = document.getElementsByClassName("select_class_room");
   var user_count = 0;
   var flg1 = false;
-  var flg2 = false;
 	for (var i = 0; i < arr_checkBoxes.length; i++) {
 		if (arr_checkBoxes[i].checked) {
 			count++;
@@ -96,26 +95,12 @@ function isCheck() {
 		flg1 = false;
 	}
 
-  user_count = <%= User.where(grade: 2, class_room: 0).count %>
-
-  if (user_count == 0) {
-		flg2 = true;
-	} else {
-    result = window.confirm("選択したクラスに既に生徒が存在しますが、以下の生徒を追加してもよろしいですか？");
-    if (result) {
-      flg2 = true;
+    if flg1 {
+      return true;
     } else {
-      flg2 = false;
-    } 
+      return false;
+    }
   }
-  
-
-  if (flg1 && flg2){
-    return true;
-  } else {
-    return false;
-  }
-}
 </script>
 
 
