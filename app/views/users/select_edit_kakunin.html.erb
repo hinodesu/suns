@@ -9,33 +9,33 @@
 
 
 <%= form_tag('/users_select_edit_kettei') do %>
-    <table border="1" width="100%">
-        <div align="right">
-        <%= link_to '一覧に戻る', users_path,class: "submit" %>
-        </div>
-        <thead class="uback2">
-            <tr class="uback2">
-                <th></th>    
-                <th class="fs25">年</th>
-                <th class="fs25">組</th>
-                <th class="fs25">名前</th>
-                <th class="fs25">性別</th>
-            </tr>
-        </thead>
-        <tbody class="uback">
-            <% @users.each do |user| %>
-                <tr>
-                    <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"},:class => "list" %></td>
-                    <td width="5%" align="center" class="fs20"><%= user.grade %></td>
-                    <td width="5%" align="center" class="fs20"><%= user.class_room %></td>
-                    <td width="40%" align="center" class="fs20"><%= user.name %></td>
-                    <td width="10%" align="center" class="fs20"><%= user.gender %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <br>
-    <div style="float:left;"><%=submit_tag "編集",class:"submit" %></div>
+  <table border="1" width="100%">
+      <div align="right">
+      <%= link_to '一覧に戻る', users_path,class: "submit" %>
+      </div>
+      <thead class="uback2">
+          <tr class="uback2">
+              <th></th>    
+              <th class="fs25">年</th>
+              <th class="fs25">組</th>
+              <th class="fs25">名前</th>
+              <th class="fs25">性別</th>
+          </tr>
+      </thead>
+      <tbody class="uback">
+          <% @users.each do |user| %>
+              <tr>
+                  <td width="5%" align="center"><%= check_box_tag "select_datas[#{ user.id }]", user.id, {:checked => "checked"},:class => "list" %></td>
+                  <td width="5%" align="center" class="fs20"><%= user.grade %></td>
+                  <td width="5%" align="center" class="fs20"><%= user.class_room %></td>
+                  <td width="40%" align="center" class="fs20"><%= user.name %></td>
+                  <td width="10%" align="center" class="fs20"><%= user.gender %></td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
+  <br>
+  <div style="float:left;"><%=submit_tag "編集",class:"submit" %></div>
 <% end %>
 
 <script type="text/javascript">
@@ -46,7 +46,6 @@ function isCheck() {
 	var select_class_room = document.getElementsByClassName("select_class_room");
   var user_count = 0;
   var flg1 = false;
-  var flg2 = false;
 	for (var i = 0; i < arr_checkBoxes.length; i++) {
 		if (arr_checkBoxes[i].checked) {
 			count++;
@@ -59,6 +58,10 @@ function isCheck() {
 		flg1 = false;
 	}
 
-  user_count = <%= User.where(grade: 2, class_room: 0).count %>
-
+    if (flg1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 </script>
