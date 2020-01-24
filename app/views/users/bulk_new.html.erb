@@ -45,7 +45,7 @@
     <br>
     <br>
       <font size="3">
-      <input type="radio" name="num_of_inq" value="0組">0組（生徒以外）
+      <input type="radio" name="num_of_inq" value="0">0組（生徒以外）
       <input type="radio" name="num_of_inq" value="1">1組
       <input type="radio" name="num_of_inq" value="2">2組
       <input type="radio" name="num_of_inq" value="3">3組
@@ -59,6 +59,18 @@
   <% end %>
 </div>
 
+<script type="text/javascript">
+function isCheck() {
+  var arr_checkRadioButton = document.getElementsByName("num_of_inq");
+  if (arr_checkRadioButton) {
+    return true;
+  } else {
+    window.alert("組を選択してください。");
+    return false;
+  }
+}
+
+</script>
 
 
     

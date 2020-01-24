@@ -213,25 +213,23 @@ end
 
   def bulk_create
      #if users_file = nil
-    if params[:users_file].blank?
+     if params[:users_file].blank?
      redirect_to users_bulk_new_path,flash:{error:'ファイルを選択してください。'}
+    elsif File.extname(params[:users_file].original_filename) != ".csv"
+      redirect_to users_bulk_new_path,flash:{error:'テンプレートのCSVファイルを利用してください。'}     
     else
-      if params[:num_of_inq] == "1" || params[:num_of_inq] == "2" || params[:num_of_inq] == "3" || params[:num_of_inq] == "4"
       kizon_student = User.where(grade: 1, class_room: params[:num_of_inq].to_i).count
-        if kizon_student >= 10
-          flash.now[:error] = "1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください"
-          render :bulk_new
-        else
-          user_count = import_users
-          validated_users_count = session[:validated_users_count]
-          if validated_users_count == 0
-            redirect_to users_path, notice:"#{user_count}件登録しました。"
-          else
-            redirect_to users_path, notice:"#{user_count}件登録しましたが、登録できなかったデータが#{validated_users_count}件あります。CSVファイルに入力したデータを再度確認してください。"
-          end
-        end
+      if kizon_student >= 10
+        flash.now[:error] = "1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください"
+        render :bulk_new
       else
-        redirect_to users_path
+        user_count = import_users(params[:num_of_inq])
+        validated_users_count = session[:validated_users_count]
+        if validated_users_count == 0
+          redirect_to users_path, notice:"#{user_count}件登録しました。"
+        else
+          redirect_to users_path, notice:"#{user_count}件登録しましたが、登録できなかったデータが#{validated_users_count}件あります。CSVファイルに入力したデータを再度確認してください。"
+        end
       end
     end
   end
@@ -252,14 +250,24 @@ end
       params.require(:user).permit(:number, :grade, :class_room, :name, :kana, :gender, :password)
     end
 
-    def import_users
+    def import_users(num_of_inq)
       # 登録処理前のレコード数
       current_user_count = ::User.count
       users = []
       u_id = User.maximum(:id) + 1
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
-      CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
-        users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
+      logger.debug "==============="
+      logger.debug num_of_inq
+      logger.debug num_of_inq == "0"
+
+      if num_of_inq == "0"
+        CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
+          users << User.new( number: row["学籍番号"], grade: 0, class_room: 0, name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
+        end
+      else
+        CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
+          users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
+        end
       end
       # importメソッドでバルクインサートできる
       ::User.import(users)

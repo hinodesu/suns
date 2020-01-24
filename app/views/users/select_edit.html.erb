@@ -6,7 +6,7 @@
 <% if params[:commit] == "選択編集" %>
   <b class="u-title">ユーザー選択編集</b>
   <p>
-  <font color = "#006400"><b><h3>以下のデータを一括編集します。編集したくないデータは、チェックを外してください。</h3></b></font>
+  <font color = "#006400"><b><h3>以下のデータを一括でクラス替えします。編集したくないデータは、チェックを外してください。</h3></b></font>
   </p>
   
 <% else %>
@@ -36,7 +36,7 @@
     <div style="float:left;"><%=submit_tag "選択編集",class:"submit", onclick: "return isCheck()" %></div>
 
   <% else %>
-    <%=submit_tag "選択削除",class:"submit",  data: { confirm: '本当に削除しますか？' },onclick: "return isCheck()" %>
+    <%=submit_tag "選択削除",class:"submit",onclick: "return isCheck()" %>
 
   <% end %>
 
@@ -88,7 +88,7 @@ function isCheck() {
 		}
 	}
   if (count > 0) {
-		flg1 = true;
+		flg1 = window.confirm("本当に削除しますか？");
 	} else {
 		window.alert("項目を選択してください。");
 		flg1 = false;
