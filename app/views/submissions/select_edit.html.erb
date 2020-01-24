@@ -64,7 +64,7 @@
  <% if params[:commit] == "選択編集" %>
    <%= submit_tag "選択編集",class:"submit" , onclick: "return isCheck()" %>
  <% else %>
-   <%= submit_tag "選択削除",class:"submit" , onclick: "return isCheck()" %>
+   <%= submit_tag "選択削除",class:"submit" ,  data: { confirm: '本当に削除しますか？' },onclick: "return isCheck()" %>
  <% end %>
    <%= link_to '一覧に戻る', submissions_path,class:"submit" %>
 <% end %>

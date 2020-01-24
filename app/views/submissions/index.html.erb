@@ -68,7 +68,7 @@
 
             <td align="center"><%= link_to '詳細', submission, class:"btn-sub"%></td>
             <td align="center"><%= link_to '編集', edit_submission_path(submission), class:"btn-sub"%></td>
-            <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-sub"%></td>
+            <td align="center"><%= link_to '削除', submission, method: :delete, data: { confirm: '本当に削除しますか?' }, class:"btn-sub"%></td>
           </tr>
         <% end %>
      </tbody>
