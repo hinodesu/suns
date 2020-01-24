@@ -36,7 +36,6 @@
     <div style="float:left;"><%=submit_tag "選択編集",class:"submit", onclick: "return isCheck()" %></div>
 
   <% else %>
-
     <%=submit_tag "選択削除",class:"submit",  data: { confirm: '本当に削除しますか？' },onclick: "return isCheck()" %>
 
   <% end %>
