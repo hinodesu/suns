@@ -37,7 +37,10 @@ class SubmissionsController < ApplicationController
     else
       @submissions = Submission.all.order(:deadline => "asc")
     end
-
+    if session[:login_user].first == "s"
+      show_user = User.find_by(number: session[:login_user])
+      @submissions = @submissions.where(grade: show_user.grade, class_room: show_user.class_room)
+    end
   end
 
   # GET /submissions/1
