@@ -15,20 +15,17 @@
 <div style="width: 40%; padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; border-radius: 5px; background-color: #ffffe0;">  
   ・追加するクラスに以前のデータが残っていないか確認
   <br>
-  ・CSVファイルをダウンロードして入力
-  <br>
   ・全項目を必ず入力
   <br>
   ・学籍番号は半角で既にある情報と重複しないように入力
   <br>
   ・フリガナはカタカナで入力
-  <br>
-  ・追加するクラスを必ず選択
 </div>
 
 
 <div>
   <br>
+  <b class="fs20">以下のボタンを押してください。
   <%= button_to 'CSVテンプレートファイルのダウンロード', users_download_path, method: :get,class:"submit" %>
   <br>
 </div>
@@ -41,7 +38,8 @@
     </div>
     <br>
 
-    <p class="fs20">追加するクラスを選択してください
+    <p class="fs20">追加するクラスを選択してください。
+
     <br>
     <br>
       <font size="3">
@@ -54,22 +52,49 @@
     </p>
     <p><font color="red" size="3">※登録には数分かかる場合があります。</font></p>
     <div>
-      <%= submit_tag "登録",class:"submit" %>　<%= link_to '戻る', users_path,class: "submit" %>      
+      <%= submit_tag "登録",class:"submit", onclick: "return isCheck()" %>　<%= link_to '戻る', users_path,class: "submit" %>      
     </div>
   <% end %>
 </div>
 
 <script type="text/javascript">
+var kizon_count = 0;
 function isCheck() {
   var arr_checkRadioButton = document.getElementsByName("num_of_inq");
-  if (arr_checkRadioButton) {
-    return true;
-  } else {
-    window.alert("組を選択してください。");
+  var count = 0;
+  var flg = 0;
+  for (var i = 0; i <arr_checkRadioButton.length; i++) {
+    if (arr_checkRadioButton[i].checked) {
+      count++;
+      switch (arr_checkRadioButton[i].value){
+        case "1":
+          kizon_count = <%= User.where(grade: 1, class_room: 1).count != 0 ? User.where(grade: 1, class_room: 1).count : 0 %>;
+          break;
+        case "2":
+          kizon_count = <%= User.where(grade: 1, class_room: 2).count != 0 ? User.where(grade: 1, class_room: 2).count : 0 %>;
+          break;
+        case "3":
+          kizon_count = <%= User.where(grade: 1, class_room: 3).count != 0 ? User.where(grade: 1, class_room: 3).count : 0 %>;
+          break;
+        case "4":
+          kizon_count = <%= User.where(grade: 1, class_room: 4).count != 0 ? User.where(grade: 1, class_room: 4).count : 0 %>;
+          break;
+      }
+      break;
+    }
+  }
+  if (kizon_count >= 10) {
+    window.alert("1年生のクラスに学生が10人以上存在しています。１年生のクラス替えを先におこなってください");
     return false;
+  } else { 
+    if (count > 0) {
+      return true;
+    } else {
+      window.alert("組を選択してください。");
+      return false;
+    }
   }
 }
-
 </script>
 
 

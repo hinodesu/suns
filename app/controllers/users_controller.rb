@@ -256,9 +256,6 @@ end
       users = []
       u_id = User.maximum(:id) + 1
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
-      logger.debug "==============="
-      logger.debug num_of_inq
-      logger.debug num_of_inq == "0"
 
       if num_of_inq == "0"
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
