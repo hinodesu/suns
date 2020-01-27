@@ -5,8 +5,6 @@ class NotificationsController < ApplicationController
 
   before_action :login_check
 
-  before_action :teacher_check
-
   def index
     #日付の降順に並べる
     @notifications = Notification.all.order(:d_day => "desc")
