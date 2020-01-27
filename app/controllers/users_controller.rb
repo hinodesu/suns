@@ -263,7 +263,7 @@ end
         end
       else
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
-          users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
+          users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別（男 or 女）"] , password: row["パスワード"])
         end
       end
       # importメソッドでバルクインサートできる
