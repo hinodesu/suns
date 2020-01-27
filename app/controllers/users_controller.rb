@@ -259,7 +259,7 @@ end
 
       if num_of_inq == "0"
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
-          users << User.new( number: row["学籍番号"], grade: 0, class_room: 0, name: row["名前"] , kana: row["フリガナ"], gender: row["性別"] , password: row["パスワード"])
+          users << User.new( number: row["学籍番号"], grade: 0, class_room: 0, name: row["名前"] , kana: row["フリガナ"], gender: row["性別（男 or 女）"] , password: row["パスワード"])
         end
       else
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
