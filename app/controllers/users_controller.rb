@@ -225,10 +225,14 @@ end
       else
         user_count = import_users(params[:num_of_inq])
         validated_users_count = session[:validated_users_count]
-        if validated_users_count == 0
-          redirect_to users_path, notice:"#{user_count}件登録しました。"
+        if session[:validate_count] != 0
+          redirect_to users_bulk_new_path,flash:{error:'既に登録されている学籍番号が含まれています。'}
         else
-          redirect_to users_path, notice:"#{user_count}件登録しましたが、登録できなかったデータが#{validated_users_count}件あります。CSVファイルに入力したデータを再度確認してください。"
+          if validated_users_count == 0
+            redirect_to users_path, notice:"#{user_count}件登録しました。"
+          else
+            redirect_to users_path, notice:"#{user_count}件登録しましたが、登録できなかったデータが#{validated_users_count}件あります。CSVファイルに入力したデータを再度確認してください。"
+          end
         end
       end
     end
@@ -254,18 +258,23 @@ end
       # 登録処理前のレコード数
       current_user_count = ::User.count
       users = []
+      users_number = []
       u_id = User.maximum(:id) + 1
       # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
 
       if num_of_inq == "0"
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
           users << User.new( number: row["学籍番号"], grade: 0, class_room: 0, name: row["名前"] , kana: row["フリガナ"], gender: row["性別（男 or 女）"] , password: row["パスワード"])
+          users_number << row["学籍番号"]
         end
       else
         CSV.foreach(params[:users_file].tempfile.path, headers: true, encoding: "SJIS") do |row|
           users << User.new( number: row["学籍番号"], grade: row["学籍番号"][-4], class_room: row["学籍番号"][-3], name: row["名前"] , kana: row["フリガナ"], gender: row["性別（男 or 女）"] , password: row["パスワード"])
+          users_number << row["学籍番号"]
         end
       end
+      #学籍番号かぶっていないかチェック
+      session[:validate_count] = User.where(number: users_number).count
       # importメソッドでバルクインサートできる
       ::User.import(users)
       # 何レコード登録できたかを返す
